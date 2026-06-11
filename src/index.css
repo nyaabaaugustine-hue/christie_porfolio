@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-serif {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F6F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8A14A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8843D;
+}
+
+/* Selection color */
+::selection {
+  background-color: #C8A14A;
+  color: #0B1F3A;
+}
