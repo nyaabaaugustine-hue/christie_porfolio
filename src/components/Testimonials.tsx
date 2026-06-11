@@ -1,17 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 
-function InitialsPlaceholder({ name }: { name: string }) {
-  const initials = name
-    .replace(/^Dr\.\s*/i, "")
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
-
+function TestimonialImage({ image, name }: { image: string; name: string }) {
   return (
-    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-[#C8A14A]/20 flex items-center justify-center ring-2 ring-[#C8A14A]/30">
-      <span className="text-[#C8A14A] text-sm font-semibold tracking-wide">{initials}</span>
+    <div className="relative">
+      <div className="absolute inset-0 rounded-full bg-[#C8A14A]/20 blur-md scale-125" />
+      <img
+        src={image}
+        alt={name}
+        className="relative w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover object-top ring-2 ring-[#C8A14A]/30"
+      />
     </div>
   );
 }
@@ -21,16 +19,19 @@ const testimonials = [
     quote: "Christiana's strategic vision and operational expertise transformed our organization. Her ability to navigate complex challenges while maintaining focus on long-term value creation is truly exceptional.",
     author: "Dr. Kwame Asante",
     title: "Chairman, McDan Group",
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1779109679/Suleiman_Habuba_abxq5e.avif",
   },
   {
     quote: "Working with Christiana was a transformative experience. Her leadership in restructuring our operations resulted in a 40% improvement in efficiency and positioned us for sustainable growth.",
     author: "Amma Mensah",
     title: "CEO, Industrial Solutions Ltd",
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1779109679/Katherine_s8yhms.avif",
   },
   {
     quote: "Christiana brings a unique combination of strategic thinking and hands-on execution. Her board advisory work helped us navigate a critical transition period with confidence.",
     author: "Kofi Asiedu",
     title: "Board Director, Phoenix Enclave",
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1779109679/Mr._Oppong_Ampnsah_nsjftn.avif",
   },
 ];
 

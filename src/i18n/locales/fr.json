@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "leadership": "Leadership",
+    "speaking": "Conférences",
+    "insights": "Analyses",
+    "contact": "Contact",
+    "getInTouch": "Contactez-moi"
+  },
+  "hero": {
+    "subtitle": "Cadre Dirigeante • Stratège de Croissance • Membre de Conseil",
+    "headline1": "Transformer les Entreprises.",
+    "headline2": "Développer les Industries.",
+    "headline3": "Construire une Croissance Durable.",
+    "description": "Christiana Akua Feyie Yeboaa Okyere est une <1>Cadre Dirigeante</1>, <2>Entrepreneure</2> et <2>Stratège de Croissance</2> avec plus de deux décennies d'expérience à diriger la transformation d'entreprises, l'excellence opérationnelle, la croissance industrielle et la performance organisationnelle à travers l'Afrique.",
+    "cta": "Explorer mon Travail"
+  },
+  "snapshot": {
+    "label": "Aperçu Exécutif",
+    "title": "Un Héritage d'Impact",
+    "description": "Deux décennies à conduire la transformation dans de multiples industries et organisations.",
+    "years": "Années d'Expérience",
+    "industries": "Industries",
+    "organizations": "Organisations Transformées",
+    "value": "Valeur Créée (USD)"
+  },
+  "philosophy": {
+    "label": "Philosophie de Leadership",
+    "title": "Les Cinq Piliers de l'Excellence Exécutive",
+    "strategic": { "title": "Vision Stratégique", "desc": "Anticiper les changements du marché avant qu'ils ne se produisent." },
+    "operational": { "title": "Excellence Opérationnelle", "desc": "Stimuler l'efficacité, la qualité et la performance dans toutes les opérations." },
+    "transformational": { "title": "Leadership Transformationnel", "desc": "Inspirer et guider les organisations à travers des changements fondamentaux." },
+    "governance": { "title": "Gouvernance et Intendance", "desc": "Respecter les plus hauts standards de gouvernance d'entreprise et de responsabilité." },
+    "growth": { "title": "Croissance Durable", "desc": "Créer une valeur qui perdure à travers les générations et les marchés." }
+  },
+  "expertise": {
+    "label": "Domaines d'Expertise",
+    "title": "Capacités Stratégiques",
+    "description": "Expertise complète couvrant le <1>leadership exécutif</1>, les <2>opérations</2>, la <2>stratégie</2> et la <4>transformation</4> dans de multiples industries.",
+    "groups": {
+      "leadership": "Leadership et Stratégie",
+      "operations": "Opérations et Croissance",
+      "transformation": "Transformation et Projets"
+    },
+    "items": {
+      "corporate": "Leadership d'Entreprise",
+      "strategy": "Stratégie d'Affaires",
+      "orgTransformation": "Transformation Organisationnelle",
+      "governance": "Gouvernance",
+      "industrial": "Opérations Industrielles",
+      "entrepreneurship": "Entrepreneuriat",
+      "growth": "Croissance et Expansion",
+      "comms": "Communications Stratégiques",
+      "supplyChain": "Chaîne d'Approvisionnement et Logistique"
+    }
+  },
+  "timeline": {
+    "title": "Parcours Professionnel",
+    "milestones": {
+      "groupCOO": { "title": "COO du Groupe", "org": "McDan Group", "desc": "Supervision des opérations multi-entreprises et de la croissance stratégique." },
+      "execDirector": { "title": "Directrice Exécutive", "org": "Eagle Salt", "desc": "Direction de l'expansion de la production et du développement régional." },
+      "boardAdvisor": { "title": "Conseillère de Conseil", "org": "Organisations Multiples", "desc": "Siégeant aux conseils d'administration et fournissant des conseils stratégiques." }
+    }
+  },
+  "portfolio": {
+    "label": "Portefeuille de Leadership",
+    "title": "Organisations d'Impact",
+    "viewAll": "Voir le Portefeuille Complet",
+    "viewFull": "Voir le Portefeuille Complet"
+  },
+  "industries": {
+    "label": "À Travers les Industries",
+    "title": "Un Héritage de Leadership"
+  },
+  "impact": {
+    "label": "Impact de la Transformation",
+    "title": "Des Résultats Mesurables",
+    "viewAll": "Voir Tous les Projets",
+    "readStrategy": "Lire la Stratégie",
+    "hideStrategy": "Masquer la Stratégie",
+    "strategicActions": "Actions Stratégiques",
+    "challenge": "Défi :",
+    "strategy": "Stratégie :"
+  },
+  "testimonials": {
+    "label": "Témoignages",
+    "title": "Ce que Disent les Leaders"
+  },
+  "cta": {
+    "label": "Connectons-nous",
+    "title1": "Construisons l'Avenir de",
+    "title2": "l'Entreprise Africaine",
+    "description": "Prêt à explorer comment nous pouvons créer un impact durable ensemble ? Christiana est disponible pour des postes au conseil d'administration, des conférences et des rôles de conseil stratégique.",
+    "board": "Demandes de Conseil",
+    "boardDesc": "Explorez les opportunités de gouvernance et de conseil",
+    "speaking": "Conférences",
+    "speakingDesc": "Invitez Christiana à votre prochain événement",
+    "partnerships": "Partenariats Stratégiques",
+    "partnershipsDesc": "Discutez des opportunités de collaboration",
+    "submit": "Soumettre une Demande"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  },
+  "common": {
+    "loading": "Chargement",
+    "close": "Fermer",
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "about": {
+    "label": "À Propos de Christiana",
+    "title": "Biographie Exécutive",
+    "description": "Un parcours de transformation, de leadership et d'impact dans l'entreprise africaine",
+    "download": "Télécharger la Biographie",
+    "highlights": {
+      "leadership": "Leadership Exécutif",
+      "leadershipDesc": "Plus de 20 ans à diriger des organisations à travers la transformation et la croissance.",
+      "operations": "Opérations Stratégiques",
+      "operationsDesc": "Expertise en excellence opérationnelle, optimisation de la chaîne d'approvisionnement et amélioration des processus.",
+      "team": "Développement d'Équipe",
+      "teamDesc": "Construire des équipes à haute performance et cultiver les talents de leadership.",
+      "thought": "Leadership d'Opinion",
+      "thoughtDesc": "Conférencière et auteure sur la transformation d'entreprise, la gouvernance et l'entreprise africaine."
+    }
+  },
+  "speaking": {
+    "label": "Conférences",
+    "title": "Conférencière Principale",
+    "description": "Inspirer les auditoires avec des perspectives sur le leadership, la transformation et l'entreprise africaine",
+    "reel": "Vidéo de Présentation",
+    "reelDesc": "Voir les moments forts des interventions passées",
+    "topics": "Sujets",
+    "topicsTitle": "Conférences Signature",
+    "experience": "Expérience",
+    "experienceTitle": "Interventions Passées",
+    "resources": "Ressources",
+    "resourcesTitle": "Kit du Conférencier",
+    "resourcesDesc": "Téléchargez le kit du conférencier avec photos haute résolution, biographie, sujets et exigences techniques.",
+    "downloadKit": "Télécharger le Kit",
+    "book": "Réserver Christiana",
+    "bookDesc": "Pour les demandes de conférence, veuillez fournir les détails de votre événement et l'équipe de Christiana répondra sous 48 heures.",
+    "submitInquiry": "Soumettre une Demande",
+    "mediaTitle": "Médias et Conférences",
+    "mediaDesc": "Partager des perspectives sur le leadership, la transformation et l'entreprise africaine lors de forums d'affaires prestigieux.",
+    "keynotes": "Discours Principaux",
+    "panels": "Panels de Conférence",
+    "awards": "Prix et Reconnaissances",
+    "videos": "Moments Forts"
+  },
+  "insights": {
+    "label": "Leadership d'Opinion",
+    "title": "Perspectives Exécutives",
+    "description": "Points de vue sur le leadership, la transformation et l'entreprise africaine",
+    "featured": "À la Une",
+    "latest": "Dernières Réflexions",
+    "search": "Rechercher des articles...",
+    "readMore": "Lire la Suite",
+    "subscribe": "S'abonner",
+    "subscribeTitle": "Abonnez-vous aux Perspectives Exécutives",
+    "subscribeDesc": "Recevez des articles sur la transformation d'entreprise directement dans votre boîte de réception.",
+    "emailPlaceholder": "Entrez votre email",
+    "categories": {
+      "all": "Tous",
+      "leadership": "Leadership",
+      "governance": "Gouvernance",
+      "business": "Croissance d'Entreprise",
+      "industrial": "Développement Industriel",
+      "transformation": "Transformation",
+      "entrepreneurship": "Entrepreneuriat"
+    }
+  },
+  "contact": {
+    "label": "Connectons-nous",
+    "title": "Contactez-moi",
+    "description": "Prêt à explorer comment nous pouvons créer un impact durable ensemble ? Christiana est disponible pour des postes au conseil, des conférences et des rôles de conseil stratégique.",
+    "name": "Votre Nom",
+    "email": "Votre Email",
+    "phone": "Numéro de Téléphone",
+    "subject": "Sujet",
+    "message": "Votre Message",
+    "send": "Envoyer le Message",
+    "inquiries": {
+      "board": "Demande de Conseil",
+      "speaking": "Conférence",
+      "partnership": "Partenariat Stratégique",
+      "media": "Interviews Médias",
+      "general": "Demande Générale"
+    }
+  },
+  "language": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}
+
+

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
 
@@ -10,15 +12,16 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { label: "Home", page: "home" as Page },
-  { label: "About", page: "about" as Page },
-  { label: "Leadership", page: "leadership" as Page },
-  { label: "Speaking", page: "speaking" as Page },
-  { label: "Insights", page: "insights" as Page },
-  { label: "Contact", page: "contact" as Page },
+  { labelKey: "nav.home", page: "home" as Page },
+  { labelKey: "nav.about", page: "about" as Page },
+  { labelKey: "nav.leadership", page: "leadership" as Page },
+  { labelKey: "nav.speaking", page: "speaking" as Page },
+  { labelKey: "nav.insights", page: "insights" as Page },
+  { labelKey: "nav.contact", page: "contact" as Page },
 ];
 
 export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -43,7 +46,6 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
     >
       <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
           <motion.button
             onClick={() => onNavigate("home")}
             className="flex items-center gap-3 group"
@@ -57,7 +59,6 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
             />
           </motion.button>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <motion.button
@@ -75,7 +76,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
               >
-                {link.label}
+                {t(link.labelKey)}
                 {currentPage === link.page && (
                   <motion.div
                     layoutId="activeNav"
@@ -86,10 +87,11 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.button
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
+            <motion.button
             onClick={() => onNavigate("contact")}
-            className={`hidden lg:block px-6 py-2.5 rounded-lg font-semibold transition-all ${
+            className={`px-6 py-2.5 rounded-lg font-semibold transition-all text-sm ${
               isScrolled
                 ? "bg-[#C8A14A] text-[#0B1F3A] hover:bg-[#b8923f]"
                 : "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
@@ -97,10 +99,10 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get in Touch
+            {t("nav.getInTouch")}
           </motion.button>
+          </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden p-2 rounded-lg text-white`}
@@ -110,7 +112,6 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -136,9 +137,10 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                       : "text-white/70 hover:bg-white/5 hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </motion.button>
               ))}
+              <LanguageSwitcher />
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -149,7 +151,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                 }}
                 className="w-full py-3 bg-[#C8A14A] text-[#0B1F3A] rounded-lg font-semibold"
               >
-                Get in Touch
+                {t("nav.getInTouch")}
               </motion.button>
             </div>
           </motion.div>

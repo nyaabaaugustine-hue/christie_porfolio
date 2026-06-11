@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslation, Trans } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
 
@@ -11,6 +12,7 @@ interface HeroProps {
 const videoIds = ["56ZbiZGh0SM", "TecSq4QvwZs", "kcQ0scOBfvY"];
 
 export default function Hero({ onNavigate }: HeroProps) {
+  const { t } = useTranslation();
   const [apiReady, setApiReady] = useState(false);
 
   useEffect(() => {

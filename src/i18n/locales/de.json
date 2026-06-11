@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "leadership": "Führung",
+    "speaking": "Vorträge",
+    "insights": "Einblicke",
+    "contact": "Kontakt",
+    "getInTouch": "Kontakt aufnehmen"
+  },
+  "hero": {
+    "subtitle": "Führungskraft • Wachstumsstratege • Aufsichtsrätin",
+    "headline1": "Unternehmen Transformieren.",
+    "headline2": "Industrien Skalieren.",
+    "headline3": "Nachhaltiges Wachstum Aufbauen.",
+    "description": "Christiana Akua Feyie Yeboaa Okyere ist eine <1>Führungskraft</1>, <2>Unternehmerin</2> und <2>Wachstumsstratege</2> mit über zwei Jahrzehnten Erfahrung in der Leitung von Geschäftstransformation, operativer Exzellenz, industriellem Wachstum und organisatorischer Leistungsfähigkeit in ganz Afrika.",
+    "cta": "Meine Arbeit Entdecken"
+  },
+  "snapshot": {
+    "label": "Executive Überblick",
+    "title": "Ein Vermächtnis der Wirkung",
+    "description": "Zwei Jahrzehnte der Transformation in zahlreichen Branchen und Organisationen.",
+    "years": "Jahre Erfahrung",
+    "industries": "Branchen",
+    "organizations": "Transformierte Organisationen",
+    "value": "Geschaffener Wert (USD)"
+  },
+  "philosophy": {
+    "label": "Führungsphilosophie",
+    "title": "Die Fünf Säulen Exzellenter Führung",
+    "strategic": { "title": "Strategische Vision", "desc": "Marktveränderungen erkennen, bevor sie eintreten." },
+    "operational": { "title": "Operative Exzellenz", "desc": "Effizienz, Qualität und Leistung in allen Bereichen steigern." },
+    "transformational": { "title": "Transformationale Führung", "desc": "Organisationen durch grundlegende Veränderungen inspirieren und führen." },
+    "governance": { "title": "Führung und Verantwortung", "desc": "Höchste Standards in Unternehmensführung und Verantwortlichkeit." },
+    "growth": { "title": "Nachhaltiges Wachstum", "desc": "Wert schaffen, der über Generationen und Märkte hinweg Bestand hat." }
+  },
+  "expertise": {
+    "label": "Fachgebiete",
+    "title": "Strategische Fähigkeiten",
+    "description": "Umfassende Expertise in den Bereichen <1>Führung</1>, <2>Operationen</2>, <2>Strategie</2> und <4>Transformation</4> in zahlreichen Branchen.",
+    "groups": {
+      "leadership": "Führung und Strategie",
+      "operations": "Operationen und Wachstum",
+      "transformation": "Transformation und Ventures"
+    },
+    "items": {
+      "corporate": "Unternehmensführung",
+      "strategy": "Geschäftsstrategie",
+      "orgTransformation": "Organisationstransformation",
+      "governance": "Unternehmensführung",
+      "industrial": "Industrielle Operationen",
+      "entrepreneurship": "Unternehmertum",
+      "growth": "Wachstum und Expansion",
+      "comms": "Strategische Kommunikation",
+      "supplyChain": "Lieferkette und Logistik"
+    }
+  },
+  "timeline": {
+    "title": "Karriereverlauf",
+    "milestones": {
+      "groupCOO": { "title": "COO der Gruppe", "org": "McDan Group", "desc": "Überwachung von Multibusiness-Operationen und strategischem Wachstum." },
+      "execDirector": { "title": "Geschäftsführende Direktorin", "org": "Eagle Salt", "desc": "Leitung der Produktionsskalierung und regionalen Expansion." },
+      "boardAdvisor": { "title": "Aufsichtsratsberaterin", "org": "Mehrere Organisationen", "desc": "Mitwirkung in Aufsichtsräten und strategische Beratung." }
+    }
+  },
+  "portfolio": {
+    "label": "Führungsportfolio",
+    "title": "Organisationen mit Wirkung",
+    "viewAll": "Vollständiges Portfolio",
+    "viewFull": "Vollständiges Portfolio"
+  },
+  "industries": {
+    "label": "Branchenübergreifend",
+    "title": "Ein Vermächtnis der Führung"
+  },
+  "impact": {
+    "label": "Transformationswirkung",
+    "title": "Messbare Ergebnisse",
+    "viewAll": "Alle Projekte Anzeigen",
+    "readStrategy": "Strategie Lesen",
+    "hideStrategy": "Strategie Ausblenden",
+    "strategicActions": "Strategische Maßnahmen",
+    "challenge": "Herausforderung:",
+    "strategy": "Strategie:"
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "Was Führungskräfte Sagen"
+  },
+  "cta": {
+    "label": "Vernetzen Wir Uns",
+    "title1": "Lassen Sie uns die Zukunft des",
+    "title2": "Afrikanischen Unternehmertums Gestalten",
+    "description": "Bereit, gemeinsam nachhaltige Wirkung zu erzielen? Christiana steht für Aufsichtsratspositionen, Vorträge und strategische Beratung zur Verfügung.",
+    "board": "Anfragen für Aufsichtsräte",
+    "boardDesc": "Entdecken Sie Governance- und Beratungsmöglichkeiten",
+    "speaking": "Vorträge",
+    "speakingDesc": "Laden Sie Christiana zu Ihrer nächsten Veranstaltung ein",
+    "partnerships": "Strategische Partnerschaften",
+    "partnershipsDesc": "Besprechen Sie Kooperationsmöglichkeiten",
+    "submit": "Anfrage Einreichen"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen"
+  },
+  "common": {
+    "loading": "Lädt",
+    "close": "Schließen",
+    "previous": "Zurück",
+    "next": "Weiter"
+  },
+  "about": {
+    "label": "Über Christiana",
+    "title": "Executive Biografie",
+    "description": "Eine Reise der Transformation, Führung und Wirkung im afrikanischen Unternehmen",
+    "download": "Executive Biografie Herunterladen",
+    "highlights": {
+      "leadership": "Führungskompetenz",
+      "leadershipDesc": "Über 20 Jahre Führung von Organisationen durch Transformation und Wachstum.",
+      "operations": "Strategische Operationen",
+      "operationsDesc": "Expertise in operativer Exzellenz, Lieferkettenoptimierung und Prozessverbesserung.",
+      "team": "Teamentwicklung",
+      "teamDesc": "Aufbau von Hochleistungsteams und Förderung von Führungstalenten.",
+      "thought": "Thought Leadership",
+      "thoughtDesc": "Regelmäßige Rednerin und Autorin zu Geschäftstransformation, Governance und afrikanischem Unternehmertum."
+    }
+  },
+  "speaking": {
+    "label": "Vorträge",
+    "title": "Keynote-Sprecherin",
+    "description": "Inspirieren von Zuhörern mit Einblicken in Führung, Transformation und afrikanisches Unternehmertum",
+    "reel": "Videovorstellung",
+    "reelDesc": "Sehen Sie Highlights früherer Engagements",
+    "topics": "Themen",
+    "topicsTitle": "Signature Keynotes",
+    "experience": "Erfahrung",
+    "experienceTitle": "Bisherige Engagements",
+    "resources": "Ressourcen",
+    "resourcesTitle": "Speaker Kit",
+    "resourcesDesc": "Laden Sie Christianas Speaker Kit herunter mit hochauflösenden Fotos, Biografie, Themen und technischen Anforderungen.",
+    "downloadKit": "Kit Herunterladen",
+    "book": "Christiana Buchen",
+    "bookDesc": "Für Vortragsanfragen teilen Sie bitte Details Ihrer Veranstaltung mit. Christianas Team wird innerhalb von 48 Stunden antworten.",
+    "submitInquiry": "Anfrage Einreichen",
+    "mediaTitle": "Medien und Vorträge",
+    "mediaDesc": "Teilen von Erkenntnissen zu Führung, Transformation und afrikanischem Unternehmertum auf führenden Wirtschaftsforen.",
+    "keynotes": "Keynote-Reden",
+    "panels": "Konferenzpanels",
+    "awards": "Auszeichnungen",
+    "videos": "Videohighlights"
+  },
+  "insights": {
+    "label": "Thought Leadership",
+    "title": "Executive Einblicke",
+    "description": "Perspektiven zu Führung, Transformation und afrikanischem Unternehmertum",
+    "featured": "Empfohlen",
+    "latest": "Aktuelle Beiträge",
+    "search": "Artikel durchsuchen...",
+    "readMore": "Weiterlesen",
+    "subscribe": "Abonnieren",
+    "subscribeTitle": "Executive Einblicke Abonnieren",
+    "subscribeDesc": "Erhalten Sie Thought Leadership Beiträge zu Geschäftstransformation direkt in Ihren Posteingang.",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+    "categories": {
+      "all": "Alle",
+      "leadership": "Führung",
+      "governance": "Governance",
+      "business": "Geschäftswachstum",
+      "industrial": "Industrieentwicklung",
+      "transformation": "Transformation",
+      "entrepreneurship": "Unternehmertum"
+    }
+  },
+  "contact": {
+    "label": "Vernetzen Wir Uns",
+    "title": "Kontakt aufnehmen",
+    "description": "Bereit, gemeinsam nachhaltige Wirkung zu erzielen? Christiana steht für Aufsichtsratspositionen, Vorträge und strategische Beratung zur Verfügung.",
+    "name": "Ihr Name",
+    "email": "Ihre E-Mail",
+    "phone": "Telefonnummer",
+    "subject": "Betreff",
+    "message": "Ihre Nachricht",
+    "send": "Nachricht Senden",
+    "inquiries": {
+      "board": "Aufsichtsratsanfrage",
+      "speaking": "Vortrag",
+      "partnership": "Strategische Partnerschaft",
+      "media": "Medieninterviews",
+      "general": "Allgemeine Anfrage"
+    }
+  },
+  "language": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}
+
+

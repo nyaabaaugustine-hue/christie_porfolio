@@ -1,0 +1,200 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "leadership": "Leadership",
+    "speaking": "Speaking",
+    "insights": "Insights",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "subtitle": "Corporate Executive • Growth Strategist • Board Leader",
+    "headline1": "Transforming Businesses.",
+    "headline2": "Scaling Industries.",
+    "headline3": "Building Sustainable Growth.",
+    "description": "Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with over two decades of experience leading business transformation, operational excellence, industrial growth, and organizational performance across Africa.",
+    "cta": "Explore My Work"
+  },
+  "snapshot": {
+    "label": "Executive Snapshot",
+    "title": "A Legacy of Impact",
+    "description": "Two decades of driving transformation across multiple industries and organizations.",
+    "years": "Years Experience",
+    "industries": "Industries",
+    "organizations": "Organizations Transformed",
+    "value": "Value Created (USD)"
+  },
+  "philosophy": {
+    "label": "Leadership Philosophy",
+    "title": "The Five Pillars of Executive Excellence",
+    "strategic": { "title": "Strategic Vision", "desc": "Seeing around corners and anticipating market shifts before they happen." },
+    "operational": { "title": "Operational Excellence", "desc": "Driving efficiency, quality, and performance across all operations." },
+    "transformational": { "title": "Transformational Leadership", "desc": "Inspiring and leading organizations through fundamental change." },
+    "governance": { "title": "Governance & Stewardship", "desc": "Upholding the highest standards of corporate governance and accountability." },
+    "growth": { "title": "Sustainable Growth", "desc": "Building value that endures across generations and markets." }
+  },
+  "expertise": {
+    "label": "Areas of Expertise",
+    "title": "Strategic Capabilities",
+    "description": "Comprehensive expertise spanning executive leadership, operations, strategy, and transformation across multiple industries.",
+    "groups": {
+      "leadership": "Leadership & Strategy",
+      "operations": "Operations & Growth",
+      "transformation": "Transformation & Ventures"
+    },
+    "items": {
+      "corporate": "Corporate Leadership",
+      "strategy": "Business Strategy",
+      "orgTransformation": "Organizational Transformation",
+      "governance": "Governance",
+      "industrial": "Industrial Operations",
+      "entrepreneurship": "Entrepreneurship",
+      "growth": "Growth & Expansion",
+      "comms": "Strategic Communications",
+      "supplyChain": "Supply Chain & Logistics"
+    }
+  },
+  "timeline": {
+    "title": "Career Timeline",
+    "milestones": {
+      "groupCOO": { "title": "Group COO", "org": "McDan Group", "desc": "Overseeing multi-business operations and strategic growth." },
+      "execDirector": { "title": "Executive Director", "org": "Eagle Salt", "desc": "Leading production scale-up and regional expansion." },
+      "boardAdvisor": { "title": "Board Advisory", "org": "Multiple Organizations", "desc": "Serving on boards and providing strategic counsel." }
+    }
+  },
+  "portfolio": {
+    "label": "Leadership Portfolio",
+    "title": "Organizations of Impact",
+    "viewAll": "View Full Portfolio",
+    "viewFull": "View Full Portfolio"
+  },
+  "industries": {
+    "label": "Across Industries",
+    "title": "A Legacy of Leadership"
+  },
+  "impact": {
+    "label": "Transformation Impact",
+    "title": "Driving Measurable Results",
+    "viewAll": "View All Transformation Projects",
+    "readStrategy": "Read the Strategy",
+    "hideStrategy": "Hide Strategy",
+    "strategicActions": "Strategic Actions",
+    "challenge": "Challenge:",
+    "strategy": "Strategy:"
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "What Leaders Say"
+  },
+  "cta": {
+    "label": "Let\u2019s Connect",
+    "title1": "Let\u2019s Build the Future of",
+    "title2": "African Enterprise",
+    "description": "Ready to explore how we can create lasting impact together? Christiana is available for board positions, speaking engagements, and strategic advisory roles.",
+    "board": "Board Inquiries",
+    "boardDesc": "Explore governance and advisory opportunities",
+    "speaking": "Speaking Engagements",
+    "speakingDesc": "Invite Christiana to your next event",
+    "partnerships": "Strategic Partnerships",
+    "partnershipsDesc": "Discuss collaboration opportunities",
+    "submit": "Submit Inquiry"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "about": {
+    "label": "About Christiana",
+    "title": "Executive Biography",
+    "description": "A journey of transformation, leadership, and impact across African enterprise",
+    "download": "Download Executive Bio",
+    "highlights": {
+      "leadership": "Executive Leadership",
+      "leadershipDesc": "20+ years leading organizations through transformation and growth across multiple industries.",
+      "operations": "Strategic Operations",
+      "operationsDesc": "Expertise in operational excellence, supply chain optimization, and business process improvement.",
+      "team": "Team Development",
+      "teamDesc": "Building high-performance teams and cultivating leadership talent across organizations.",
+      "thought": "Thought Leadership",
+      "thoughtDesc": "Regular speaker and writer on business transformation, governance, and African enterprise."
+    }
+  },
+  "speaking": {
+    "label": "Speaking Engagements",
+    "title": "Keynote Speaker",
+    "description": "Inspiring audiences with insights on leadership, transformation, and African enterprise",
+    "reel": "Speaker Reel",
+    "reelDesc": "Watch highlights from past engagements",
+    "topics": "Topics",
+    "topicsTitle": "Signature Keynotes",
+    "experience": "Experience",
+    "experienceTitle": "Past Engagements",
+    "resources": "Resources",
+    "resourcesTitle": "Speaker Kit",
+    "resourcesDesc": "Download Christiana\u2019s speaker kit for high-resolution photos, bio, topics, and technical requirements.",
+    "downloadKit": "Download Speaker Kit",
+    "book": "Book Christiana",
+    "bookDesc": "For speaking inquiries, please provide details about your event and Christiana\u2019s team will respond within 48 hours.",
+    "submitInquiry": "Submit Speaking Inquiry",
+    "mediaTitle": "Media & Speaking",
+    "mediaDesc": "Sharing insights on leadership, transformation, and African enterprise at premier business forums and conferences.",
+    "keynotes": "Keynote Addresses",
+    "panels": "Conference Panels",
+    "awards": "Awards & Recognitions",
+    "videos": "Speaking Highlights"
+  },
+  "insights": {
+    "label": "Thought Leadership",
+    "title": "Executive Insights",
+    "description": "Perspectives on leadership, transformation, and African enterprise",
+    "featured": "Featured",
+    "latest": "Latest Thinking",
+    "search": "Search articles...",
+    "readMore": "Read More",
+    "subscribe": "Subscribe",
+    "subscribeTitle": "Subscribe to Executive Insights",
+    "subscribeDesc": "Receive thought leadership on business transformation, governance, and African enterprise directly in your inbox.",
+    "emailPlaceholder": "Enter your email",
+    "categories": {
+      "all": "All",
+      "leadership": "Leadership",
+      "governance": "Governance",
+      "business": "Business Growth",
+      "industrial": "Industrial Development",
+      "transformation": "Transformation",
+      "entrepreneurship": "Entrepreneurship"
+    }
+  },
+  "contact": {
+    "label": "Let\u2019s Connect",
+    "title": "Get in Touch",
+    "description": "Ready to explore how we can create lasting impact together? Christiana is available for board positions, speaking engagements, and strategic advisory roles.",
+    "name": "Your Name",
+    "email": "Your Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "inquiries": {
+      "board": "Board Inquiry",
+      "speaking": "Speaking Engagement",
+      "partnership": "Strategic Partnership",
+      "media": "Media Interviews",
+      "general": "General Inquiry"
+    }
+  },
+  "language": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}
