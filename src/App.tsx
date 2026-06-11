@@ -148,7 +148,7 @@ export default function App() {
               <TransformationImpact />
               <Testimonials />
               <MediaSpeaking />
-              <ThoughtLeadership onNavigate={handleNavigate} />
+              <ThoughtLeadership />
               <ExecutiveCTA onNavigate={handleNavigate} />
             </main>
           </PageTransition>
@@ -180,7 +180,7 @@ export default function App() {
 
         {currentPage === 'insights' && (
           <PageTransition key="insights">
-            <InsightsPage onNavigate={handleNavigate} />
+            <InsightsPage />
           </PageTransition>
         )}
       </AnimatePresence>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, Users, Building2 } from "lucide-react";
+import { ArrowRight, TrendingUp, Building2 } from "lucide-react";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact';
 
@@ -172,7 +172,7 @@ export default function LeadershipPage({ onNavigate }: LeadershipPageProps) {
       <section className="py-16 lg:py-20 xl:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="space-y-16">
-            {portfolioCompanies.map((company, index) => (
+            {portfolioCompanies.map((company) => (
               <motion.div
                 key={company.name}
                 initial={{ opacity: 0, y: 30 }}

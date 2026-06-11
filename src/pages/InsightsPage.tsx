@@ -2,12 +2,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Search, Calendar, ArrowRight, Tag } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
-
-interface InsightsPageProps {
-  onNavigate: (page: Page) => void;
-}
-
 const categories = ["All", "Leadership", "Governance", "Business Growth", "Industrial Development", "Transformation", "Entrepreneurship"];
 
 const articles = [
@@ -61,7 +55,7 @@ const articles = [
   },
 ];
 
-export default function InsightsPage({ onNavigate }: InsightsPageProps) {
+export default function InsightsPage() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeCategory, setActiveCategory] = useState("All");
