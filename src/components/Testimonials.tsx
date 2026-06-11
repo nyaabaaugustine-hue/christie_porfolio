@@ -130,7 +130,7 @@ export default function Testimonials() {
           >
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-[#C8A14A]/20 blur-md scale-125" />
-              <InitialsPlaceholder name={testimonials[activeIndex].author} />
+            <TestimonialImage image={testimonials[activeIndex].image} name={testimonials[activeIndex].author} />
             </div>
             <div className="text-left">
               <p className="text-base lg:text-lg font-semibold text-white tracking-tight">

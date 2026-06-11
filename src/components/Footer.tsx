@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Mail, MapPin, Bell } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';

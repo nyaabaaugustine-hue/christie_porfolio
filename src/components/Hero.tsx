@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
 
@@ -20,11 +20,21 @@ export default function Hero({ onNavigate }: HeroProps) {
       setApiReady(true);
       return;
     }
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    tag.onload = () => setApiReady(true);
-    document.head.appendChild(tag);
-    return () => { tag.remove(); };
+    if (!(window as any).__ytApiLoading) {
+      (window as any).__ytApiLoading = true;
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.onload = () => setApiReady(true);
+      document.head.appendChild(tag);
+    } else {
+      const check = setInterval(() => {
+        if ((window as any).YT) {
+          setApiReady(true);
+          clearInterval(check);
+        }
+      }, 200);
+      return () => clearInterval(check);
+    }
   }, []);
 
   useEffect(() => {
@@ -115,7 +125,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 0.2 }}
               className="text-[#C8A14A] text-sm tracking-widest uppercase mb-6 font-medium"
             >
-              Corporate Executive • Growth Strategist • Board Leader
+              {t("hero.subtitle")}
             </motion.p>
 
             <motion.h1
