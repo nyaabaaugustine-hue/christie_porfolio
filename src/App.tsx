@@ -104,26 +104,73 @@ export default function App() {
   // Loading screen
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-[#0B1F3A] flex items-center justify-center">
+      <div className="fixed inset-0 bg-[#0B1F3A] flex items-center justify-center overflow-hidden">
+        {/* Animated grid background */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #C8A14A 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        {/* Expanding circle reveal */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 1] }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute w-[300px] h-[300px] rounded-full bg-[#C8A14A]/5 blur-3xl"
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center relative z-10"
         >
-          <img
+          {/* Gold accent line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-16 h-[1px] bg-[#C8A14A] mx-auto mb-8 origin-center"
+          />
+
+          <motion.img
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781130092/Akua-Feyie-Logo-new-01-768x217_fcurfv.png"
             alt="Christiana Okyere"
-            className="h-16 w-auto mx-auto mb-6"
+            className="h-12 sm:h-16 w-auto mx-auto mb-8"
           />
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-white/60 text-sm tracking-widest uppercase"
-          >
-            Executive Portfolio
-          </motion.p>
+
+          {/* Loading bar */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-48 h-[1px] bg-white/10 overflow-hidden relative">
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%" }}
+                transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 bg-[#C8A14A]"
+              />
+            </div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0.5, 1] }}
+              transition={{ duration: 1.5, delay: 0.8, repeat: Infinity, repeatDelay: 0.5 }}
+              className="text-white/30 text-[10px] tracking-[0.3em] uppercase font-medium"
+            >
+              Loading
+            </motion.p>
+          </div>
+
+          {/* Bottom accent line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            className="w-16 h-[1px] bg-[#C8A14A] mx-auto mt-8 origin-center"
+          />
         </motion.div>
       </div>
     );

@@ -33,18 +33,14 @@ export default function AreasOfExpertise() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 lg:py-20 xl:py-28 bg-[#0B1F3A] relative" style={{ isolation: 'isolate' }}>
-      <div className="absolute inset-0 bg-[#0B1F3A] -z-10">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #C8A14A 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
-      </div>
-      <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] -z-10 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="w-full h-full"
-        >
-          <div className="w-full h-full border border-[#C8A14A]/5 rounded-full" />
-        </motion.div>
+    <section ref={ref} className="py-16 lg:py-20 xl:py-28 bg-[#0B1F3A] relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777773928/backkk_mbfzyh.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/60 to-[#0B1F3A]/85" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">

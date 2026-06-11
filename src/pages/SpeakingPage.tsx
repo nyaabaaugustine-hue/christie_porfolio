@@ -173,8 +173,16 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
       </section>
 
       {/* Past Engagements */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1778496968/xcz_o35zcw.jpg"
+            alt=""
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/70 to-[#0B1F3A]/85" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,7 +193,7 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
               Experience
             </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
+            <h2 className="text-3xl lg:text-4xl font-serif text-white">
               Past Engagements
             </h2>
           </motion.div>
@@ -198,11 +206,11 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 py-6 border-b border-gray-100 last:border-0"
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 py-6 border-b border-white/10 last:border-0"
               >
                 <div>
-                  <h3 className="font-semibold text-[#0B1F3A]">{engagement.event}</h3>
-                  <p className="text-gray-600">{engagement.topic}</p>
+                  <h3 className="font-semibold text-white">{engagement.event}</h3>
+                  <p className="text-white/60">{engagement.topic}</p>
                 </div>
                 <span className="text-[#C8A14A] font-medium">{engagement.year}</span>
               </motion.div>

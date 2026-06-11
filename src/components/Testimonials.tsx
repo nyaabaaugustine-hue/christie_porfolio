@@ -63,9 +63,14 @@ export default function Testimonials() {
 
   return (
     <section ref={ref} className="py-16 lg:py-24 xl:py-36 bg-[#0B1F3A] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.03)_1px,transparent_1px)] bg-[length:64px_64px]" />
-      <div className="absolute top-[-30%] right-[-10%] w-[60%] aspect-square rounded-full bg-[#C8A14A]/[0.04] blur-3xl" />
-      <div className="absolute bottom-[-20%] left-[-10%] w-[50%] aspect-square rounded-full bg-[#C8A14A]/[0.03] blur-3xl" />
+      <div className="absolute inset-0">
+        <img
+          src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777694366/hp_nukt5i.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/70 to-[#0B1F3A]/85" />
+      </div>
 
       <div className="max-w-5xl mx-auto px-6 lg:px-12 relative">
         <motion.div
