@@ -36,7 +36,7 @@ export default function ThoughtLeadership() {
     <section ref={ref} className="py-28 lg:py-36 bg-white relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781144204/page-hero-section_rzmwvp.png"
+          src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
           alt=""
           className="w-full h-full object-cover object-top opacity-20"
         />
