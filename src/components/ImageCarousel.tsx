@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "../hooks/useInView";
 
 const images = [
   "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777870096/2bed-logo_1_somx5l.png",
@@ -20,70 +20,66 @@ const images = [
   "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1778064099/impex_iq2pho.jpg",
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.2 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
-};
-
 export default function ImageCarousel() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [sectionRef, isInView] = useInView({ threshold: 0.1, rootMargin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-[#F8F9FA]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="mb-14">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium"
+    <section ref={sectionRef} className="py-16 lg:py-20 xl:py-24 bg-[#F8F9FA] overflow-hidden relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C8A14A]/20 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium"
+        >
+          Across Industries
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] tracking-tight"
+        >
+          A Legacy of Leadership
+        </motion.h2>
+        <div className="w-12 h-[1px] bg-[#C8A14A]/40 mt-5" />
+      </div>
+
+      <div className="relative">
+        <div className="flex gap-6 px-4" style={{ width: `${images.length * 340}px` }}>
+          <motion.div
+            className="flex gap-6"
+            animate={isInView ? { x: [0, -(images.length * 340)] } : {}}
+            transition={{
+              duration: 120,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
           >
-            Across Industries
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] tracking-tight"
-          >
-            A Legacy of Leadership
-          </motion.h2>
-          <div className="w-12 h-[1px] bg-[#C8A14A]/40 mt-5" />
+            {[...images, ...images].map((src, i) => (
+              <div key={i} className="relative w-72 shrink-0 group">
+                <div className="h-80 bg-white rounded-xl shadow-sm group-hover:shadow-lg transition-all duration-500 p-5 flex items-center justify-center border border-gray-100">
+                  <div className="absolute top-3 left-3 w-6 h-6 rounded-full bg-[#C8A14A]/10 flex items-center justify-center">
+                    <span className="text-[10px] font-semibold text-[#C8A14A]">{(i % images.length) + 1}</span>
+                  </div>
+                  <img
+                    src={src}
+                    alt={`Industry ${(i % images.length) + 1}`}
+                    className="max-w-full max-h-full object-contain transition-all duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-[#C8A14A]/30 rounded-full group-hover:w-12 group-hover:bg-[#C8A14A]/60 transition-all duration-500" />
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5"
-        >
-          {images.map((src, i) => (
-            <motion.div
-              key={i}
-              variants={cardVariants}
-              className="relative aspect-square group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-500"
-            >
-              <div className="absolute inset-3 md:inset-4">
-                <img
-                  src={src}
-                  alt={`Industry ${i + 1}`}
-                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 ring-1 ring-black/[0.04] rounded-lg pointer-events-none" />
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#F8F9FA] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#F8F9FA] to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );
