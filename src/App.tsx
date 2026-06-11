@@ -20,6 +20,7 @@ import ContactPage from "./pages/ContactPage";
 import InsightsPage from "./pages/InsightsPage";
 import FloatingSocial from "./components/FloatingSocial";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ImageCarousel from "./components/ImageCarousel";
 
 // Import custom fonts
 import "./fonts.css";
@@ -145,6 +146,7 @@ export default function App() {
               <AreasOfExpertise />
               <CareerTimeline />
               <FeaturedPortfolio onNavigate={handleNavigate} />
+              <ImageCarousel />
               <TransformationImpact />
               <Testimonials />
               <MediaSpeaking />
