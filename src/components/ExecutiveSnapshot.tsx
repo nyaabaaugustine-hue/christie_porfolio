@@ -8,10 +8,8 @@ const stats = [
   { value: 100, suffix: "M+", label: "Value Created (USD)" },
 ];
 
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
+function AnimatedCounter({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (isInView) {
@@ -32,7 +30,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
     }
   }, [isInView, value]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span>{count}{suffix}</span>;
 }
 
 export default function ExecutiveSnapshot() {
@@ -77,7 +75,7 @@ export default function ExecutiveSnapshot() {
               className="py-12 px-6 text-center group hover:bg-white/[0.03] transition-colors duration-300"
             >
               <div className="text-5xl lg:text-6xl font-serif text-white mb-3 tracking-tight group-hover:text-[#C8A14A] transition-colors duration-300">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} isInView={isInView} />
               </div>
               <p className="text-white/40 text-sm uppercase tracking-widest">
                 {stat.label}

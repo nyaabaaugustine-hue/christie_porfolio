@@ -1,24 +1,36 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 
+function InitialsPlaceholder({ name }: { name: string }) {
+  const initials = name
+    .replace(/^Dr\.\s*/i, "")
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-[#C8A14A]/20 flex items-center justify-center ring-2 ring-[#C8A14A]/30">
+      <span className="text-[#C8A14A] text-sm font-semibold tracking-wide">{initials}</span>
+    </div>
+  );
+}
+
 const testimonials = [
   {
     quote: "Christiana's strategic vision and operational expertise transformed our organization. Her ability to navigate complex challenges while maintaining focus on long-term value creation is truly exceptional.",
     author: "Dr. Kwame Asante",
     title: "Chairman, McDan Group",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80",
   },
   {
     quote: "Working with Christiana was a transformative experience. Her leadership in restructuring our operations resulted in a 40% improvement in efficiency and positioned us for sustainable growth.",
     author: "Amma Mensah",
     title: "CEO, Industrial Solutions Ltd",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88e4f0c?w=120&q=80",
   },
   {
     quote: "Christiana brings a unique combination of strategic thinking and hands-on execution. Her board advisory work helped us navigate a critical transition period with confidence.",
     author: "Kofi Asiedu",
     title: "Board Director, Phoenix Enclave",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80",
   },
 ];
 
@@ -112,11 +124,7 @@ export default function Testimonials() {
           >
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-[#C8A14A]/20 blur-md scale-125" />
-              <img
-                src={testimonials[activeIndex].image}
-                alt={testimonials[activeIndex].author}
-                className="relative w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover object-top ring-2 ring-[#C8A14A]/30"
-              />
+              <InitialsPlaceholder name={testimonials[activeIndex].author} />
             </div>
             <div className="text-left">
               <p className="text-base lg:text-lg font-semibold text-white tracking-tight">
