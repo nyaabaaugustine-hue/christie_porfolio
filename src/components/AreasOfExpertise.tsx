@@ -62,8 +62,8 @@ export default function AreasOfExpertise() {
           </h2>
           <div className="w-16 h-0.5 bg-[#C8A14A]/50 mb-8" />
           <p className="text-white/50 text-lg max-w-2xl">
-            Comprehensive expertise spanning executive leadership, operations, 
-            strategy, and transformation across multiple industries.
+            Comprehensive expertise spanning <strong className="text-white/80">executive leadership</strong>, <strong className="text-white/80">operations</strong>, 
+            <strong className="text-white/80"> strategy</strong>, and <strong className="text-white/80">transformation</strong> across multiple industries.
           </p>
         </motion.div>
 

@@ -1,5 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "../hooks/useInView";
 import { ArrowRight } from "lucide-react";
 
 const projects = [
@@ -10,6 +11,13 @@ const projects = [
     metric: "300%",
     metricLabel: "Capacity Increase",
     results: ["Export market entry", "ISO certification"],
+    details: [
+      "Led end-to-end capacity expansion program across all production lines",
+      "Secured investment for modern processing equipment and facility upgrades",
+      "Built regional distribution network spanning 4 West African countries",
+      "Implemented ISO-compliant quality management systems from ground up",
+    ],
+    outcome: "Transformed a local producer into a regional market leader with export capabilities.",
   },
   {
     title: "Electrochem Restructuring",
@@ -18,6 +26,13 @@ const projects = [
     metric: "40%",
     metricLabel: "Cost Reduction",
     results: ["Market share growth", "New product lines"],
+    details: [
+      "Conducted comprehensive operational audit across all divisions",
+      "Redesigned supply chain and logistics workflows",
+      "Implemented lean manufacturing principles and waste reduction programs",
+      "Launched 3 new product lines targeting adjacent markets",
+    ],
+    outcome: "Restored competitiveness and positioned the company for sustainable long-term growth.",
   },
   {
     title: "Luta Quarry Operationalization",
@@ -26,6 +41,13 @@ const projects = [
     metric: "100%",
     metricLabel: "Target Achievement",
     results: ["Successful launch", "Safety certification"],
+    details: [
+      "Developed complete operational blueprint from site assessment to production",
+      "Recruited and trained 200+ person workforce across all functions",
+      "Established safety protocols and environmental compliance frameworks",
+      "Achieved first production within 6 months ahead of industry benchmarks",
+    ],
+    outcome: "Delivered a fully operational quarry on schedule and within budget, setting a new standard for project execution.",
   },
   {
     title: "Osabusquare Turnaround",
@@ -34,15 +56,22 @@ const projects = [
     metric: "Full",
     metricLabel: "Profitability Restored",
     results: ["Team restructuring", "Market repositioning"],
+    details: [
+      "Diagnosed root causes of decline across operations, finance, and culture",
+      "Restructured management team and realigned incentives with performance",
+      "Optimized pricing strategy and renegotiated supplier contracts",
+      "Rebuilt customer relationships and strengthened sales pipeline",
+    ],
+    outcome: "Returned the business to profitability within 12 months with a clear growth trajectory.",
   },
 ];
 
 export default function TransformationImpact() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [sectionRef, isInView] = useInView({ threshold: 0.1, rootMargin: "-100px" });
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-16 lg:py-20 xl:py-28 bg-[#F5F6F7]">
+    <section ref={sectionRef} className="py-20 lg:py-28 xl:py-32 bg-[#F5F6F7]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0 }}
@@ -59,49 +88,84 @@ export default function TransformationImpact() {
           <div className="w-16 h-0.5 bg-[#C8A14A]/30 mb-8" />
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500"
             >
-              <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start py-8 border-t border-gray-200 first:border-t-0">
-                <div className="lg:col-span-3 lg:text-right">
-                  <p className="text-5xl lg:text-6xl font-serif text-[#0B1F3A] leading-none mb-1">
-                    {project.metric}
-                  </p>
-                  <p className="text-[#C8A14A] text-sm font-medium tracking-wider uppercase">
-                    {project.metricLabel}
-                  </p>
-                </div>
-
-                <div className="lg:col-span-4">
-                  <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3">
-                    {project.title}
-                  </h3>
-                  <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
-                    <p>
-                      <span className="text-[#C8A14A] font-medium uppercase tracking-wider text-xs">Challenge: </span>
-                      {project.challenge}
+              <div className="p-8 lg:p-10">
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <p className="text-5xl lg:text-6xl font-serif text-[#0B1F3A] leading-none mb-1">
+                      {project.metric}
                     </p>
-                    <p>
-                      <span className="text-[#C8A14A] font-medium uppercase tracking-wider text-xs">Strategy: </span>
-                      {project.strategy}
+                    <p className="text-[#C8A14A] text-sm font-medium tracking-wider uppercase">
+                      {project.metricLabel}
                     </p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5">
-                  <div className="flex flex-wrap gap-2">
-                    {project.results.map((result) => (
-                      <span key={result} className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-100">
-                        {result}
-                      </span>
-                    ))}
-                  </div>
+                <h3 className="text-xl font-semibold text-[#0B1F3A] mb-4">
+                  {project.title}
+                </h3>
+
+                <div className="space-y-2 mb-6">
+                  <p className="text-sm text-gray-600">
+                    <span className="text-[#C8A14A] font-semibold uppercase tracking-wider text-xs">Challenge: </span>
+                    {project.challenge}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    <span className="text-[#C8A14A] font-semibold uppercase tracking-wider text-xs">Strategy: </span>
+                    {project.strategy}
+                  </p>
                 </div>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.results.map((result) => (
+                    <span key={result} className="px-3 py-1 bg-[#0B1F3A]/5 rounded-full text-xs text-[#0B1F3A] font-medium">
+                      {result}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                  className="inline-flex items-center gap-2 text-[#C8A14A] text-sm font-medium hover:text-[#0B1F3A] transition-colors group"
+                >
+                  {expandedIndex === index ? "Hide Strategy" : "Read the Strategy"}
+                  <ArrowRight size={14} className={`transition-transform duration-300 ${expandedIndex === index ? "rotate-90" : "group-hover:translate-x-1"}`} />
+                </button>
+
+                <AnimatePresence>
+                  {expandedIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-6 mt-6 border-t border-gray-100">
+                        <p className="text-sm font-semibold text-[#0B1F3A] mb-3 uppercase tracking-wider">Strategic Actions</p>
+                        <ul className="space-y-2 mb-4">
+                          {project.details.map((detail, i) => (
+                            <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C8A14A] mt-1.5 shrink-0" />
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-sm text-[#0B1F3A] font-medium italic border-l-2 border-[#C8A14A] pl-4">
+                          "{project.outcome}"
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </motion.div>
           ))}
@@ -111,7 +175,7 @@ export default function TransformationImpact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 pt-6 border-t border-gray-200"
+          className="mt-12 text-center"
         >
           <a
             href="#portfolio"

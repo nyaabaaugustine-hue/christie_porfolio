@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, BookOpen, Users, Target } from "lucide-react";
+import { Award, BookOpen, Users, Target, Download } from "lucide-react";
 
 type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
 
@@ -84,6 +84,14 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <p className="text-white/60 max-w-3xl mx-auto text-lg">
               A journey of transformation, leadership, and impact across African enterprise
             </p>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-8 inline-flex items-center gap-3 px-8 py-3 bg-[#C8A14A] text-[#0B1F3A] font-semibold rounded-lg hover:bg-[#b8923f] transition-colors"
+            >
+              <Download size={18} />
+              Download Executive Bio
+            </motion.button>
           </motion.div>
         </div>
       </section>

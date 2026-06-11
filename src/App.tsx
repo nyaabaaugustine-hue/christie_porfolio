@@ -8,8 +8,6 @@ import AreasOfExpertise from "./components/AreasOfExpertise";
 import CareerTimeline from "./components/CareerTimeline";
 import FeaturedPortfolio from "./components/FeaturedPortfolio";
 import TransformationImpact from "./components/TransformationImpact";
-import MediaSpeaking from "./components/MediaSpeaking";
-import ThoughtLeadership from "./components/ThoughtLeadership";
 import Testimonials from "./components/Testimonials";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
@@ -149,8 +147,6 @@ export default function App() {
               <ImageCarousel />
               <TransformationImpact />
               <Testimonials />
-              <MediaSpeaking />
-              <ThoughtLeadership />
               <ExecutiveCTA onNavigate={handleNavigate} />
             </main>
           </PageTransition>

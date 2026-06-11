@@ -135,8 +135,8 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 0.4 }}
               className="text-white/70 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed"
             >
-              Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, 
-              and Growth Strategist with over two decades of experience leading business 
+              Christiana Akua Feyie Yeboaa Okyere is a <strong className="text-white">Corporate Executive</strong>, <strong className="text-white">Entrepreneur</strong>, 
+              and <strong className="text-white">Growth Strategist</strong> with over two decades of experience leading business 
               transformation, operational excellence, industrial growth, and organizational 
               performance across Africa.
             </motion.p>
