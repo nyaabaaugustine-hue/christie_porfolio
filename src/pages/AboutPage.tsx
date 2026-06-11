@@ -60,8 +60,13 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     <main className="pt-20">
       {/* Hero Section */}
       <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#C8A14A] rounded-full blur-3xl" />
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
+            alt=""
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-[#0B1F3A]/90" />
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
           <motion.div

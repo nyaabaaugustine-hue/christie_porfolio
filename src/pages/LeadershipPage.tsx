@@ -143,7 +143,7 @@ export default function LeadershipPage({ onNavigate }: LeadershipPageProps) {
       <section className="relative py-16 lg:py-20 xl:py-24 bg-[#0B1F3A]">
         <div className="absolute inset-0 opacity-30">
           <img
-            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777771617/5_ftohta.png"
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
             alt="Background"
             className="w-full h-full object-cover object-top"
           />

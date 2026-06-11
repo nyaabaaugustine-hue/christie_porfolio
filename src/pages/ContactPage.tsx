@@ -39,7 +39,7 @@ export default function ContactPage({ }: ContactPageProps) {
       <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119517/1_v86mgv.png"
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
             alt=""
             className="w-full h-full object-contain opacity-30"
           />

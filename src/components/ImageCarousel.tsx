@@ -24,7 +24,7 @@ export default function ImageCarousel() {
   const [sectionRef, isInView] = useInView({ threshold: 0.1, rootMargin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-20 xl:py-24 bg-[#F8F9FA] overflow-hidden relative">
+    <section ref={sectionRef} className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] overflow-hidden relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C8A14A]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
@@ -40,7 +40,7 @@ export default function ImageCarousel() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] tracking-tight"
+          className="text-3xl lg:text-4xl font-serif text-white tracking-tight"
         >
           A Legacy of Leadership
         </motion.h2>
@@ -48,12 +48,12 @@ export default function ImageCarousel() {
       </div>
 
       <div className="relative">
-        <div className="flex gap-6 px-4" style={{ width: `${images.length * 340}px` }}>
+        <div className="flex gap-4" style={{ width: `${images.length * 340}px` }}>
           <motion.div
-            className="flex gap-6"
+            className="flex gap-4"
             animate={isInView ? { x: [0, -(images.length * 340)] } : {}}
             transition={{
-              duration: 120,
+              duration: 140,
               ease: "linear",
               repeat: Infinity,
               repeatType: "loop",
@@ -61,10 +61,7 @@ export default function ImageCarousel() {
           >
             {[...images, ...images].map((src, i) => (
               <div key={i} className="relative w-72 shrink-0 group">
-                <div className="h-80 bg-white rounded-xl shadow-sm group-hover:shadow-lg transition-all duration-500 p-5 flex items-center justify-center border border-gray-100">
-                  <div className="absolute top-3 left-3 w-6 h-6 rounded-full bg-[#C8A14A]/10 flex items-center justify-center">
-                    <span className="text-[10px] font-semibold text-[#C8A14A]">{(i % images.length) + 1}</span>
-                  </div>
+                <div className="h-80 bg-white rounded-xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500 p-8 flex items-center justify-center">
                   <img
                     src={src}
                     alt={`Industry ${(i % images.length) + 1}`}
@@ -72,14 +69,19 @@ export default function ImageCarousel() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-[#C8A14A]/30 rounded-full group-hover:w-12 group-hover:bg-[#C8A14A]/60 transition-all duration-500" />
+                <div className="mt-2 flex items-center justify-between px-1">
+                  <span className="text-white/30 text-xs tracking-widest uppercase">
+                    {(i % images.length) + 1 < 10 ? "0" : ""}{(i % images.length) + 1}
+                  </span>
+                  <span className="w-12 h-[1px] bg-[#C8A14A]/30" />
+                </div>
               </div>
             ))}
           </motion.div>
         </div>
 
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#F8F9FA] to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#F8F9FA] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#0B1F3A] via-[#0B1F3A]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#0B1F3A] via-[#0B1F3A]/80 to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );
