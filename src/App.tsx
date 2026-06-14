@@ -12,7 +12,7 @@ import Testimonials from "./components/Testimonials";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
 import FloatingSocial from "./components/FloatingSocial";
-import WhatsAppButton from "./components/WhatsAppButton";
+
 import ImageCarousel from "./components/ImageCarousel";
 import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
 import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
@@ -273,7 +273,6 @@ export default function App() {
       </AnimatePresence>
       
       <FloatingSocial />
-      <WhatsAppButton />
       
       <Footer onNavigate={handleNavigate} />
     </div>

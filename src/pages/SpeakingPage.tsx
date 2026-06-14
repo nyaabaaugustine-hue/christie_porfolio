@@ -69,53 +69,65 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
         </div>
       </section>
 
+      {/* Peeking Cards Section */}
       <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-              <div className="max-w-2xl">
-                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
-                  Speaking
-                </p>
-                <p className="text-white/70 text-lg leading-relaxed mb-4">
-                  Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.
-                </p>
-                <p className="text-white/70 text-lg leading-relaxed">
-                  Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
-                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
-                  Available For
-                </p>
-                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Conferences
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="relative">
+            {/* Back card — peeking from behind */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, y: 20 }}
+              whileInView={{ opacity: 1, x: 40, y: 20 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="absolute top-0 right-0 w-full md:w-[420px] lg:w-[460px] h-[300px] lg:h-[340px] rounded-2xl bg-[#C8A14A] shadow-xl shadow-[#C8A14A]/20 z-0 hidden sm:block"
+            />
+
+            {/* Front card — main speaking info */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative z-10 w-full md:w-[70%] lg:w-[65%] rounded-2xl bg-[#0B1F3A] shadow-2xl shadow-black/15 p-10 lg:p-14"
+            >
+              <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
+                Speaking
+              </p>
+              <p className="text-white/70 text-lg leading-relaxed mb-4">
+                Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.
+              </p>
+              <p className="text-white/70 text-lg leading-relaxed">
+                Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.
+              </p>
+            </motion.div>
+
+            {/* Available For — peeking card overlapping the front */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, rotate: 1 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="relative z-20 mt-6 sm:mt-0 sm:absolute sm:bottom-0 sm:right-0 lg:right-8 w-full sm:w-[320px] lg:w-[340px] rounded-2xl bg-white border border-gray-100 shadow-2xl shadow-black/10 p-7 lg:p-8"
+            >
+              <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
+                Available For
+              </p>
+              <ul className="space-y-3 text-gray-600 text-sm leading-relaxed">
+                {[
+                  "Conferences",
+                  "Executive Forums",
+                  "Leadership Retreats",
+                  "Corporate Events",
+                  "Industry Panels",
+                  "University Engagements",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C8A14A] flex-shrink-0" />
+                    {item}
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Executive Forums
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Leadership Retreats
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Corporate Events
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Industry Panels
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    University Engagements
-                  </li>
-                </ul>
-              </div>
-            </div>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>
