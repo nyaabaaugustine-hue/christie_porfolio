@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { TrendingUp, Users, Globe, Shield, ChevronDown, ChevronUp, Mail } from "lucide-react";
+import { TrendingUp, Globe, Shield, ChevronDown, ChevronUp, Mail } from "lucide-react";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog' | 'podcast' | 'videos' | 'investors' | 'reports';
 
@@ -10,7 +10,6 @@ interface InvestorRelationsPageProps {
 
 const highlights = [
   { icon: TrendingUp, metric: "15+", label: "Years of Leadership", description: "Track record of building and scaling enterprises across multiple sectors." },
-  { icon: Users, metric: "500+", label: "Jobs Created", description: "Direct employment generated through businesses built and led." },
   { icon: Globe, metric: "6", label: "Industry Sectors", description: "Spanning logistics, manufacturing, real estate, trade, services, and hospitality." },
   { icon: Shield, metric: "100%", label: "Governance Focus", description: "Commitment to transparency, accountability, and sustainable value creation." },
 ];

@@ -8,13 +8,11 @@ import AreasOfExpertise from "./components/AreasOfExpertise";
 import CareerTimeline from "./components/CareerTimeline";
 import FeaturedPortfolio from "./components/FeaturedPortfolio";
 import TransformationImpact from "./components/TransformationImpact";
-import Testimonials from "./components/Testimonials";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
 import FloatingSocial from "./components/FloatingSocial";
 import WhatsAppButton from "./components/WhatsAppButton";
 
-import ImageCarousel from "./components/ImageCarousel";
 import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
 import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
 import Newsletter from "./components/Newsletter";
@@ -218,9 +216,7 @@ export default function App() {
               <CareerTimeline />
               <ThoughtLeadershipPreview onNavigate={handleNavigate} />
               <MediaSpeakingPreview onNavigate={handleNavigate} />
-              <ImageCarousel />
               <FeaturedQuote />
-              <Testimonials />
               <Newsletter />
               <ExecutiveCTA onNavigate={handleNavigate} />
             </main>

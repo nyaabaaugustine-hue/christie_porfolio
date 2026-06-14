@@ -4,8 +4,6 @@ import { useRef, useEffect, useState } from "react";
 const stats = [
   { value: 20, suffix: "+", label: "Years Experience" },
   { value: 6, suffix: "", label: "Industries" },
-  { value: 15, suffix: "+", label: "Organizations Transformed" },
-  { value: 100, suffix: "M+", label: "Value Created (USD)" },
 ];
 
 function AnimatedCounter({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
