@@ -11,7 +11,6 @@ interface TransformationProjectsPageProps {
 const projects = [
   {
     title: "Eagle Salt Scale-Up",
-    backgroundImage: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781389624/bacck_jtcnfj.jpg",
     challenge: "Limited production capacity and a need to secure regional market share.",
     approach: "Holistic operational scaling, systems modernization, and market expansion planning.",
     execution: "Upgraded production lines, strengthened distribution capability, and implemented quality systems.",

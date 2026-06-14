@@ -96,7 +96,7 @@ export default function CareerTimeline() {
 
                 <div className="absolute left-0 lg:relative lg:left-auto flex items-center justify-center z-10">
                   <div className="w-8 h-8 rounded-full border-2 border-[#C8A14A] bg-[#0B1F3A] flex items-center justify-center">
-                    <div className={`w-2 h-2 rounded-full ${stage.period === "Current" || stage.period === "Ongoing" ? 'bg-[#C8A14A]' : 'bg-white/50'}`} />
+                    <div className={`w-2 h-2 rounded-full ${stage.period === "Today" ? 'bg-[#C8A14A]' : 'bg-white/50'}`} />
                   </div>
                 </div>
 

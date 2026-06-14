@@ -97,13 +97,17 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                   Introduction
                 </p>
                 <p className="text-white/70 text-lg leading-relaxed mb-4">
-                  Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with more than two decades of experience leading organizations, building businesses, and driving transformational growth.
+                  Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist
+                  with more than twenty years of experience leading businesses, driving organizational transformation,
+                  and creating sustainable growth across multiple industries.
                 </p>
                 <p className="text-white/70 text-lg leading-relaxed mb-4">
-                  Her career spans entrepreneurship, executive leadership, business development, organizational transformation, operations, logistics, communications, and strategic growth.
+                  Her professional journey reflects a unique combination of entrepreneurial ambition and executive leadership,
+                  spanning communications, entrepreneurship, executive management, organizational transformation, and growth strategy.
                 </p>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Recognized for her ability to bridge vision and execution, Christiana has consistently demonstrated a capacity to build businesses, lead teams, improve performance, and create sustainable value.
+                  Recognized for her ability to bridge vision and execution, Christiana has consistently demonstrated a capacity
+                  to build businesses, lead teams, improve performance, and create sustainable value.
                 </p>
               </div>
               <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
@@ -151,32 +155,49 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist
-                  with more than two decades of experience leading businesses, driving organizational transformation,
+                  with more than twenty years of experience leading businesses, driving organizational transformation,
                   and creating sustainable growth across multiple industries.
                 </p>
                 <p>
-                  <span className="font-semibold text-[#0B1F3A]">The Creative Foundation.</span>{" "}
-                  Christiana's professional journey began in communications, design, branding, and marketing.
-                  These early experiences developed the strategic thinking, creativity, and communication skills
-                  that continue to influence her leadership approach today.
+                  Her professional journey reflects a unique combination of entrepreneurial ambition and executive leadership.
+                  Beginning her career in communications, branding, and strategic marketing, she developed a deep understanding
+                  of business development, stakeholder engagement, and market positioning. These experiences laid the foundation
+                  for a broader leadership journey that would eventually span entrepreneurship, executive management,
+                  organizational transformation, and growth strategy.
                 </p>
                 <p>
-                  <span className="font-semibold text-[#0B1F3A]">The Entrepreneurial Builder.</span>{" "}
-                  Driven by a passion for creating solutions and opportunities, she established businesses
-                  that served clients across multiple industries. Through entrepreneurship, she gained firsthand
-                  experience in business growth, leadership, customer engagement, and organizational development.
+                  As an entrepreneur, Christiana successfully established and led ventures that provided strategic services
+                  and business solutions to organizations across various sectors. Through these experiences, she gained firsthand
+                  insight into business creation, growth management, customer engagement, team leadership, and operational execution.
                 </p>
                 <p>
-                  <span className="font-semibold text-[#0B1F3A]">The Executive Leader.</span>{" "}
-                  Over time, her responsibilities evolved beyond entrepreneurship into broader executive
-                  leadership roles focused on strategic execution, growth, operational excellence, and
-                  organizational transformation.
+                  Over time, her career evolved into increasingly strategic leadership roles where she focused on organizational
+                  growth, operational excellence, and transformation. Her work has involved helping organizations strengthen systems,
+                  improve performance, align strategy with execution, and create sustainable pathways for growth.
                 </p>
                 <p>
-                  <span className="font-semibold text-[#0B1F3A]">The Growth Strategist.</span>{" "}
-                  Today, Christiana combines entrepreneurial insight with executive leadership experience
-                  to support organizations in navigating complexity, unlocking growth opportunities,
-                  and building sustainable futures.
+                  What distinguishes Christiana's leadership approach is her ability to combine entrepreneurial thinking with
+                  corporate discipline. She understands the realities of building organizations from the ground up while also
+                  appreciating the governance, accountability, and strategic oversight required to lead complex enterprises.
+                </p>
+                <p>
+                  Her expertise spans business transformation, growth strategy, operational leadership, governance,
+                  organizational effectiveness, and stakeholder management. She is particularly passionate about helping
+                  organizations navigate change, unlock opportunities, and achieve long-term success.
+                </p>
+                <p>
+                  Beyond her executive responsibilities, Christiana is committed to leadership development, mentorship,
+                  and contributing to conversations around entrepreneurship, governance, and economic growth. She believes
+                  that strong leadership, effective institutions, and innovative enterprises play a critical role in
+                  shaping Africa's future.
+                </p>
+                <p>
+                  She holds an Executive MBA from the Ghana Institute of Management and Public Administration (GIMPA)
+                  and a Bachelor of Arts degree from the Kwame Nkrumah University of Science and Technology (KNUST).
+                </p>
+                <p>
+                  Today, she continues to focus on building sustainable organizations, supporting growth initiatives,
+                  and contributing to business and economic development through leadership, strategy, and entrepreneurship.
                 </p>
               </div>
             </motion.div>

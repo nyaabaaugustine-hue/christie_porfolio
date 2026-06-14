@@ -22,6 +22,9 @@ import IndustriesPage from "./pages/IndustriesPage";
 import FloatingSocial from "./components/FloatingSocial";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ImageCarousel from "./components/ImageCarousel";
+import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
+import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
+import Newsletter from "./components/Newsletter";
 
 // Import custom fonts
 import "./fonts.css";
@@ -199,13 +202,16 @@ export default function App() {
             <main>
               <Hero onNavigate={handleNavigate} />
               <ExecutiveSnapshot />
+              <TransformationImpact />
+              <FeaturedPortfolio onNavigate={handleNavigate} />
               <LeadershipPhilosophy />
               <AreasOfExpertise />
               <CareerTimeline />
-              <FeaturedPortfolio onNavigate={handleNavigate} />
+              <ThoughtLeadershipPreview onNavigate={handleNavigate} />
+              <MediaSpeakingPreview onNavigate={handleNavigate} />
               <ImageCarousel />
-              <TransformationImpact />
               <Testimonials />
+              <Newsletter />
               <ExecutiveCTA onNavigate={handleNavigate} />
             </main>
           </PageTransition>
