@@ -403,8 +403,16 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
       </section>
 
       {/* Education */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-16 lg:py-20 xl:py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781469308/vvv_ajrrv5.png"
+            alt="Education background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0B1F3A]/85" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -415,7 +423,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
               Education
             </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
+            <h2 className="text-3xl lg:text-4xl font-serif text-white mb-6">
               Academic Background
             </h2>
           </motion.div>
@@ -428,11 +436,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#F5F6F7] rounded-xl p-6"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
               >
                 <div>
-                  <h3 className="font-semibold text-[#0B1F3A] mb-1">{edu.degree}</h3>
-                  <p className="text-gray-600">{edu.school}</p>
+                  <h3 className="font-semibold text-white mb-1">{edu.degree}</h3>
+                  <p className="text-white/70">{edu.school}</p>
                 </div>
               </motion.div>
             ))}
