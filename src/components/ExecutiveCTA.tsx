@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Briefcase, Mic, Handshake } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface ExecutiveCTAProps {
   onNavigate: (page: Page) => void;
@@ -35,33 +35,37 @@ export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
 
   return (
     <section ref={ref} className="relative py-28 lg:py-36 overflow-hidden bg-[#0B1F3A]">
+      <div className="absolute inset-0">
+        <img
+          src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1778496968/xcz_o35zcw.jpg"
+          alt="Connect background"
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
+        <div className="absolute inset-0 bg-[#0B1F3A]/80" />
+      </div>
       <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.03)_1px,transparent_1px)] bg-[length:64px_64px]" />
       <div className="absolute top-[-20%] left-[-10%] w-[50%] aspect-square rounded-full bg-[#C8A14A]/[0.04] blur-3xl" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] aspect-square rounded-full bg-[#C8A14A]/[0.04] blur-3xl" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#C8A14A]/[0.06] rounded-full" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[#C8A14A]/[0.04] rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-[0.2em] uppercase mb-6 font-medium rounded-full">
+          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
             Let's Connect
           </span>
-          <h2 className="text-3xl lg:text-5xl font-serif text-white tracking-tight mb-4">
-            Let's Build the Future of
-          </h2>
-          <h2 className="text-3xl lg:text-5xl font-serif text-[#C8A14A] tracking-tight mb-6">
-            African Enterprise
-          </h2>
+          <p className="text-white/70 max-w-3xl mx-auto text-base lg:text-lg leading-relaxed mb-6">
+            Interested in board opportunities, speaking engagements, strategic conversations, or executive leadership collaborations?
+          </p>
           <div className="w-12 h-[1px] bg-[#C8A14A]/50 mx-auto mb-6" />
           <p className="text-white/50 max-w-2xl mx-auto text-base lg:text-lg">
-            Ready to explore how we can create lasting impact together? 
-            Christiana is available for board positions, speaking engagements, 
-            and strategic advisory roles.
+            Christiana is available for board appointments, speaking engagements, and strategic advisory opportunities.
           </p>
         </motion.div>
 

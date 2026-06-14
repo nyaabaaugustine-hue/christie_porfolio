@@ -1,31 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const categories = [
-  {
-    group: "Leadership & Strategy",
-    items: ["Corporate Leadership", "Business Strategy", "Governance", "Strategic Communications"],
-  },
-  {
-    group: "Operations & Growth",
-    items: ["Industrial Operations", "Supply Chain & Logistics", "Growth & Expansion"],
-  },
-  {
-    group: "Transformation & Ventures",
-    items: ["Organizational Transformation", "Entrepreneurship"],
-  },
-];
-
 const allItems = [
   { title: "Corporate Leadership", size: "text-base lg:text-xl" },
   { title: "Business Strategy", size: "text-base lg:text-lg" },
   { title: "Organizational Transformation", size: "text-sm lg:text-base" },
   { title: "Governance", size: "text-base lg:text-xl" },
-  { title: "Industrial Operations", size: "text-sm lg:text-base" },
   { title: "Entrepreneurship", size: "text-sm lg:text-lg" },
   { title: "Growth & Expansion", size: "text-base lg:text-lg" },
-  { title: "Strategic Communications", size: "text-sm lg:text-base" },
-  { title: "Supply Chain & Logistics", size: "text-sm lg:text-base" },
 ];
 
 export default function AreasOfExpertise() {
@@ -40,6 +22,7 @@ export default function AreasOfExpertise() {
           alt=""
           className="w-full h-full object-cover opacity-40"
         />
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/60 to-[#0B1F3A]/85" />
       </div>
 
@@ -50,17 +33,13 @@ export default function AreasOfExpertise() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
+          <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
             Areas of Expertise
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-white leading-tight mb-6">
-            Strategic Capabilities
+            Core Competencies
           </h2>
           <div className="w-16 h-0.5 bg-[#C8A14A]/50 mb-8" />
-          <p className="text-white/50 text-lg max-w-2xl">
-            Comprehensive expertise spanning <strong className="text-white/80">executive leadership</strong>, <strong className="text-white/80">operations</strong>, 
-            <strong className="text-white/80"> strategy</strong>, and <strong className="text-white/80">transformation</strong> across multiple industries.
-          </p>
         </motion.div>
 
         <motion.div
@@ -82,28 +61,7 @@ export default function AreasOfExpertise() {
           ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 pt-12 border-t border-white/10 grid md:grid-cols-3 gap-8"
-        >
-          {categories.map((cat) => (
-            <div key={cat.group}>
-              <h3 className="text-[#C8A14A] text-xs tracking-[0.15em] uppercase mb-4 font-medium">
-                {cat.group}
-              </h3>
-              <ul className="space-y-2">
-                {cat.items.map((item) => (
-                  <li key={item} className="text-white/60 text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );

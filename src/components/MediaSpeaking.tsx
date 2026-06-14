@@ -43,7 +43,7 @@ export default function MediaSpeaking() {
           transition={{ duration: 0.8 }}
           className="mb-14"
         >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
+          <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
             Media & Speaking
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-[#0B1F3A] leading-tight mb-6">

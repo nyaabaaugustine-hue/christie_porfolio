@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "../hooks/useInView";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface FeaturedPortfolioProps {
   onNavigate: (page: Page) => void;
@@ -105,7 +105,7 @@ export default function FeaturedPortfolio({ onNavigate }: FeaturedPortfolioProps
             className="mt-6 lg:mt-0 inline-flex items-center gap-2 text-[#0B1F3A] font-medium hover:text-[#C8A14A] transition-colors"
             whileHover={{ x: 5 }}
           >
-            View Full Portfolio
+            View Profile
             <ArrowRight size={18} />
           </motion.button>
         </motion.div>
@@ -140,7 +140,7 @@ export default function FeaturedPortfolio({ onNavigate }: FeaturedPortfolioProps
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B1F3A] mb-4">{company.name}</h3>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">{company.description}</p>
                   <div className="flex items-center gap-2 text-[#0B1F3A] font-medium">
-                    <span className="w-2 h-2 bg-green-500 rounded-full" />
+                    <span className="w-2 h-2 bg-[#C8A14A] rounded-full" />
                     <span className="text-sm">{company.impact}</span>
                   </div>
                 </div>

@@ -4,7 +4,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 function TestimonialImage({ image, name }: { image: string; name: string }) {
   return (
     <div className="relative">
-      <div className="absolute inset-0 rounded-full bg-[#C8A14A]/20 blur-md scale-125" />
       <img
         src={image}
         alt={name}
@@ -70,6 +69,7 @@ export default function Testimonials() {
           alt=""
           className="w-full h-full object-cover opacity-30"
         />
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/70 to-[#0B1F3A]/85" />
       </div>
 
@@ -80,7 +80,7 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-[0.2em] uppercase mb-6 font-medium rounded-full">
+          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
             Testimonials
           </span>
           <h2 className="text-3xl lg:text-5xl font-serif text-white tracking-tight">

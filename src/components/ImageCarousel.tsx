@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "../hooks/useInView";
 import Lightbox from "./Lightbox";
 
-const allLogos = [
+const logos = [
   { src: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777870096/2bed-logo_1_somx5l.png", label: "2BED" },
   { src: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777865846/WhatsApp_Image_2026-05-03_at_7.41.12_PM_4_rsygim.jpg", label: "Industry Partner" },
   { src: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1777865846/WhatsApp_Image_2026-05-03_at_7.46.17_PM_kaqdd8.jpg", label: "Industry Partner" },
@@ -22,59 +22,29 @@ const allLogos = [
   { src: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1778064099/impex_iq2pho.jpg", label: "IMPEX" },
 ];
 
-const row1 = allLogos.slice(0, 8);
-const row2 = allLogos.slice(8);
-
 function thumbUrl(src: string) {
-  return src.replace("/upload/", "/upload/w_200,h_120,c_fit,f_auto,q_auto/");
+  return src.replace("/upload/", "/upload/w_400,h_300,c_fit,f_auto,q_auto/");
 }
 
-function MarqueeRow({
-  logos,
-  reverse,
-  onImageClick,
-}: {
-  logos: typeof allLogos;
-  reverse?: boolean;
-  onImageClick: (index: number) => void;
-}) {
-  const startIndex = logos === row1 ? 0 : 8;
+const colSpanClasses = [
+  "lg:col-span-2", "lg:col-span-3", "lg:col-span-1", "lg:col-span-2",
+  "lg:col-span-2", "lg:col-span-2", "lg:col-span-1", "lg:col-span-2",
+  "lg:col-span-3", "lg:col-span-2", "lg:col-span-1", "lg:col-span-1",
+  "lg:col-span-2", "lg:col-span-1", "lg:col-span-2", "lg:col-span-2",
+];
 
-  return (
-    <div
-      className="flex gap-5"
-      style={{
-        animation: `marquee-${reverse ? "reverse" : "forward"} 200s linear infinite`,
-        width: "max-content",
-      }}
-    >
-      {[...logos, ...logos].map((logo, i) => {
-        const realIndex = startIndex + (i % logos.length);
-        return (
-          <button
-            key={i}
-            onClick={() => onImageClick(realIndex)}
-            className="relative w-48 shrink-0 group cursor-pointer"
-          >
-            <div className="h-32 bg-white rounded-xl overflow-hidden shadow-sm p-5 flex items-center justify-center">
-              <img
-                src={thumbUrl(logo.src)}
-                alt={logo.label}
-                className="max-w-full max-h-full object-contain brightness-0 saturate-0 opacity-60 group-hover:brightness-100 group-hover:saturate-100 group-hover:opacity-100 transition-all duration-700"
-                loading="lazy"
-              />
-            </div>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
+const mdColSpanClasses = [
+  "md:col-span-1", "md:col-span-2", "md:col-span-1", "md:col-span-1",
+  "md:col-span-1", "md:col-span-2", "md:col-span-1", "md:col-span-1",
+  "md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-1",
+  "md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-1",
+];
 
 export default function ImageCarousel() {
-  const [sectionRef, isInView] = useInView({ threshold: 0.1, rootMargin: "-100px" });
+  const [sectionRef, isInView] = useInView({ threshold: 0.05, rootMargin: "-100px" });
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   function openLightbox(index: number) {
     setLightboxIndex(index);
@@ -82,34 +52,23 @@ export default function ImageCarousel() {
   }
 
   function prevLightbox() {
-    setLightboxIndex((i) => (i - 1 + allLogos.length) % allLogos.length);
+    setLightboxIndex((i) => (i - 1 + logos.length) % logos.length);
   }
 
   function nextLightbox() {
-    setLightboxIndex((i) => (i + 1) % allLogos.length);
+    setLightboxIndex((i) => (i + 1) % logos.length);
   }
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] overflow-hidden relative">
+    <section ref={sectionRef} className="py-0 bg-[#0B1F3A] relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C8A14A]/20 to-transparent" />
 
-      <style>{`
-        @keyframes marquee-forward {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-      `}</style>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-20 mb-0">
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium"
+          className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium"
         >
           Across Industries
         </motion.p>
@@ -119,22 +78,52 @@ export default function ImageCarousel() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-3xl lg:text-4xl font-serif text-white tracking-tight"
         >
-          A Legacy of Leadership
+          Trusted Across Sectors
         </motion.h2>
-        <div className="w-12 h-[1px] bg-[#C8A14A]/40 mt-5" />
+        <div className="w-12 h-[1px] bg-[#C8A14A]/40 mt-5 mb-8 lg:mb-12" />
       </div>
 
-      <div className="relative space-y-5">
-        <MarqueeRow logos={row1} onImageClick={openLightbox} />
-        <MarqueeRow logos={row2} reverse onImageClick={openLightbox} />
+      <div className="px-0 max-w-full mx-auto overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[0.5%] auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[180px] lg:auto-rows-[200px]">
+          {logos.map((logo, i) => (
+            <motion.button
+              key={i}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isInView ? { scale: 1, opacity: 1 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: 0.06 * i,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              onClick={() => openLightbox(i)}
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={`relative overflow-hidden bg-white/5 group cursor-pointer ${colSpanClasses[i]} ${mdColSpanClasses[i]}`}
+            >
+              <div className="absolute inset-0 flex items-center justify-center p-0">
+                <img
+                  src={thumbUrl(logo.src)}
+                  alt={logo.label}
+                  className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
 
-        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#0B1F3A] via-[#0B1F3A]/80 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#0B1F3A] via-[#0B1F3A]/80 to-transparent pointer-events-none z-10" />
+              <div className={`absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-500`} />
+
+              <div className={`absolute bottom-0 left-0 right-0 p-2 transition-all duration-400 ${hoveredIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-0'}`}>
+                <span className="text-[#C8A14A] text-[10px] font-medium tracking-widest uppercase bg-[#0B1F3A]/70 px-2 py-0.5 rounded inline-block">
+                  {logo.label}
+                </span>
+              </div>
+            </motion.button>
+          ))}
+        </div>
       </div>
 
       {lightboxOpen && (
         <Lightbox
-          images={allLogos}
+          images={logos}
           index={lightboxIndex}
           onClose={() => setLightboxOpen(false)}
           onPrev={prevLightbox}

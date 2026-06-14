@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'transformation' | 'industries';
 
 interface HeroProps {
   onNavigate: (page: Page) => void;
@@ -12,7 +11,6 @@ interface HeroProps {
 const videoIds = ["56ZbiZGh0SM", "TecSq4QvwZs", "kcQ0scOBfvY"];
 
 export default function Hero({ onNavigate }: HeroProps) {
-  const { t } = useTranslation();
   const [apiReady, setApiReady] = useState(false);
 
   useEffect(() => {
@@ -119,38 +117,47 @@ export default function Hero({ onNavigate }: HeroProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-[#C8A14A] text-sm tracking-widest uppercase mb-6 font-medium"
-            >
-              {t("hero.subtitle")}
-            </motion.p>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight"
             >
-              Transforming Businesses.
-              <br />
-              <span className="text-[#C8A14A]">Scaling Industries.</span>
-              <br />
-              Building Sustainable Growth.
+              Christiana Akua Feyie Yeboaa Okyere
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-[#C8A14A] text-base sm:text-lg font-medium mb-4"
+            >
+              Corporate Executive | Entrepreneur | Growth Strategist
+            </motion.p>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.35, duration: 0.8, ease: "easeOut" }}
+              className="h-px w-20 bg-gradient-to-r from-[#C8A14A]/80 to-transparent mb-6 origin-left"
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-white/70 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed"
+              className="text-white/70 text-base sm:text-lg mb-4 max-w-xl leading-relaxed"
             >
-              Christiana Akua Feyie Yeboaa Okyere is a <strong className="text-white">Corporate Executive</strong>, <strong className="text-white">Entrepreneur</strong>, 
-              and <strong className="text-white">Growth Strategist</strong> with over two decades of experience leading business 
-              transformation, operational excellence, industrial growth, and organizational 
-              performance across Africa.
+              Building businesses, transforming organizations, and creating sustainable growth through strategic leadership, operational excellence, and entrepreneurial vision.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="text-[#C8A14A]/70 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed"
+            >
+              With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.
             </motion.p>
 
             <motion.div
@@ -165,16 +172,16 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Explore Leadership Journey
+                Explore My Journey
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
-                onClick={() => onNavigate("leadership")}
+                onClick={() => onNavigate("contact")}
                 className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View Portfolio
+                Connect With Me
               </motion.button>
             </motion.div>
           </motion.div>

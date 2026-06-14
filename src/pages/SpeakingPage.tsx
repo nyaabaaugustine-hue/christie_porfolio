@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Play, Download, Mic, Users, Award, Globe } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface SpeakingPageProps {
   onNavigate: (page: Page) => void;
@@ -20,7 +20,7 @@ const speakingTopics = [
     icon: Award,
   },
   {
-    title: "Entrepreneurship & Value Creation",
+    title: "Entrepreneurship and Value Creation",
     description: "From venture creation to scaling businesses—lessons from two decades of entrepreneurial leadership.",
     icon: Globe,
   },
@@ -30,7 +30,7 @@ const speakingTopics = [
     icon: Users,
   },
   {
-    title: "Governance & Organizational Effectiveness",
+    title: "Governance and Organizational Effectiveness",
     description: "Building boards and organizations that drive value, ensure accountability, and deliver results.",
     icon: Award,
   },
@@ -41,29 +41,6 @@ const speakingTopics = [
   },
 ];
 
-const pastEngagements = [
-  {
-    event: "African CEO Forum",
-    topic: "Industrial Transformation in Africa",
-    year: "2024",
-  },
-  {
-    event: "Ghana Economic Forum",
-    topic: "Women in Executive Leadership",
-    year: "2024",
-  },
-  {
-    event: "West Africa Business Summit",
-    topic: "Building Sustainable Supply Chains",
-    year: "2023",
-  },
-  {
-    event: "Harvard Business School Africa Conference",
-    topic: "The Future of African Enterprise",
-    year: "2023",
-  },
-];
-
 export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -71,32 +48,75 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
   return (
     <main className="pt-20">
       {/* Hero */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+      <section className="relative h-[360px] lg:h-[440px] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
-            alt=""
-            className="w-full h-full object-cover opacity-40"
+            alt="Speaking background"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-[#0B1F3A]/90" />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.16)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 to-[#0B1F3A]/90" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Speaking Engagements
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
+          <div>
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
+              Speaking
             </p>
-            <h1 className="text-4xl lg:text-6xl font-serif text-white mb-6">
-              Keynote Speaker
-            </h1>
-            <p className="text-white/60 max-w-3xl mx-auto text-lg">
-              Inspiring audiences with insights on leadership, transformation, and African enterprise
-            </p>
-          </motion.div>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">Speaking &amp; Media</h1>
+            <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+              <div className="max-w-2xl">
+                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
+                  Speaking
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed mb-4">
+                  Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
+                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
+                  Available For
+                </p>
+                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Conferences
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Executive Forums
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Leadership Retreats
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Corporate Events
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Industry Panels
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    University Engagements
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -119,22 +139,31 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-20 h-20 rounded-full bg-[#C8A14A] flex items-center justify-center"
+                className="w-16 h-16 rounded-full bg-[#C8A14A] flex items-center justify-center"
               >
                 <Play size={32} className="text-[#0B1F3A] ml-1" />
               </motion.div>
             </div>
             <div className="absolute bottom-8 left-8">
               <p className="text-white font-semibold text-lg">Speaker Reel</p>
-              <p className="text-white/60 text-sm">Watch highlights from past engagements</p>
+              <p className="text-white/60 text-sm">Watch the speaker highlights reel</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Speaking Topics */}
-      <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-[#F5F6F7] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781390223/bacck_jtcnfj.png"
+            alt="Topics background"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
+          <div className="absolute inset-0 bg-[#F5F6F7]/80" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -158,10 +187,10 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#C8A14A]/10 flex items-center justify-center mb-4">
-                    <Icon className="text-[#C8A14A]" size={24} />
+                  <div className="w-14 h-14 rounded-2xl bg-[#C8A14A]/10 flex items-center justify-center mb-4">
+                    <Icon className="text-[#C8A14A]" size={28} />
                   </div>
                   <h3 className="font-semibold text-[#0B1F3A] mb-2">{topic.title}</h3>
                   <p className="text-gray-600 text-sm">{topic.description}</p>
@@ -169,190 +198,6 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Past Engagements */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1778496968/xcz_o35zcw.jpg"
-            alt=""
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/85 via-[#0B1F3A]/70 to-[#0B1F3A]/85" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Experience
-            </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-white">
-              Past Engagements
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            {pastEngagements.map((engagement, index) => (
-              <motion.div
-                key={engagement.event}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 py-6 border-b border-white/10 last:border-0"
-              >
-                <div>
-                  <h3 className="font-semibold text-white">{engagement.event}</h3>
-                  <p className="text-white/60">{engagement.topic}</p>
-                </div>
-                <span className="text-[#C8A14A] font-medium">{engagement.year}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Media & Speaking Appearances */}
-      <section className="py-16 lg:py-20 xl:py-28 bg-[#F8F9FA]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-14"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
-              Media & Speaking
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-serif text-[#0B1F3A] leading-tight mb-6">
-              Featured Engagements
-            </h2>
-            <div className="w-16 h-0.5 bg-[#C8A14A]/30 mb-6" />
-            <p className="text-gray-500 max-w-2xl leading-relaxed">
-              Sharing insights on leadership, transformation, and African enterprise
-              at premier business forums and conferences.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-3 gap-6 mb-16"
-          >
-            {[
-              { value: "50+", label: "Keynote Addresses" },
-              { value: "25+", label: "Conference Panels" },
-              { value: "15+", label: "Awards & Recognitions" },
-            ].map((stat, i) => (
-              <div key={stat.label} className="relative text-center py-8">
-                {i < 2 && <div className="absolute right-0 top-1/4 bottom-1/4 w-px bg-[#C8A14A]/10" />}
-                <p className="text-4xl lg:text-5xl font-serif text-[#0B1F3A] mb-2">{stat.value}</p>
-                <p className="text-gray-400 text-xs lg:text-sm tracking-wider uppercase">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          <div className="space-y-5">
-            {[
-              { title: "African CEO Forum 2024", type: "Keynote", description: "Leading Industrial Transformation Across Africa", image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781137039/AFRICA1_yoz2e1.jpg" },
-              { title: "Ghana Economic Forum", type: "Panel Discussion", description: "Women in Executive Leadership", image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781137038/AFICAQ2_yvyyxp.jpg" },
-              { title: "West Africa Business Summit", type: "Fireside Chat", description: "Building Sustainable Supply Chains", image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781137165/WESTAFRICAN_tfjub8.jpg" },
-              { title: "Harvard Business School Africa Conference", type: "Guest Speaker", description: "The Future of African Enterprise", image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781137374/954_xirvmf.png" },
-            ].map((media, index) => (
-              <motion.div
-                key={media.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
-                className="group relative bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-[#C8A14A]/20 transition-all duration-500"
-              >
-                <div className="flex flex-col sm:flex-row">
-                  <div className="relative w-full sm:w-48 h-48 sm:h-auto overflow-hidden shrink-0">
-                    <img
-                      src={media.image}
-                      alt={media.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#0B1F3A]/40 to-transparent" />
-                  </div>
-                  <div className="flex-1 p-5 sm:p-6 flex flex-col justify-center">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="px-3 py-0.5 bg-[#C8A14A]/10 text-[#C8A14A] text-xs font-semibold rounded-full">
-                        {media.type}
-                      </span>
-                      <span className="text-gray-300 text-sm">{String(index + 1).padStart(2, "0")}</span>
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-serif text-[#0B1F3A] mb-1 group-hover:text-[#C8A14A] transition-colors">
-                      {media.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm">{media.description}</p>
-                  </div>
-                  <div className="hidden sm:flex items-center pr-6">
-                    <div className="w-10 h-10 rounded-full border border-gray-200 group-hover:border-[#C8A14A] group-hover:bg-[#C8A14A] flex items-center justify-center transition-all duration-300 group-hover:shadow-lg">
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors ml-0.5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Video Clips */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-16"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-6 font-medium">
-              Speaking Highlights
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { id: "56ZbiZGh0SM", title: "Keynote Address" },
-                { id: "TecSq4QvwZs", title: "Industry Panel" },
-                { id: "kcQ0scOBvY", title: "Executive Interview" },
-              ].map((video) => (
-                <a
-                  key={video.id}
-                  href={`https://www.youtube.com/watch?v=${video.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative aspect-video rounded-xl overflow-hidden bg-[#0B1F3A]"
-                >
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-transparent to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-[#C8A14A]/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="ml-0.5">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="absolute bottom-3 left-3 text-white text-sm font-medium">{video.title}</p>
-                </a>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -373,8 +218,7 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
                 Speaker Kit
               </h2>
               <p className="text-white/60 mb-8">
-                Download Christiana's speaker kit for high-resolution photos, 
-                bio, topics, and technical requirements.
+                Download Christiana's executive speaker kit for high-resolution photos, bio, keynote topics, and event requirements.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -395,8 +239,7 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
             >
               <h3 className="text-xl font-semibold text-white mb-6">Book Christiana</h3>
               <p className="text-white/60 mb-6">
-                For speaking inquiries, please provide details about your event 
-                and Christiana's team will respond within 48 hours.
+                For speaking inquiries, please share event details and Christiana's team will respond within 48 hours.
               </p>
               <motion.button
                 onClick={() => onNavigate("contact")}

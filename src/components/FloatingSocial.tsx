@@ -15,7 +15,7 @@ const socialLinks = [
     color: "hover:bg-[#0A66C2]",
   },
   {
-    href: "mailto:christiana@example.com",
+    href: "mailto:contact@christianaokyere.com",
     icon: Mail,
     label: "Email",
     color: "hover:bg-[#C8A14A]",

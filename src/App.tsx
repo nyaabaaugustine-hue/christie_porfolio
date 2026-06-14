@@ -13,9 +13,12 @@ import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage";
 import LeadershipPage from "./pages/LeadershipPage";
+import BoardAdvisoryPage from "./pages/BoardAdvisoryPage";
 import SpeakingPage from "./pages/SpeakingPage";
 import ContactPage from "./pages/ContactPage";
 import InsightsPage from "./pages/InsightsPage";
+import TransformationProjectsPage from "./pages/TransformationProjectsPage";
+import IndustriesPage from "./pages/IndustriesPage";
 import FloatingSocial from "./components/FloatingSocial";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ImageCarousel from "./components/ImageCarousel";
@@ -23,7 +26,7 @@ import ImageCarousel from "./components/ImageCarousel";
 // Import custom fonts
 import "./fonts.css";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
 
 // Custom cursor component
 function CustomCursor() {
@@ -100,7 +103,10 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 50);
+    return () => clearTimeout(timer);
   }, [currentPage]);
 
   const handleNavigate = (page: Page) => {
@@ -217,6 +223,12 @@ export default function App() {
           </PageTransition>
         )}
         
+        {currentPage === 'board' && (
+          <PageTransition key="board">
+            <BoardAdvisoryPage onNavigate={handleNavigate} />
+          </PageTransition>
+        )}
+        
         {currentPage === 'speaking' && (
           <PageTransition key="speaking">
             <SpeakingPage onNavigate={handleNavigate} />
@@ -232,6 +244,18 @@ export default function App() {
         {currentPage === 'insights' && (
           <PageTransition key="insights">
             <InsightsPage />
+          </PageTransition>
+        )}
+
+        {currentPage === 'transformation' && (
+          <PageTransition key="transformation">
+            <TransformationProjectsPage onNavigate={handleNavigate} />
+          </PageTransition>
+        )}
+
+        {currentPage === 'industries' && (
+          <PageTransition key="industries">
+            <IndustriesPage onNavigate={handleNavigate} />
           </PageTransition>
         )}
       </AnimatePresence>

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface NavbarProps {
   onNavigate: (page: Page) => void;
@@ -13,8 +13,15 @@ interface NavbarProps {
 
 const navLinks = [
   { labelKey: "nav.home", page: "home" as Page },
-  { labelKey: "nav.about", page: "about" as Page },
-  { labelKey: "nav.leadership", page: "leadership" as Page },
+  {
+    labelKey: "nav.about",
+    subMenu: [
+      { labelKey: "nav.leadership", page: "leadership" as Page },
+      { labelKey: "nav.board", page: "board" as Page },
+      { labelKey: "nav.transformation", page: "transformation" as Page },
+    ],
+  },
+  { labelKey: "nav.industries", page: "industries" as Page },
   { labelKey: "nav.speaking", page: "speaking" as Page },
   { labelKey: "nav.insights", page: "insights" as Page },
   { labelKey: "nav.contact", page: "contact" as Page },
@@ -24,6 +31,12 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
+  const isSubpageActive = (link: typeof navLinks[number]) => {
+    if (!link.subMenu) return false;
+    return link.subMenu.some((item) => item.page === currentPage) || currentPage === "about";
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +54,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-[#0B1F3A]/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-[#0B1F3A] md:bg-transparent py-3 md:py-6"
+          : "bg-[#0B1F3A] py-3 md:py-6"
       }`}
     >
       <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
@@ -61,29 +74,83 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <motion.button
-                key={link.page}
-                onClick={() => onNavigate(link.page)}
-                className={`relative font-medium transition-colors ${
-                  isScrolled
-                    ? currentPage === link.page
+              link.subMenu ? (
+                <div
+                  key={link.labelKey}
+                  className="relative"
+                  onMouseEnter={() => setIsAboutOpen(true)}
+                  onMouseLeave={() => setIsAboutOpen(false)}
+                >
+                  <motion.button
+                    onClick={() => onNavigate("about")}
+                    className={`flex items-center gap-2 relative font-medium transition-colors ${
+                      isSubpageActive(link)
+                        ? "text-[#C8A14A]"
+                        : "text-white/80 hover:text-[#C8A14A]"
+                    }`}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
+                  >
+                    {t(link.labelKey)}
+                    <ChevronDown size={14} />
+                    {isSubpageActive(link) && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
+                      />
+                    )}
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {isAboutOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute right-0 mt-3 min-w-[210px] rounded-3xl bg-[#0B1F3A]/95 border border-white/10 py-3 shadow-2xl"
+                      >
+                        {link.subMenu.map((sub) => (
+                          <button
+                            key={sub.page}
+                            onClick={() => {
+                              onNavigate(sub.page);
+                              setIsAboutOpen(false);
+                            }}
+                            className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors ${
+                              currentPage === sub.page
+                                ? "text-[#C8A14A]"
+                                : "text-white/80 hover:text-[#C8A14A]"
+                            }`}
+                          >
+                            {t(sub.labelKey)}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <motion.button
+                  key={link.page}
+                  onClick={() => onNavigate(link.page)}
+                  className={`relative font-medium transition-colors ${
+                    currentPage === link.page
                       ? "text-[#C8A14A]"
                       : "text-white/80 hover:text-[#C8A14A]"
-                    : currentPage === link.page
-                    ? "text-[#C8A14A]"
-                    : "text-white hover:text-[#C8A14A]"
-                }`}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-              >
-                {t(link.labelKey)}
-                {currentPage === link.page && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
-                  />
-                )}
-              </motion.button>
+                  }`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
+                >
+                  {t(link.labelKey)}
+                  {currentPage === link.page && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
+                    />
+                  )}
+                </motion.button>
+              )
             ))}
           </div>
 
@@ -91,11 +158,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
             <LanguageSwitcher />
             <motion.button
             onClick={() => onNavigate("contact")}
-            className={`px-6 py-2.5 rounded-lg font-semibold transition-all text-sm ${
-              isScrolled
-                ? "bg-[#C8A14A] text-[#0B1F3A] hover:bg-[#b8923f]"
-                : "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
-            }`}
+            className="px-6 py-2.5 rounded-lg font-semibold transition-all text-sm bg-[#C8A14A] text-[#0B1F3A] hover:bg-[#b8923f]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -122,23 +185,60 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
           >
             <div className="max-w-[90rem] mx-auto px-6 py-6 space-y-4">
               {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.page}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => {
-                    onNavigate(link.page);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
-                    currentPage === link.page
-                      ? "bg-[#C8A14A]/10 text-[#C8A14A]"
-                      : "text-white/70 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  {t(link.labelKey)}
-                </motion.button>
+                link.subMenu ? (
+                  <div key={link.labelKey} className="space-y-2">
+                    <button
+                      onClick={() => {
+                        onNavigate("about");
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-left text-xs uppercase tracking-widest px-4 ${
+                        currentPage === "about" || isSubpageActive(link)
+                          ? "text-[#C8A14A]"
+                          : "text-white/50"
+                      }`}
+                    >
+                      {t(link.labelKey)}
+                    </button>
+                    {link.subMenu.map((sub, subIndex) => (
+                      <motion.button
+                        key={sub.page}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: (index + subIndex) * 0.04 }}
+                        onClick={() => {
+                          onNavigate(sub.page);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`block w-full text-left py-3 px-6 rounded-lg transition-colors ${
+                          currentPage === sub.page
+                            ? "bg-[#C8A14A]/10 text-[#C8A14A]"
+                            : "text-white/70 hover:bg-white/5 hover:text-white"
+                        }`}
+                      >
+                        {t(sub.labelKey)}
+                      </motion.button>
+                    ))}
+                  </div>
+                ) : (
+                  <motion.button
+                    key={link.page}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => {
+                      onNavigate(link.page);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
+                      currentPage === link.page
+                        ? "bg-[#C8A14A]/10 text-[#C8A14A]"
+                        : "text-white/70 hover:bg-white/5 hover:text-white"
+                    }`}
+                  >
+                    {t(link.labelKey)}
+                  </motion.button>
+                )
               ))}
               <LanguageSwitcher />
               <motion.button

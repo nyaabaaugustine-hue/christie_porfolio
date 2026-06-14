@@ -64,6 +64,21 @@ const projects = [
     ],
     outcome: "Returned the business to profitability within 12 months with a clear growth trajectory.",
   },
+  {
+    title: "Phoenix Enclave Development",
+    challenge: "A complex real estate development requiring integrated execution across disciplines",
+    strategy: "Strategic leadership, development governance, and stakeholder coordination",
+    metric: "Premium",
+    metricLabel: "Market Position",
+    results: ["Successful commercial launch", "Long-term value creation"],
+    details: [
+      "Led strategic planning and governance framework for the mixed-use development",
+      "Coordinated cross-disciplinary teams across design, construction, and commercial functions",
+      "Managed stakeholder relationships and development milestones",
+      "Delivered a premium development positioned for sustainable long-term returns",
+    ],
+    outcome: "A high-quality real estate asset delivered through disciplined execution and cohesive leadership.",
+  },
 ];
 
 export default function TransformationImpact() {
@@ -79,11 +94,11 @@ export default function TransformationImpact() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
+          <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
             Transformation Impact
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-[#0B1F3A] leading-tight mb-6">
-            Driving Measurable Results
+            Transformation Projects
           </h2>
           <div className="w-16 h-0.5 bg-[#C8A14A]/30 mb-8" />
         </motion.div>
@@ -95,8 +110,9 @@ export default function TransformationImpact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#C8A14A]/30 hover:border-[#C8A14A]/70 hover:shadow-lg transition-all duration-500 group"
             >
+              <div className="h-1 bg-gradient-to-r from-[#C8A14A]/40 via-[#C8A14A] to-[#C8A14A]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="p-8 lg:p-10">
                 <div className="flex items-start justify-between mb-6">
                   <div>
@@ -109,7 +125,7 @@ export default function TransformationImpact() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#0B1F3A] mb-4">
+                <h3 className="text-xl font-semibold text-[#0B1F3A] mb-4 group-hover:text-[#C8A14A] transition-colors duration-300">
                   {project.title}
                 </h3>
 
@@ -146,7 +162,7 @@ export default function TransformationImpact() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
                       <div className="pt-6 mt-6 border-t border-gray-100">

@@ -1,55 +1,63 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, BookOpen, Users, Target, Download } from "lucide-react";
+import { Briefcase, Target, RefreshCw, Lightbulb, Shield, TrendingUp } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface AboutPageProps {
   onNavigate: (page: Page) => void;
 }
 
-const careerHighlights = [
+const areasOfExpertise = [
   {
-    icon: Award,
-    title: "Executive Leadership",
-    description: "20+ years leading organizations through transformation and growth across multiple industries.",
+    icon: Briefcase,
+    title: "Corporate Leadership",
+    description: "Leading organizations through growth, change, and transformation.",
   },
   {
     icon: Target,
-    title: "Strategic Operations",
-    description: "Expertise in operational excellence, supply chain optimization, and business process improvement.",
+    title: "Business Strategy",
+    description: "Developing growth strategies and translating them into actionable plans.",
   },
   {
-    icon: Users,
-    title: "Team Development",
-    description: "Building high-performance teams and cultivating leadership talent across organizations.",
+    icon: RefreshCw,
+    title: "Organizational Transformation",
+    description: "Improving structures, systems, and performance.",
   },
   {
-    icon: BookOpen,
-    title: "Thought Leadership",
-    description: "Regular speaker and writer on business transformation, governance, and African enterprise.",
+    icon: Lightbulb,
+    title: "Entrepreneurship",
+    description: "Building businesses and creating new opportunities.",
+  },
+  {
+    icon: Shield,
+    title: "Governance",
+    description: "Strengthening accountability, leadership, and strategic oversight.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Growth & Expansion",
+    description: "Identifying opportunities and creating pathways for sustainable growth.",
   },
 ];
 
 const education = [
   {
-    degree: "Executive Master of Business Administration",
+    degree: "Executive MBA",
     school: "Ghana Institute of Management and Public Administration (GIMPA)",
-    year: "2015",
   },
   {
     degree: "Bachelor of Arts",
     school: "Kwame Nkrumah University of Science and Technology (KNUST)",
-    year: "2002",
   },
 ];
 
-const values = [
-  { name: "Integrity", description: "Unwavering commitment to ethical leadership and transparency" },
-  { name: "Excellence", description: "Relentless pursuit of the highest standards in all endeavors" },
-  { name: "Innovation", description: "Embracing new ideas and approaches to solve complex challenges" },
-  { name: "Accountability", description: "Taking ownership and delivering on commitments" },
-  { name: "Sustainable Growth", description: "Creating lasting value for stakeholders and communities" },
+const leadershipPhilosophy = [
+  { name: "Strategic Thinking", description: "Creating clarity in complexity." },
+  { name: "Operational Excellence", description: "Turning strategy into measurable outcomes." },
+  { name: "People Development", description: "Building strong leaders and high-performing teams." },
+  { name: "Value Creation", description: "Driving sustainable business growth." },
+  { name: "Legacy", description: "Creating institutions and opportunities that endure." },
 ];
 
 export default function AboutPage({ onNavigate }: AboutPageProps) {
@@ -59,40 +67,57 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   return (
     <main className="pt-20">
       {/* Hero Section */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+      <section className="relative h-[360px] lg:h-[440px] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
-            alt=""
-            className="w-full h-full object-cover opacity-40"
+            alt="About background"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-[#0B1F3A]/90" />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.16)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 to-[#0B1F3A]/90" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
+          <div>
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
               About Christiana
             </p>
-            <h1 className="text-4xl lg:text-6xl font-serif text-white mb-6">
-              Executive Biography
-            </h1>
-            <p className="text-white/60 max-w-3xl mx-auto text-lg">
-              A journey of transformation, leadership, and impact across African enterprise
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="mt-8 inline-flex items-center gap-3 px-8 py-3 bg-[#C8A14A] text-[#0B1F3A] font-semibold rounded-lg hover:bg-[#b8923f] transition-colors"
-            >
-              <Download size={18} />
-              Download Executive Bio
-            </motion.button>
-          </motion.div>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">About</h1>
+            <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F8F8F8]">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+              <div className="max-w-2xl">
+                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
+                  Introduction
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed mb-4">
+                  Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with more than two decades of experience leading organizations, building businesses, and driving transformational growth.
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed mb-4">
+                  Her career spans entrepreneurship, executive leadership, business development, organizational transformation, operations, logistics, communications, and strategic growth.
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Recognized for her ability to bridge vision and execution, Christiana has consistently demonstrated a capacity to build businesses, lead teams, improve performance, and create sustainable value.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
+                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
+                  Core Focus
+                </p>
+                <ul className="space-y-3 text-white/70 text-sm leading-relaxed">
+                  <li>Entrepreneurship and executive leadership</li>
+                  <li>Business transformation and growth strategy</li>
+                  <li>Operations, logistics, and industrial development</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -118,35 +143,40 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-                The Story
+                The Journey
               </p>
               <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
-                From Creative Professional to Transformation Executive
+                Executive Biography
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Christiana Akua Feyie Yeboaa Okyere stands as one of Ghana's most influential 
-                  corporate leaders, with a career spanning over two decades across industrial 
-                  operations, logistics, manufacturing, trade, real estate development, and 
-                  strategic communications.
+                  Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist
+                  with more than two decades of experience leading businesses, driving organizational transformation,
+                  and creating sustainable growth across multiple industries.
                 </p>
                 <p>
-                  Her journey began in the creative industry, where she built a foundation in 
-                  communications, branding, and marketing. This creative background gave her 
-                  a unique perspective on business—understanding that successful organizations 
-                  must connect with people, not just processes.
+                  <span className="font-semibold text-[#0B1F3A]">The Creative Foundation.</span>{" "}
+                  Christiana's professional journey began in communications, design, branding, and marketing.
+                  These early experiences developed the strategic thinking, creativity, and communication skills
+                  that continue to influence her leadership approach today.
                 </p>
                 <p>
-                  As an entrepreneur, Christiana founded and scaled multiple ventures, gaining 
-                  firsthand experience in the challenges and opportunities of building businesses 
-                  in emerging markets. This entrepreneurial spirit continues to inform her 
-                  executive leadership approach.
+                  <span className="font-semibold text-[#0B1F3A]">The Entrepreneurial Builder.</span>{" "}
+                  Driven by a passion for creating solutions and opportunities, she established businesses
+                  that served clients across multiple industries. Through entrepreneurship, she gained firsthand
+                  experience in business growth, leadership, customer engagement, and organizational development.
                 </p>
                 <p>
-                  Today, as Group COO of McDan Group, Christiana leads operations across 
-                  multiple business units, driving operational excellence and strategic growth. 
-                  Her transformation expertise has been instrumental in restructuring initiatives, 
-                  market expansions, and organizational turnarounds.
+                  <span className="font-semibold text-[#0B1F3A]">The Executive Leader.</span>{" "}
+                  Over time, her responsibilities evolved beyond entrepreneurship into broader executive
+                  leadership roles focused on strategic execution, growth, operational excellence, and
+                  organizational transformation.
+                </p>
+                <p>
+                  <span className="font-semibold text-[#0B1F3A]">The Growth Strategist.</span>{" "}
+                  Today, Christiana combines entrepreneurial insight with executive leadership experience
+                  to support organizations in navigating complexity, unlocking growth opportunities,
+                  and building sustainable futures.
                 </p>
               </div>
             </motion.div>
@@ -154,7 +184,30 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Career Highlights */}
+      {/* Featured Quote */}
+      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.03)_1px,transparent_1px)] bg-[length:48px_48px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#C8A14A]/[0.06] rounded-full" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-[#C8A14A] text-5xl lg:text-7xl font-serif leading-none block mb-6">"</span>
+            <blockquote className="text-2xl lg:text-3xl font-serif text-white leading-relaxed mb-8">
+              Growth does not happen by chance. It happens when vision, leadership, discipline, and execution come together.
+            </blockquote>
+            <div className="w-12 h-px bg-[#C8A14A]/50 mx-auto" />
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mt-6 font-medium">
+              Christiana Akua Feyie Yeboaa Okyere
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Areas of Expertise */}
       <section className="py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
@@ -165,15 +218,15 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             className="text-center mb-16"
           >
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Career Highlights
+              Areas of Expertise
             </p>
             <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
               Key Areas of Impact
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {careerHighlights.map((highlight, index) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {areasOfExpertise.map((highlight, index) => {
               const Icon = highlight.icon;
               return (
                 <motion.div
@@ -182,10 +235,10 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow"
+                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#C8A14A]/10 flex items-center justify-center mb-4">
-                    <Icon className="text-[#C8A14A]" size={24} />
+                  <div className="w-14 h-14 rounded-2xl bg-[#C8A14A]/10 flex items-center justify-center mb-4">
+                    <Icon className="text-[#C8A14A]" size={28} />
                   </div>
                   <h3 className="font-semibold text-[#0B1F3A] mb-2">{highlight.title}</h3>
                   <p className="text-gray-600 text-sm">{highlight.description}</p>
@@ -209,8 +262,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
               Education
             </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
-              Academic Foundation
+            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
+              Academic Background
             </h2>
           </motion.div>
 
@@ -224,12 +277,9 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[#F5F6F7] rounded-xl p-6"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="font-semibold text-[#0B1F3A] mb-1">{edu.degree}</h3>
-                    <p className="text-gray-600">{edu.school}</p>
-                  </div>
-                  <span className="text-[#C8A14A] font-medium">{edu.year}</span>
+                <div>
+                  <h3 className="font-semibold text-[#0B1F3A] mb-1">{edu.degree}</h3>
+                  <p className="text-gray-600">{edu.school}</p>
                 </div>
               </motion.div>
             ))}
@@ -237,7 +287,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Leadership Values */}
+      {/* Leadership Philosophy */}
       <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
@@ -248,15 +298,19 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             className="text-center mb-16"
           >
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Core Values
+              Leadership Philosophy
             </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-white">
-              Leadership Values
-            </h2>
+              <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
+                Leadership Philosophy
+              </h2>
+            <p className="text-white/50 max-w-2xl mx-auto mt-4">
+              Sustainable growth is achieved when vision, people, systems, and execution
+              work together toward a common purpose.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {values.map((value, index) => (
+            {leadershipPhilosophy.map((value, index) => (
               <motion.div
                 key={value.name}
                 initial={{ opacity: 0, y: 30 }}
@@ -285,11 +339,10 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
-              Ready to Connect?
+              Let's Connect
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Whether you're seeking a board member, keynote speaker, or strategic advisor, 
-              Christiana brings the expertise and vision to drive meaningful impact.
+               Interested in board opportunities, speaking engagements, strategic conversations, or executive leadership collaborations?
             </p>
             <motion.button
               onClick={() => onNavigate("contact")}

@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Linkedin, Calendar } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface ContactPageProps {
   onNavigate: (page: Page) => void;
@@ -13,7 +13,7 @@ const inquiryTypes = [
   { id: "speaking", label: "Speaking Engagements" },
   { id: "advisory", label: "Strategic Advisory" },
   { id: "media", label: "Media Interviews" },
-  { id: "collaboration", label: "Executive Collaboration" },
+  { id: "collaboration", label: "Professional Collaborations" },
 ];
 
 export default function ContactPage({ }: ContactPageProps) {
@@ -36,38 +36,86 @@ export default function ContactPage({ }: ContactPageProps) {
   return (
     <main className="pt-20">
       {/* Hero */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+      <section className="relative h-[360px] lg:h-[440px] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
-            alt=""
-            className="w-full h-full object-contain opacity-30"
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781390223/bacck_jtcnfj.png"
+            alt="Contact background"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/90 via-[#0B1F3A]/70 to-[#0B1F3A]/90" />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 to-[#0B1F3A]/90" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Contact
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
+          <div>
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
+              Connect
             </p>
-            <h1 className="text-4xl lg:text-6xl font-serif text-white mb-6">
-              Let's Connect
-            </h1>
-            <p className="text-white/60 max-w-3xl mx-auto text-lg">
-              For board inquiries, speaking engagements, and strategic partnerships
-            </p>
-          </motion.div>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">Contact</h1>
+            <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
+          </div>
+        </div>
+      </section>
+
+      {/* Page introduction */}
+      <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+              <div className="max-w-2xl">
+                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
+                  Connect
+                </p>
+                <h1 className="text-4xl lg:text-5xl font-serif text-white mb-6">
+                  Let's Connect
+                </h1>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Whether you are exploring board opportunities, speaking engagements,
+                  strategic collaborations, or professional conversations, I welcome the
+                  opportunity to connect.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
+                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
+                  Areas of Inquiry
+                </p>
+                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Board Opportunities
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Speaking Engagements
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Strategic Advisory
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Media Interviews
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Professional Collaborations
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute top-0 left-0 w-full h-full" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #C8A14A 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
             {/* Contact Form */}
             <motion.div
@@ -76,7 +124,7 @@ export default function ContactPage({ }: ContactPageProps) {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl font-serif text-[#0B1F3A] mb-6">
-                Send an Inquiry
+                Inquiry Form
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -180,7 +228,7 @@ export default function ContactPage({ }: ContactPageProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-2xl font-serif text-[#0B1F3A] mb-6">
-                Contact Information
+                Connect with the Team
               </h2>
 
               <div className="space-y-6 mb-12">
@@ -215,24 +263,6 @@ export default function ContactPage({ }: ContactPageProps) {
                 </div>
               </div>
 
-              {/* Executive Assistant */}
-              <div className="bg-[#F5F6F7] rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-[#0B1F3A] mb-4">Executive Assistant</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  For scheduling and immediate inquiries, please contact Christiana's 
-                  executive assistant.
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#C8A14A]/20 flex items-center justify-center">
-                    <span className="text-[#C8A14A] font-semibold text-sm">EA</span>
-                  </div>
-                  <div>
-                    <p className="font-medium text-[#0B1F3A]">Executive Office</p>
-                    <p className="text-gray-500 text-sm">ea@christianaokyere.com</p>
-                  </div>
-                </div>
-              </div>
-
               {/* LinkedIn & Calendar */}
                 <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a
@@ -254,6 +284,14 @@ export default function ContactPage({ }: ContactPageProps) {
                   <Calendar size={18} />
                   Schedule Call
                 </motion.button>
+              </div>
+
+              <div className="mt-10 rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+                <img
+                  src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781390574/1781390096350-019ec31f-2e91-7e91-aee6-06b8e0a27896_difmdk.png"
+                  alt="Christiana team contact"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </motion.div>
           </div>

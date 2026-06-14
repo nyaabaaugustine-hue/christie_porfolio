@@ -40,6 +40,7 @@ export default function ThoughtLeadership() {
           alt=""
           className="w-full h-full object-cover object-top opacity-20"
         />
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white" />
       </div>
       <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-[#C8A14A]/40 to-transparent" />
@@ -53,7 +54,7 @@ export default function ThoughtLeadership() {
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-20"
         >
           <div>
-            <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-[0.2em] uppercase mb-6 font-medium rounded-full">
+            <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
               Thought Leadership
             </span>
             <h2 className="text-3xl lg:text-5xl font-serif text-[#0B1F3A] tracking-tight">

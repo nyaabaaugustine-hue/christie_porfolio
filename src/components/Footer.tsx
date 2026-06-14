@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type Page = 'home' | 'about' | 'leadership' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -47,7 +47,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           <div>
             <h4 className="text-xs tracking-[0.15em] uppercase text-[#C8A14A] font-medium mb-5">
-              {t("nav.home")}
+              Navigation
             </h4>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
@@ -83,14 +83,14 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs">
+          <p className="text-white/50 text-xs">
             &copy; {new Date().getFullYear()} Christiana Akua Feyie Yeboaa Okyere. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-6">
-            <button className="text-white/30 hover:text-[#C8A14A] text-xs transition-colors">
+            <button className="text-white/50 hover:text-[#C8A14A] text-xs transition-colors">
               {t("footer.privacy")}
             </button>
-            <button className="text-white/30 hover:text-[#C8A14A] text-xs transition-colors">
+            <button className="text-white/50 hover:text-[#C8A14A] text-xs transition-colors">
               {t("footer.terms")}
             </button>
           </div>

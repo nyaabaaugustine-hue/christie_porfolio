@@ -73,37 +73,77 @@ export default function InsightsPage() {
   return (
     <main className="pt-20">
       {/* Hero */}
-      <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
+      <section className="relative h-[360px] lg:h-[440px] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
-            alt=""
-            className="w-full h-full object-cover opacity-40"
+            alt="Insights background"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-[#0B1F3A]/90" />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.16)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 to-[#0B1F3A]/90" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
+          <div>
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
               Thought Leadership
             </p>
-            <h1 className="text-4xl lg:text-6xl font-serif text-white mb-6">
-              Executive Insights
-            </h1>
-            <p className="text-white/60 max-w-3xl mx-auto text-lg">
-              Perspectives on leadership, transformation, and African enterprise
-            </p>
-          </motion.div>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">Insights</h1>
+            <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+              <div className="max-w-2xl">
+                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
+                  Insights
+                </p>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Perspectives on leadership, transformation, and African enterprise.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
+                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
+                  Categories
+                </p>
+                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Leadership
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Governance
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Business Growth
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Industrial Development
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Transformation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
+                    Entrepreneurship
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Featured Articles */}
-      <section className="py-16 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -160,8 +200,17 @@ export default function InsightsPage() {
       </section>
 
       {/* All Articles */}
-      <section ref={ref} className="py-16 bg-[#F5F6F7]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section ref={ref} className="py-16 lg:py-20 bg-[#F5F6F7] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781390223/bacck_jtcnfj.png"
+            alt="Insights background"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
+          <div className="absolute inset-0 bg-[#F5F6F7]/80" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 z-10">
           {/* Search and Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

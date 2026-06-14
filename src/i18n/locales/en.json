@@ -2,42 +2,48 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "leadership": "Leadership",
-    "speaking": "Speaking",
+    "leadership": "Leadership Portfolio",
+    "board": "Board & Advisory",
+    "transformation": "Transformation Projects",
+    "industries": "Industries",
+    "speaking": "Speaking & Media",
     "insights": "Insights",
     "contact": "Contact",
     "getInTouch": "Get in Touch"
   },
   "hero": {
-    "subtitle": "Corporate Executive • Growth Strategist • Board Leader",
-    "headline1": "Transforming Businesses.",
-    "headline2": "Scaling Industries.",
-    "headline3": "Building Sustainable Growth.",
-    "description": "Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with over two decades of experience leading business transformation, operational excellence, industrial growth, and organizational performance across Africa.",
-    "cta": "Explore My Work"
+    "subtitle": "Corporate Executive | Entrepreneur | Growth Strategist",
+    "headline": "Christiana Akua Feyie Yeboaa Okyere",
+    "headline1": "Building businesses,",
+    "headline2": "transforming organizations,",
+    "headline3": "creating sustainable growth.",
+    "description": "With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.",
+    "cta1": "Explore My Journey",
+    "cta2": "Explore My Journey",
+    "connectCta": "Connect With Me"
   },
   "snapshot": {
-    "label": "Executive Snapshot",
-    "title": "A Legacy of Impact",
-    "description": "Two decades of driving transformation across multiple industries and organizations.",
-    "years": "Years Experience",
-    "industries": "Industries",
-    "organizations": "Organizations Transformed",
-    "value": "Value Created (USD)"
+    "label": "Executive Introduction",
+    "title": "Executive Entrepreneur. Boardroom Strategist.",
+    "description": "Christiana Akua Feyie Yeboaa Okyere is a seasoned corporate executive, entrepreneur, and growth strategist whose career reflects a unique combination of entrepreneurial agility and executive leadership.",
+    "intro": "Having built and led businesses across multiple sectors while also serving in senior executive leadership roles, she brings a practical understanding of growth, transformation, governance, and operational excellence.",
+    "focus": "Today, her work focuses on helping organizations unlock growth, improve performance, strengthen leadership, and create sustainable long-term value."
   },
   "philosophy": {
     "label": "Leadership Philosophy",
-    "title": "The Five Pillars of Executive Excellence",
-    "strategic": { "title": "Strategic Vision", "desc": "Seeing around corners and anticipating market shifts before they happen." },
-    "operational": { "title": "Operational Excellence", "desc": "Driving efficiency, quality, and performance across all operations." },
-    "transformational": { "title": "Transformational Leadership", "desc": "Inspiring and leading organizations through fundamental change." },
-    "governance": { "title": "Governance & Stewardship", "desc": "Upholding the highest standards of corporate governance and accountability." },
-    "growth": { "title": "Sustainable Growth", "desc": "Building value that endures across generations and markets." }
+    "title": "Building Growth Through Leadership",
+    "intro": "Christiana believes that sustainable growth is achieved when vision, people, systems, and execution work together toward a common purpose.",
+    "subtitle": "Her leadership philosophy is built on five principles:",
+    "strategic": { "title": "Strategic Thinking", "desc": "Creating clarity in complexity." },
+    "operational": { "title": "Operational Excellence", "desc": "Turning strategy into measurable outcomes." },
+    "people": { "title": "People Development", "desc": "Building strong leaders and high-performing teams." },
+    "value": { "title": "Value Creation", "desc": "Driving sustainable business growth." },
+    "legacy": { "title": "Legacy", "desc": "Creating institutions and opportunities that endure." }
   },
   "expertise": {
     "label": "Areas of Expertise",
-    "title": "Strategic Capabilities",
-    "description": "Comprehensive expertise spanning executive leadership, operations, strategy, and transformation across multiple industries.",
+    "title": "Core Competencies",
+    "description": "Expertise spanning corporate leadership, business strategy, transformation, entrepreneurship, and governance.",
     "groups": {
       "leadership": "Leadership & Strategy",
       "operations": "Operations & Growth",
@@ -47,35 +53,79 @@
       "corporate": "Corporate Leadership",
       "strategy": "Business Strategy",
       "orgTransformation": "Organizational Transformation",
-      "governance": "Governance",
-      "industrial": "Industrial Operations",
       "entrepreneurship": "Entrepreneurship",
+      "governance": "Governance",
       "growth": "Growth & Expansion",
-      "comms": "Strategic Communications",
-      "supplyChain": "Supply Chain & Logistics"
+      "operations": "Operational Excellence",
+      "change": "Change Management",
+      "stakeholder": "Stakeholder Management"
     }
   },
+  "industries": {
+    "label": "Industry Experience",
+    "title": "Across Multiple Sectors",
+    "items": [
+      "Business Services",
+      "Strategic Communications",
+      "Logistics & Supply Chain",
+      "Industrial Operations",
+      "Trade & Distribution",
+      "Real Estate Development",
+      "Manufacturing",
+      "Hospitality"
+    ]
+  },
   "timeline": {
-    "title": "Career Timeline",
+    "title": "Career Journey",
+    "subtitle": "A Career Built on Growth",
+    "description": "From creative beginnings in communications and branding to executive leadership across multiple industries, Christiana's journey has been defined by continuous growth, learning, and transformation.",
     "milestones": {
-      "groupCOO": { "title": "Group COO", "org": "McDan Group", "desc": "Overseeing multi-business operations and strategic growth." },
-      "execDirector": { "title": "Executive Director", "org": "Eagle Salt", "desc": "Leading production scale-up and regional expansion." },
-      "boardAdvisor": { "title": "Board Advisory", "org": "Multiple Organizations", "desc": "Serving on boards and providing strategic counsel." }
+      "creative": { "title": "Creative Foundation", "desc": "Communications, branding, and strategic marketing" },
+      "entrepreneur": { "title": "Entrepreneurial Builder", "desc": "Establishing businesses across multiple sectors" },
+      "executive": { "title": "Executive Leader", "desc": "Strategic execution and organizational transformation" },
+      "strategist": { "title": "Growth Strategist", "desc": "Supporting organizations unlock growth and build sustainable futures" }
     }
   },
   "portfolio": {
     "label": "Leadership Portfolio",
     "title": "Organizations of Impact",
     "viewAll": "View Full Portfolio",
-    "viewFull": "View Full Portfolio"
+    "viewFull": "View Full Portfolio",
+    "companies": [
+      { "name": "McDan Group", "sector": "Industrial Operations & Logistics" },
+      { "name": "Eagle Salt", "sector": "Manufacturing & Production" },
+      { "name": "Moonlight Shipping", "sector": "Logistics & Supply Chain" },
+      { "name": "SMIC360", "sector": "Industrial Operations" },
+      { "name": "Phoenix Enclave", "sector": "Real Estate Development" },
+      { "name": "Osabusquare", "sector": "Trade & Distribution" }
+    ]
   },
-  "industries": {
-    "label": "Across Industries",
-    "title": "A Legacy of Leadership"
+  "transformation": {
+    "label": "Transformation Impact",
+    "title": "Transformation Projects",
+    "description": "Case studies demonstrating measurable impact through strategic transformation and operational excellence.",
+    "cases": [
+      {
+        "title": "Eagle Salt Scale-Up",
+        "challenge": "Scaling production and expanding regional market presence",
+        "approach": "Strategic planning, operational optimization, market expansion",
+        "execution": "Implemented new systems, trained teams, expanded distribution",
+        "results": "300% production increase, regional market leadership",
+        "lessons": "Scalable systems are foundation for sustainable growth"
+      },
+      {
+        "title": "Electrochem Restructuring",
+        "challenge": "Organizational restructuring and operational efficiency",
+        "approach": "Process optimization, team realignment, governance improvement",
+        "execution": "Implemented lean processes, restructured teams, strengthened governance",
+        "results": "40% cost reduction, improved efficiency",
+        "lessons": "Governance and clear systems drive organizational performance"
+      }
+    ]
   },
   "impact": {
     "label": "Transformation Impact",
-    "title": "Driving Measurable Results",
+    "title": "Transformation Projects",
     "viewAll": "View All Transformation Projects",
     "readStrategy": "Read the Strategy",
     "hideStrategy": "Hide Strategy",
@@ -88,17 +138,10 @@
     "title": "What Leaders Say"
   },
   "cta": {
-    "label": "Let\u2019s Connect",
-    "title1": "Let\u2019s Build the Future of",
-    "title2": "African Enterprise",
-    "description": "Ready to explore how we can create lasting impact together? Christiana is available for board positions, speaking engagements, and strategic advisory roles.",
-    "board": "Board Inquiries",
-    "boardDesc": "Explore governance and advisory opportunities",
-    "speaking": "Speaking Engagements",
-    "speakingDesc": "Invite Christiana to your next event",
-    "partnerships": "Strategic Partnerships",
-    "partnershipsDesc": "Discuss collaboration opportunities",
-    "submit": "Submit Inquiry"
+    "label": "Let's Connect",
+    "title": "Interested in Board Opportunities, Speaking Engagements, Strategic Conversations, or Executive Leadership Collaborations?",
+    "description": "Christiana is available for board appointments, speaking engagements, and strategic advisory opportunities.",
+    "button": "Let's Connect"
   },
   "footer": {
     "rights": "All rights reserved.",
@@ -113,54 +156,112 @@
   },
   "about": {
     "label": "About Christiana",
-    "title": "Executive Biography",
-    "description": "A journey of transformation, leadership, and impact across African enterprise",
-    "download": "Download Executive Bio",
-    "highlights": {
-      "leadership": "Executive Leadership",
-      "leadershipDesc": "20+ years leading organizations through transformation and growth across multiple industries.",
-      "operations": "Strategic Operations",
-      "operationsDesc": "Expertise in operational excellence, supply chain optimization, and business process improvement.",
-      "team": "Team Development",
-      "teamDesc": "Building high-performance teams and cultivating leadership talent across organizations.",
-      "thought": "Thought Leadership",
-      "thoughtDesc": "Regular speaker and writer on business transformation, governance, and African enterprise."
-    }
+    "title": "About",
+    "introduction": "Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with more than two decades of experience leading businesses, driving organizational transformation, and creating sustainable growth across multiple industries.",
+    "journey": "The Journey",
+    "creativeFoundation": "The Creative Foundation",
+    "creativeDesc": "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today.",
+    "entrepreneurialBuilder": "The Entrepreneurial Builder",
+    "entrepreneurialDesc": "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development.",
+    "executiveLeader": "The Executive Leader",
+    "executiveDesc": "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation.",
+    "growthStrategist": "The Growth Strategist",
+    "strategistDesc": "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures.",
+    "education": "Education",
+    "emba": "Executive MBA, Ghana Institute of Management and Public Administration (GIMPA)",
+    "ba": "Bachelor of Arts, Kwame Nkrumah University of Science and Technology (KNUST)",
+    "biography": "Full Biography",
+    "download": "Download Executive Bio"
+  },
+  "leadership": {
+    "label": "Leadership",
+    "title": "Leadership",
+    "leadingWithPurpose": "Leading with Purpose",
+    "purpose": "Throughout her career, Christiana has led organizations through periods of growth, change, and transformation. Her leadership experience spans private enterprise, entrepreneurship, strategic projects, and executive management across multiple industries.",
+    "themes": "Leadership Themes",
+    "executive": "Executive Leadership - Providing strategic direction and organizational leadership.",
+    "growth": "Growth Strategy - Creating pathways for sustainable business expansion.",
+    "transformation": "Transformation - Driving organizational improvement and performance enhancement.",
+    "entrepreneurship": "Entrepreneurship - Building ventures and creating opportunities.",
+    "governance": "Governance - Strengthening accountability and long-term value creation.",
+    "industries": "Industry Experience",
+    "portfolio": "Leadership Portfolio",
+    "portfolioDesc": "Leading organizations across multiple sectors",
+    "projects": "Transformation Projects",
+    "projectsDesc": "Delivering measurable impact through strategic transformation"
+  },
+  "board": {
+    "label": "Board & Advisory",
+    "title": "Board & Advisory",
+    "overview": "Christiana brings a unique blend of entrepreneurial experience, executive leadership, operational insight, and growth strategy to board and advisory roles.",
+    "intro": "Her experience across multiple industries enables her to contribute strategic perspectives that support sustainable growth, governance, organizational effectiveness, and long-term value creation.",
+    "areas": "Areas of Contribution",
+    "strategy": "Strategy - Supporting organizations in defining and executing growth strategies.",
+    "governance": "Governance - Strengthening oversight, accountability, and organizational effectiveness.",
+    "growthArea": "Growth - Identifying opportunities and unlocking sustainable expansion.",
+    "transformationArea": "Transformation - Supporting organizations through change and performance improvement.",
+    "entrepreneurshipArea": "Entrepreneurship - Bringing practical experience in business creation and development.",
+    "interests": "Board Interests",
+    "boards": [
+      "Corporate Boards",
+      "Advisory Boards",
+      "Growth-Oriented Organizations",
+      "Development Institutions",
+      "Social Impact Enterprises",
+      "Family Businesses"
+    ],
+    "inquiry": "Interested in Board Opportunities?"
   },
   "speaking": {
-    "label": "Speaking Engagements",
-    "title": "Keynote Speaker",
-    "description": "Inspiring audiences with insights on leadership, transformation, and African enterprise",
-    "reel": "Speaker Reel",
-    "reelDesc": "Watch highlights from past engagements",
-    "topics": "Topics",
-    "topicsTitle": "Signature Keynotes",
-    "experience": "Experience",
-    "experienceTitle": "Past Engagements",
-    "resources": "Resources",
-    "resourcesTitle": "Speaker Kit",
-    "resourcesDesc": "Download Christiana\u2019s speaker kit for high-resolution photos, bio, topics, and technical requirements.",
-    "downloadKit": "Download Speaker Kit",
-    "book": "Book Christiana",
-    "bookDesc": "For speaking inquiries, please provide details about your event and Christiana\u2019s team will respond within 48 hours.",
-    "submitInquiry": "Submit Speaking Inquiry",
-    "mediaTitle": "Media & Speaking",
-    "mediaDesc": "Sharing insights on leadership, transformation, and African enterprise at premier business forums and conferences.",
-    "keynotes": "Keynote Addresses",
-    "panels": "Conference Panels",
-    "awards": "Awards & Recognitions",
-    "videos": "Speaking Highlights"
+    "label": "Speaking",
+    "title": "Speaking & Media",
+    "intro": "Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.",
+    "subtitle": "Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.",
+    "topics": "Speaking Topics",
+    "topicsIntro": "Signature Keynotes",
+    "availableFor": "Available For",
+    "conferences": "Conferences",
+    "forums": "Executive Forums",
+    "retreats": "Leadership Retreats",
+    "corporate": "Corporate Events",
+    "panels": "Industry Panels",
+    "university": "University Engagements",
+    "speakingTopics": [
+      {
+        "title": "Leadership in Times of Change",
+        "desc": "Navigating uncertainty and leading organizations through transformation with confidence and clarity."
+      },
+      {
+        "title": "Building Sustainable Growth",
+        "desc": "Creating lasting value through strategic planning, operational excellence, and stakeholder alignment."
+      },
+      {
+        "title": "Entrepreneurship and Value Creation",
+        "desc": "From venture creation to scaling businesses—lessons from two decades of entrepreneurial leadership."
+      },
+      {
+        "title": "Women in Leadership",
+        "desc": "Breaking barriers and navigating the path to executive leadership as a woman in African business."
+      },
+      {
+        "title": "Governance and Organizational Effectiveness",
+        "desc": "Building boards and organizations that drive value, ensure accountability, and deliver results."
+      },
+      {
+        "title": "Turning Strategy into Execution",
+        "desc": "Practical frameworks for bridging the gap between strategic vision and operational reality."
+      }
+    ]
   },
   "insights": {
     "label": "Thought Leadership",
-    "title": "Executive Insights",
-    "description": "Perspectives on leadership, transformation, and African enterprise",
+    "title": "Insights",
+    "intro": "Perspectives on leadership, transformation, and African enterprise",
     "featured": "Featured",
     "latest": "Latest Thinking",
     "search": "Search articles...",
     "readMore": "Read More",
-    "subscribe": "Subscribe",
-    "subscribeTitle": "Subscribe to Executive Insights",
+    "subscribe": "Subscribe to Insights",
     "subscribeDesc": "Receive thought leadership on business transformation, governance, and African enterprise directly in your inbox.",
     "emailPlaceholder": "Enter your email",
     "categories": {
@@ -174,22 +275,24 @@
     }
   },
   "contact": {
-    "label": "Let\u2019s Connect",
+    "label": "Connect",
     "title": "Get in Touch",
-    "description": "Ready to explore how we can create lasting impact together? Christiana is available for board positions, speaking engagements, and strategic advisory roles.",
+    "intro": "Whether you are exploring board opportunities, speaking engagements, strategic collaborations, or professional conversations, I welcome the opportunity to connect.",
+    "areas": "Areas of Inquiry",
+    "inquiries": {
+      "board": "Board Opportunities",
+      "speaking": "Speaking Engagements",
+      "advisory": "Strategic Advisory",
+      "media": "Media Interviews",
+      "collaboration": "Professional Collaborations"
+    },
     "name": "Your Name",
     "email": "Your Email",
     "phone": "Phone Number",
     "subject": "Subject",
     "message": "Your Message",
     "send": "Send Message",
-    "inquiries": {
-      "board": "Board Inquiry",
-      "speaking": "Speaking Engagement",
-      "partnership": "Strategic Partnership",
-      "media": "Media Interviews",
-      "general": "General Inquiry"
-    }
+    "formNote": "Please select an area of inquiry"
   },
   "language": {
     "en": "English",

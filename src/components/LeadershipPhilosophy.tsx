@@ -2,11 +2,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const pillars = [
-  { title: "Strategic Thinking", description: "Anticipating market shifts and positioning organizations for sustainable competitive advantage." },
-  { title: "Operational Excellence", description: "Building systems and processes that deliver consistent, high-quality outcomes at scale." },
-  { title: "People Development", description: "Cultivating talent and creating environments where teams thrive and exceed expectations." },
-  { title: "Value Creation", description: "Driving measurable business results that enhance stakeholder value and organizational impact." },
-  { title: "Legacy Building", description: "Creating enduring institutions that outperform markets and create lasting economic value." },
+  { title: "Strategic Thinking", description: "Creating clarity in complexity." },
+  { title: "Operational Excellence", description: "Turning strategy into measurable outcomes." },
+  { title: "People Development", description: "Building strong leaders and high-performing teams." },
+  { title: "Value Creation", description: "Driving sustainable business growth." },
+  { title: "Legacy", description: "Creating institutions and opportunities that endure." },
 ];
 
 const containerVariants = {
@@ -40,6 +40,7 @@ export default function LeadershipPhilosophy() {
             style={{ y: bgY }}
             className="w-full h-full object-cover object-top opacity-50"
           />
+          <div className="absolute inset-0 bg-[rgba(0,0,0,0.15)]" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A]/70 to-[#0B1F3A]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.04)_1px,transparent_1px)] bg-[length:48px_48px]" />
@@ -53,16 +54,18 @@ export default function LeadershipPhilosophy() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-[0.2em] uppercase mb-6 font-medium rounded-full">
+          <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
             Leadership Philosophy
           </span>
           <h2 className="text-3xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
-            Five Pillars of<br />Executive Excellence
+            Building Growth Through Leadership
           </h2>
           <div className="w-12 h-[1px] bg-[#C8A14A]/50 mx-auto mt-6" />
           <p className="text-white/50 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mt-6">
-            A leadership framework refined over two decades of driving transformation 
-            across diverse industries and organizational contexts.
+            Christiana believes that sustainable growth is achieved when vision, people, systems, and execution work together toward a common purpose.
+          </p>
+          <p className="text-white/40 text-sm mt-4">
+            Her leadership philosophy is built on five principles:
           </p>
         </motion.div>
 

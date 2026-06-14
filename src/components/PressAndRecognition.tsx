@@ -51,7 +51,7 @@ export default function PressAndRecognition() {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
+          <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
             Press & Recognition
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-[#0B1F3A] leading-tight mb-6">
@@ -92,7 +92,7 @@ export default function PressAndRecognition() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-6 font-medium">
+          <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-6 font-medium">
             Featured Speaking
           </p>
           <div className="grid md:grid-cols-3 gap-6">

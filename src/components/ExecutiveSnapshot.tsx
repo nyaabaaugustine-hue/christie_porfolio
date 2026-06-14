@@ -33,6 +33,8 @@ function AnimatedCounter({ value, suffix, isInView }: { value: number; suffix: s
   return <span>{count}{suffix}</span>;
 }
 
+const headingWords = ["Executive", "Entrepreneur.", "Boardroom", "Strategist."];
+
 export default function ExecutiveSnapshot() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -47,23 +49,59 @@ export default function ExecutiveSnapshot() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-6 font-medium">
+        <div className="text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-[#C8A14A] text-sm tracking-widest uppercase mb-6 font-medium"
+          >
             Executive Snapshot
-          </p>
+          </motion.p>
           <h2 className="text-4xl lg:text-6xl font-serif text-white leading-tight mb-6">
-            A Legacy of Impact
+            {headingWords.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.15 }}
+                className="inline-block mr-[0.3em]"
+              >
+                {word}
+              </motion.span>
+            ))}
           </h2>
-          <div className="w-16 h-0.5 bg-[#C8A14A]/50 mx-auto mb-10" />
-          <p className="text-white/50 text-lg max-w-xl mx-auto mb-16">
-            Two decades of driving transformation across multiple industries and organizations.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={isInView ? { width: "4rem" } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="h-0.5 bg-[#C8A14A]/50 mx-auto mb-10"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="text-white/70 text-lg max-w-2xl mx-auto mb-6"
+          >
+            Christiana Akua Feyie Yeboaa Okyere is a seasoned corporate executive, entrepreneur, and growth strategist whose career reflects a unique combination of entrepreneurial agility and executive leadership.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="text-white/70 text-base max-w-xl mx-auto mb-6"
+          >
+            Having built and led businesses across multiple sectors while also serving in senior executive leadership roles, she brings a practical understanding of growth, transformation, governance, and operational excellence.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 1.3 }}
+            className="text-white/70 text-base max-w-xl mx-auto"
+          >
+            Today, her work focuses on helping organizations unlock growth, improve performance, strengthen leadership, and create sustainable long-term value.
+          </motion.p>
+        </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 border border-white/10 divide-x divide-y lg:divide-y-0 divide-white/10">
           {stats.map((stat, index) => (
