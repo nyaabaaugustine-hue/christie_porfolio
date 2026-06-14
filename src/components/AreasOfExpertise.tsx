@@ -37,7 +37,7 @@ export default function AreasOfExpertise() {
             Areas of Expertise
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-white leading-tight mb-6">
-            Core Competencies
+            Areas of Expertise
           </h2>
           <div className="w-16 h-0.5 bg-[#C8A14A]/50 mb-8" />
         </motion.div>

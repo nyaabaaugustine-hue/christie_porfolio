@@ -208,16 +208,16 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Explore My Journey
+                View Profile
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
-                onClick={() => onNavigate("contact")}
+                onClick={() => onNavigate("leadership")}
                 className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Connect
+                Explore Leadership Journey
               </motion.button>
             </motion.div>
           </motion.div>
