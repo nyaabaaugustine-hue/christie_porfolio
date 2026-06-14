@@ -9,6 +9,47 @@ interface HeroProps {
 }
 
 const videoIds = ["56ZbiZGh0SM", "TecSq4QvwZs", "kcQ0scOBfvY"];
+const fullName = "Christiana Akua Feyie Yeboaa Okyere";
+
+function TypingName() {
+  const [displayText, setDisplayText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let i = 0;
+    let deleting = false;
+    const timer = setInterval(() => {
+      if (!deleting) {
+        if (i <= fullName.length) {
+          setDisplayText(fullName.slice(0, i));
+          i++;
+        } else {
+          setTimeout(() => { deleting = true; }, 2000);
+        }
+      } else {
+        if (i > 0) {
+          i--;
+          setDisplayText(fullName.slice(0, i));
+        } else {
+          deleting = false;
+        }
+      }
+    }, 80);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const cursor = setInterval(() => setShowCursor((v) => !v), 530);
+    return () => clearInterval(cursor);
+  }, []);
+
+  return (
+    <span>
+      {displayText}
+      <span className={`inline-block w-[3px] h-[0.8em] bg-[#C8A14A] ml-1 align-middle transition-opacity duration-100 ${showCursor ? "opacity-100" : "opacity-0"}`} />
+    </span>
+  );
+}
 
 export default function Hero({ onNavigate }: HeroProps) {
   const [apiReady, setApiReady] = useState(false);
@@ -118,17 +159,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight">
-              {["Christiana", "Akua", "Feyie", "Yeboaa", "Okyere"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <TypingName />
             </h1>
 
             <motion.p
