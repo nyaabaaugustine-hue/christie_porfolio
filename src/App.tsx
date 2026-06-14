@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -11,14 +11,6 @@ import TransformationImpact from "./components/TransformationImpact";
 import Testimonials from "./components/Testimonials";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
-import AboutPage from "./pages/AboutPage";
-import LeadershipPage from "./pages/LeadershipPage";
-import BoardAdvisoryPage from "./pages/BoardAdvisoryPage";
-import SpeakingPage from "./pages/SpeakingPage";
-import ContactPage from "./pages/ContactPage";
-import InsightsPage from "./pages/InsightsPage";
-import TransformationProjectsPage from "./pages/TransformationProjectsPage";
-import IndustriesPage from "./pages/IndustriesPage";
 import FloatingSocial from "./components/FloatingSocial";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ImageCarousel from "./components/ImageCarousel";
@@ -27,12 +19,19 @@ import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
 import Newsletter from "./components/Newsletter";
 import FeaturedQuote from "./components/FeaturedQuote";
 
-// Import custom fonts
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const LeadershipPage = lazy(() => import("./pages/LeadershipPage"));
+const BoardAdvisoryPage = lazy(() => import("./pages/BoardAdvisoryPage"));
+const SpeakingPage = lazy(() => import("./pages/SpeakingPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const InsightsPage = lazy(() => import("./pages/InsightsPage"));
+const TransformationProjectsPage = lazy(() => import("./pages/TransformationProjectsPage"));
+const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
+
 import "./fonts.css";
 
 type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
 
-// Custom cursor component
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -76,7 +75,6 @@ function CustomCursor() {
   );
 }
 
-// Page transition wrapper
 function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
@@ -90,12 +88,22 @@ function PageTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-8 h-8 border-2 border-[#C8A14A]/20 border-t-[#C8A14A] rounded-full animate-spin" />
+        <p className="text-gray-400 text-xs tracking-widest uppercase">Loading</p>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Start loading YouTube API during loader
     if (!(window as any).YT && !(window as any).__ytApiLoading) {
       (window as any).__ytApiLoading = true;
       const tag = document.createElement("script");
@@ -117,11 +125,9 @@ export default function App() {
     setCurrentPage(page);
   };
 
-  // Loading screen
   if (isLoading) {
     return (
       <div className="fixed inset-0 bg-[#0B1F3A] flex items-center justify-center overflow-hidden">
-        {/* Animated grid background */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, #C8A14A 1px, transparent 0)`,
@@ -129,7 +135,6 @@ export default function App() {
           }} />
         </div>
 
-        {/* Expanding circle reveal */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 1] }}
@@ -143,7 +148,6 @@ export default function App() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center relative z-10"
         >
-          {/* Gold accent line */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -160,7 +164,6 @@ export default function App() {
             className="h-12 sm:h-16 w-auto mx-auto mb-8"
           />
 
-          {/* Loading bar */}
           <div className="flex flex-col items-center gap-3">
             <div className="w-48 h-[1px] bg-white/10 overflow-hidden relative">
               <motion.div
@@ -180,7 +183,6 @@ export default function App() {
             </motion.p>
           </div>
 
-          {/* Bottom accent line */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -219,53 +221,55 @@ export default function App() {
           </PageTransition>
         )}
         
-        {currentPage === 'about' && (
-          <PageTransition key="about">
-            <AboutPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
-        
-        {currentPage === 'leadership' && (
-          <PageTransition key="leadership">
-            <LeadershipPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
-        
-        {currentPage === 'board' && (
-          <PageTransition key="board">
-            <BoardAdvisoryPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
-        
-        {currentPage === 'speaking' && (
-          <PageTransition key="speaking">
-            <SpeakingPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
-        
-        {currentPage === 'contact' && (
-          <PageTransition key="contact">
-            <ContactPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
+        <Suspense fallback={<PageLoader />}>
+          {currentPage === 'about' && (
+            <PageTransition key="about">
+              <AboutPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+          
+          {currentPage === 'leadership' && (
+            <PageTransition key="leadership">
+              <LeadershipPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+          
+          {currentPage === 'board' && (
+            <PageTransition key="board">
+              <BoardAdvisoryPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+          
+          {currentPage === 'speaking' && (
+            <PageTransition key="speaking">
+              <SpeakingPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+          
+          {currentPage === 'contact' && (
+            <PageTransition key="contact">
+              <ContactPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
 
-        {currentPage === 'insights' && (
-          <PageTransition key="insights">
-            <InsightsPage />
-          </PageTransition>
-        )}
+          {currentPage === 'insights' && (
+            <PageTransition key="insights">
+              <InsightsPage />
+            </PageTransition>
+          )}
 
-        {currentPage === 'transformation' && (
-          <PageTransition key="transformation">
-            <TransformationProjectsPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
+          {currentPage === 'transformation' && (
+            <PageTransition key="transformation">
+              <TransformationProjectsPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
 
-        {currentPage === 'industries' && (
-          <PageTransition key="industries">
-            <IndustriesPage onNavigate={handleNavigate} />
-          </PageTransition>
-        )}
+          {currentPage === 'industries' && (
+            <PageTransition key="industries">
+              <IndustriesPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+        </Suspense>
       </AnimatePresence>
       
       <FloatingSocial />
