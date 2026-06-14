@@ -186,7 +186,7 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
               Topics
             </p>
             <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
-              Signature Keynotes
+              What I Speak About
             </h2>
           </motion.div>
 

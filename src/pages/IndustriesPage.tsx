@@ -92,7 +92,7 @@ export default function IndustriesPage({ onNavigate }: IndustriesPageProps) {
               Industries
             </h1>
             <p className="text-white/50 text-lg mt-6 max-w-xl">
-              Christemely's leadership spans multiple sectors, bringing practical insight and strategic depth to every industry she works with.
+              Christiana's leadership spans multiple sectors, bringing practical insight and strategic depth to every industry she works with.
             </p>
           </motion.div>
         </div>
@@ -127,7 +127,7 @@ export default function IndustriesPage({ onNavigate }: IndustriesPageProps) {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-gray-200">
                   <div>
-                    <div className="text-3xl font-serif text-[#0B1F3A] mb-1">8</div>
+                    <div className="text-3xl font-serif text-[#0B1F3A] mb-1">6</div>
                     <p className="text-gray-500 text-sm">Industries</p>
                   </div>
                   <div>

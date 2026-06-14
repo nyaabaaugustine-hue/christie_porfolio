@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog' | 'podcast' | 'videos' | 'investors' | 'reports';
 
 interface NavbarProps {
   onNavigate: (page: Page) => void;
@@ -16,15 +16,30 @@ const navLinks = [
   {
     labelKey: "nav.about",
     subMenu: [
+      { labelKey: "nav.aboutChristianas", page: "about" as Page },
       { labelKey: "nav.leadership", page: "leadership" as Page },
       { labelKey: "nav.board", page: "board" as Page },
       { labelKey: "nav.transformation", page: "transformation" as Page },
+      { labelKey: "nav.industries", page: "industries" as Page },
     ],
   },
-  { labelKey: "nav.industries", page: "industries" as Page },
-  { labelKey: "nav.speaking", page: "speaking" as Page },
-  { labelKey: "nav.insights", page: "insights" as Page },
-  { labelKey: "nav.blog", page: "blog" as Page },
+  {
+    labelKey: "nav.media",
+    subMenu: [
+      { labelKey: "nav.speaking", page: "speaking" as Page },
+      { labelKey: "nav.podcast", page: "podcast" as Page },
+      { labelKey: "nav.videos", page: "videos" as Page },
+    ],
+  },
+  {
+    labelKey: "nav.thoughtLeadership",
+    subMenu: [
+      { labelKey: "nav.insights", page: "insights" as Page },
+      { labelKey: "nav.blog", page: "blog" as Page },
+      { labelKey: "nav.investors", page: "investors" as Page },
+      { labelKey: "nav.reports", page: "reports" as Page },
+    ],
+  },
   { labelKey: "nav.contact", page: "contact" as Page },
 ];
 
@@ -32,11 +47,11 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const isSubpageActive = (link: typeof navLinks[number]) => {
     if (!link.subMenu) return false;
-    return link.subMenu.some((item) => item.page === currentPage) || currentPage === "about";
+    return link.subMenu.some((item) => item.page === currentPage);
   };
 
   useEffect(() => {
@@ -79,11 +94,14 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                 <div
                   key={link.labelKey}
                   className="relative"
-                  onMouseEnter={() => setIsAboutOpen(true)}
-                  onMouseLeave={() => setIsAboutOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(link.labelKey)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <motion.button
-                    onClick={() => onNavigate("about")}
+                    onClick={() => {
+                      const firstPage = link.subMenu[0].page;
+                      onNavigate(firstPage);
+                    }}
                     className={`flex items-center gap-2 relative font-medium transition-colors ${
                       isSubpageActive(link)
                         ? "text-[#C8A14A]"
@@ -103,7 +121,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                   </motion.button>
 
                   <AnimatePresence>
-                    {isAboutOpen && (
+                    {openDropdown === link.labelKey && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -116,7 +134,7 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                             key={sub.page}
                             onClick={() => {
                               onNavigate(sub.page);
-                              setIsAboutOpen(false);
+                              setOpenDropdown(null);
                             }}
                             className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors ${
                               currentPage === sub.page
@@ -190,11 +208,11 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                   <div key={link.labelKey} className="space-y-2">
                     <button
                       onClick={() => {
-                        onNavigate("about");
+                        onNavigate(link.subMenu[0].page);
                         setIsMobileMenuOpen(false);
                       }}
                       className={`w-full text-left text-xs uppercase tracking-widest px-4 ${
-                        currentPage === "about" || isSubpageActive(link)
+                        isSubpageActive(link)
                           ? "text-[#C8A14A]"
                           : "text-white/50"
                       }`}

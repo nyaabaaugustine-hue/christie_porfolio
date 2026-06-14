@@ -12,6 +12,7 @@ import Testimonials from "./components/Testimonials";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
 import FloatingSocial from "./components/FloatingSocial";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 import ImageCarousel from "./components/ImageCarousel";
 import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
@@ -28,10 +29,14 @@ const InsightsPage = lazy(() => import("./pages/InsightsPage"));
 const TransformationProjectsPage = lazy(() => import("./pages/TransformationProjectsPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const PodcastPage = lazy(() => import("./pages/PodcastPage"));
+const VideoLibraryPage = lazy(() => import("./pages/VideoLibraryPage"));
+const InvestorRelationsPage = lazy(() => import("./pages/InvestorRelationsPage"));
+const ImpactReportsPage = lazy(() => import("./pages/ImpactReportsPage"));
 
 import "./fonts.css";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog' | 'podcast' | 'videos' | 'investors' | 'reports';
 
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -276,10 +281,35 @@ export default function App() {
               <BlogPage onNavigate={handleNavigate} />
             </PageTransition>
           )}
+
+          {currentPage === 'podcast' && (
+            <PageTransition key="podcast">
+              <PodcastPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+
+          {currentPage === 'videos' && (
+            <PageTransition key="videos">
+              <VideoLibraryPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+
+          {currentPage === 'investors' && (
+            <PageTransition key="investors">
+              <InvestorRelationsPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+
+          {currentPage === 'reports' && (
+            <PageTransition key="reports">
+              <ImpactReportsPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
         </Suspense>
       </AnimatePresence>
       
       <FloatingSocial />
+      <WhatsAppButton />
       
       <Footer onNavigate={handleNavigate} />
     </div>

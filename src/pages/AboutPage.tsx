@@ -453,7 +453,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
               Leadership Philosophy
             </p>
-              <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
+              <h2 className="text-3xl lg:text-4xl font-serif text-white mb-6">
                 Leadership Philosophy
               </h2>
             <p className="text-white/50 max-w-2xl mx-auto mt-4">
