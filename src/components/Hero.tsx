@@ -181,7 +181,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Connect With Me
+                Connect
               </motion.button>
             </motion.div>
           </motion.div>

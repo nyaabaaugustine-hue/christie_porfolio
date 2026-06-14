@@ -1,20 +1,39 @@
 import { motion } from "framer-motion";
 import { useInView } from "../hooks/useInView";
-import { useTranslation } from "react-i18next";
+
+const careerStages = [
+  {
+    phase: "Creative Foundation",
+    title: "Creative Foundation",
+    period: "Early Career",
+    description:
+      "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today.",
+  },
+  {
+    phase: "Entrepreneurial Builder",
+    title: "Entrepreneurial Builder",
+    period: "Growth Phase",
+    description:
+      "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development.",
+  },
+  {
+    phase: "Executive Leader",
+    title: "Executive Leader",
+    period: "Executive Phase",
+    description:
+      "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation.",
+  },
+  {
+    phase: "Growth Strategist",
+    title: "Growth Strategist",
+    period: "Today",
+    description:
+      "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures.",
+  },
+];
 
 export default function CareerTimeline() {
-  const { t } = useTranslation();
   const [ref, isInView] = useInView({ threshold: 0.2 });
-
-  const careerStages = [
-    {
-      phase: t('timeline.milestones.creative.title'),
-      title: t('about.creativeFoundation'),
-      period: "Early Career",
-      description: t('timeline.milestones.creative.desc'),
-    },
-    // ... map other stages similarly
-  ];
 
   return (
     <section ref={ref} className="relative py-16 lg:py-24 xl:py-36 overflow-hidden">

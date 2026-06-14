@@ -65,9 +65,9 @@ export default function ExecutiveSnapshot() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.15 + i * 0.15 }}
-                className="inline-block mr-[0.3em]"
+                className="inline-block"
               >
-                {word}
+                {word}{" "}
               </motion.span>
             ))}
           </h2>

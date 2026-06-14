@@ -20,7 +20,7 @@
     "description": "With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.",
     "cta1": "Explore My Journey",
     "cta2": "Explore My Journey",
-    "connectCta": "Connect With Me"
+    "connectCta": "Connect"
   },
   "snapshot": {
     "label": "Executive Introduction",
@@ -159,7 +159,7 @@
     "title": "About",
     "introduction": "Christiana Akua Feyie Yeboaa Okyere is a Corporate Executive, Entrepreneur, and Growth Strategist with more than two decades of experience leading businesses, driving organizational transformation, and creating sustainable growth across multiple industries.",
     "journey": "The Journey",
-    "creativeFoundation": "The Creative Foundation",
+    "creativeFoundation": "Creative Foundation",
     "creativeDesc": "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today.",
     "entrepreneurialBuilder": "The Entrepreneurial Builder",
     "entrepreneurialDesc": "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development.",
@@ -215,6 +215,7 @@
   "speaking": {
     "label": "Speaking",
     "title": "Speaking & Media",
+    "downloadKit": "Download Speaker Kit",
     "intro": "Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.",
     "subtitle": "Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.",
     "topics": "Speaking Topics",

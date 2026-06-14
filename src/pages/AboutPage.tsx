@@ -207,6 +207,50 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
         </div>
       </section>
 
+      {/* The Journey */}
+      <section className="py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
+              The Journey
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
+              Evolution of a Leader
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Creative Foundation", description: "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
+              { title: "Entrepreneurial Builder", description: "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
+              { title: "Executive Leader", description: "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
+              { title: "Growth Strategist", description: "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." },
+            ].map((stage, index) => (
+              <motion.div
+                key={stage.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-8 shadow-sm"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#C8A14A]/10 flex items-center justify-center mb-4">
+                  <span className="text-[#C8A14A] font-serif text-lg font-semibold">{index + 1}</span>
+                </div>
+                <h3 className="text-lg font-semibold text-[#0B1F3A] mb-3">{stage.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Featured Quote */}
       <section className="py-16 lg:py-20 xl:py-24 bg-[#0B1F3A] relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.03)_1px,transparent_1px)] bg-[length:48px_48px]" />
