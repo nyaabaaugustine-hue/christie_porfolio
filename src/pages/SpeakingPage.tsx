@@ -63,7 +63,7 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
               Speaking
             </p>
-            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">Speaking &amp; Media</h1>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">Speaking</h1>
             <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
           </div>
         </div>

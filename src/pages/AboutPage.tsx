@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, Target, RefreshCw, Lightbulb, Shield, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
 
@@ -61,6 +62,7 @@ const leadershipPhilosophy = [
 ];
 
 export default function AboutPage({ onNavigate }: AboutPageProps) {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -80,9 +82,9 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
           <div>
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-2 font-medium">
-              About Christiana
+              {t('about.label')}
             </p>
-            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">About</h1>
+            <h1 className="text-4xl lg:text-5xl font-serif text-white tracking-tight">{t('about.title')}</h1>
             <div className="w-24 h-px bg-[#C8A14A]/70 mt-4" />
           </div>
         </div>

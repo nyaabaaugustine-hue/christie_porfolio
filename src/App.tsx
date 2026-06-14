@@ -25,6 +25,7 @@ import ImageCarousel from "./components/ImageCarousel";
 import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
 import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
 import Newsletter from "./components/Newsletter";
+import FeaturedQuote from "./components/FeaturedQuote";
 
 // Import custom fonts
 import "./fonts.css";
@@ -210,6 +211,7 @@ export default function App() {
               <ThoughtLeadershipPreview onNavigate={handleNavigate} />
               <MediaSpeakingPreview onNavigate={handleNavigate} />
               <ImageCarousel />
+              <FeaturedQuote />
               <Testimonials />
               <Newsletter />
               <ExecutiveCTA onNavigate={handleNavigate} />

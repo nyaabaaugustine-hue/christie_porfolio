@@ -93,7 +93,7 @@ export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
                     </h3>
                     <p className="text-white/40 text-sm mb-6 leading-relaxed">{option.description}</p>
                     <span className="inline-flex items-center gap-2 text-[#C8A14A] text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      Submit Inquiry
+                      Let's Connect
                       <ArrowRight size={14} className="transition-transform duration-300" />
                     </span>
                   </div>

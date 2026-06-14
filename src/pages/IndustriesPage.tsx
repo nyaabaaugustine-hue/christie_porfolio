@@ -10,6 +10,21 @@ interface IndustriesPageProps {
 
 const industries = [
   {
+    icon: Briefcase,
+    title: "Business Services",
+    description: "Transforming service businesses with governance, customer focus, and operational excellence.",
+  },
+  {
+    icon: Megaphone,
+    title: "Strategic Communications",
+    description: "Aligning narrative, stakeholder engagement, and reputation with organizational strategy.",
+  },
+  {
+    icon: Truck,
+    title: "Logistics & Supply Chain",
+    description: "Building resilient supply chains and optimizing logistics operations for enterprise growth.",
+  },
+  {
     icon: Factory,
     title: "Industrial Operations",
     description: "Driving performance and scale across manufacturing, production, and logistics businesses.",
@@ -28,21 +43,6 @@ const industries = [
     icon: Cog,
     title: "Manufacturing",
     description: "Strengthening manufacturing operations with quality systems and growth-ready capacity.",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Services",
-    description: "Transforming service businesses with governance, customer focus, and operational excellence.",
-  },
-  {
-    icon: Megaphone,
-    title: "Strategic Communications",
-    description: "Aligning narrative, stakeholder engagement, and reputation with organizational strategy.",
-  },
-  {
-    icon: Truck,
-    title: "Logistics & Supply Chain",
-    description: "Building resilient supply chains and optimizing logistics operations for enterprise growth.",
   },
   {
     icon: Hotel,

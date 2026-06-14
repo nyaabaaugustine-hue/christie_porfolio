@@ -2,12 +2,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const allItems = [
-  { title: "Corporate Leadership", size: "text-base lg:text-xl" },
-  { title: "Business Strategy", size: "text-base lg:text-lg" },
-  { title: "Organizational Transformation", size: "text-sm lg:text-base" },
-  { title: "Governance", size: "text-base lg:text-xl" },
-  { title: "Entrepreneurship", size: "text-sm lg:text-lg" },
-  { title: "Growth & Expansion", size: "text-base lg:text-lg" },
+  { title: "Corporate Leadership", description: "Leading organizations through growth, change, and transformation.", size: "text-base lg:text-xl" },
+  { title: "Business Strategy", description: "Developing growth strategies and translating them into actionable plans.", size: "text-base lg:text-lg" },
+  { title: "Organizational Transformation", description: "Improving structures, systems, and performance.", size: "text-sm lg:text-base" },
+  { title: "Entrepreneurship", description: "Building businesses and creating new opportunities.", size: "text-sm lg:text-lg" },
+  { title: "Governance", description: "Strengthening accountability, leadership, and strategic oversight.", size: "text-base lg:text-xl" },
+  { title: "Growth & Expansion", description: "Identifying opportunities and creating pathways for sustainable growth.", size: "text-base lg:text-lg" },
 ];
 
 export default function AreasOfExpertise() {
@@ -46,18 +46,23 @@ export default function AreasOfExpertise() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-wrap gap-3 lg:gap-4 max-w-4xl"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-5xl"
         >
           {allItems.map((item, index) => (
-            <motion.span
+            <motion.div
               key={item.title}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
-              className={`${item.size} font-serif text-white/80 hover:text-[#C8A14A] transition-colors cursor-default px-4 lg:px-6 py-2 lg:py-3 border border-white/10 hover:border-[#C8A14A]/40 rounded-full`}
+              className="border border-white/10 hover:border-[#C8A14A]/40 rounded-2xl p-6 transition-colors cursor-default group"
             >
-              {item.title}
-            </motion.span>
+              <h3 className={`${item.size} font-serif text-white group-hover:text-[#C8A14A] transition-colors mb-2`}>
+                {item.title}
+              </h3>
+              <p className="text-white/40 text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
           ))}
         </motion.div>
 

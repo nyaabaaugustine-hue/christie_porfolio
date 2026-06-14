@@ -84,26 +84,26 @@ export default function LeadershipPage({ onNavigate }: LeadershipPageProps) {
                 <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
                   Leadership Themes
                 </p>
-                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Executive Leadership
+                <ul className="space-y-4 text-white/70 text-sm leading-relaxed">
+                  <li>
+                    <span className="text-white font-medium block mb-1">Executive Leadership</span>
+                    <span className="text-white/50">Providing strategic direction and organizational leadership.</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Growth Strategy
+                  <li>
+                    <span className="text-white font-medium block mb-1">Growth Strategy</span>
+                    <span className="text-white/50">Creating pathways for sustainable business expansion.</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Transformation
+                  <li>
+                    <span className="text-white font-medium block mb-1">Transformation</span>
+                    <span className="text-white/50">Driving organizational improvement and performance enhancement.</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Entrepreneurship
+                  <li>
+                    <span className="text-white font-medium block mb-1">Entrepreneurship</span>
+                    <span className="text-white/50">Building ventures and creating opportunities.</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Governance
+                  <li>
+                    <span className="text-white font-medium block mb-1">Governance</span>
+                    <span className="text-white/50">Strengthening accountability and long-term value creation.</span>
                   </li>
                 </ul>
               </div>
