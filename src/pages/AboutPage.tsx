@@ -215,7 +215,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
               The Journey
@@ -225,28 +225,114 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Creative Foundation", description: "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
-              { title: "Entrepreneurial Builder", description: "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
-              { title: "Executive Leader", description: "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
-              { title: "Growth Strategist", description: "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." },
-            ].map((stage, index) => (
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block relative">
+            {/* Connecting line */}
+            <div className="absolute top-[52px] left-0 right-0 h-[2px]">
+              <div className="w-full h-full bg-gradient-to-r from-[#C8A14A]/20 via-[#C8A14A]/50 to-[#C8A14A]/20" />
+              {/* Animated arrow at the end */}
               <motion.div
-                key={stage.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                transition={{ duration: 0.8, delay: 1.5 }}
+                className="absolute right-0 top-1/2 -translate-y-1/2"
               >
-                <div className="w-10 h-10 rounded-full bg-[#C8A14A]/10 flex items-center justify-center mb-4">
-                  <span className="text-[#C8A14A] font-serif text-lg font-semibold">{index + 1}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-[#0B1F3A] mb-3">{stage.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
+                <svg width="32" height="16" viewBox="0 0 32 16" fill="none" className="drop-shadow-md">
+                  <path d="M0 8H28M28 8L20 1M28 8L20 15" stroke="#C8A14A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </motion.div>
-            ))}
+            </div>
+
+            <div className="grid grid-cols-4 gap-8">
+              {[
+                { title: "Creative Foundation", description: "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
+                { title: "Entrepreneurial Builder", description: "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
+                { title: "Executive Leader", description: "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
+                { title: "Growth Strategist", description: "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." },
+              ].map((stage, index) => (
+                <motion.div
+                  key={stage.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className="relative"
+                >
+                  {/* Premium node */}
+                  <div className="relative mb-8">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15, type: "spring", stiffness: 200 }}
+                      className="w-[104px] h-[104px] rounded-full bg-[#0B1F3A] flex items-center justify-center relative"
+                    >
+                      <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-[#C8A14A]/20 to-transparent" />
+                      <div className="w-[88px] h-[88px] rounded-full bg-[#0B1F3A] flex items-center justify-center border border-[#C8A14A]/30">
+                        <span className="text-[#C8A14A] font-serif text-3xl font-bold">{index + 1}</span>
+                      </div>
+                      {/* Gold ring pulse */}
+                      <div className="absolute inset-0 rounded-full border border-[#C8A14A]/10 animate-ping" style={{ animationDelay: `${index * 0.5}s`, animationDuration: "3s" }} />
+                    </motion.div>
+                  </div>
+
+                  {/* Content card */}
+                  <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 className="text-lg font-semibold text-[#0B1F3A] mb-3">{stage.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Timeline */}
+          <div className="lg:hidden relative">
+            {/* Vertical line */}
+            <div className="absolute left-[51px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#C8A14A]/20 via-[#C8A14A]/50 to-[#C8A14A]/20" />
+
+            <div className="space-y-12">
+              {[
+                { title: "Creative Foundation", description: "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
+                { title: "Entrepreneurial Builder", description: "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
+                { title: "Executive Leader", description: "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
+                { title: "Growth Strategist", description: "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." },
+              ].map((stage, index) => (
+                <motion.div
+                  key={stage.title}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex gap-6"
+                >
+                  {/* Node */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-[104px] h-[104px] rounded-full bg-[#0B1F3A] flex items-center justify-center relative">
+                      <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-[#C8A14A]/20 to-transparent" />
+                      <div className="w-[88px] h-[88px] rounded-full bg-[#0B1F3A] flex items-center justify-center border border-[#C8A14A]/30">
+                        <span className="text-[#C8A14A] font-serif text-3xl font-bold">{index + 1}</span>
+                      </div>
+                    </div>
+                    {/* Arrow pointing right */}
+                    {index < 3 && (
+                      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 rotate-90">
+                        <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                          <path d="M0 8H20M20 8L12 1M20 8L12 15" stroke="#C8A14A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content card */}
+                  <div className="bg-white rounded-2xl p-6 shadow-sm flex-1 mt-2">
+                    <h3 className="text-lg font-semibold text-[#0B1F3A] mb-3">{stage.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
