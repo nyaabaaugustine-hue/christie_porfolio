@@ -151,7 +151,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.6 }}
-              className="text-white/80 text-base sm:text-lg mb-4 max-w-xl leading-relaxed font-medium"
+              className="text-white/90 text-base sm:text-lg mb-4 max-w-xl leading-relaxed font-semibold"
             >
               Building businesses, transforming organizations, and creating sustainable growth through strategic leadership, operational excellence, and entrepreneurial vision.
             </motion.p>
@@ -160,7 +160,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-[#C8A14A]/80 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed font-medium"
+              className="text-[#C8A14A] text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed font-semibold"
             >
               With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.
             </motion.p>
