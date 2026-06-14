@@ -117,19 +117,24 @@ export default function Hero({ onNavigate }: HeroProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight"
-            >
-              Christiana Akua Feyie Yeboaa Okyere
-            </motion.h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight">
+              {["Christiana", "Akua", "Feyie", "Yeboaa", "Okyere"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                  className="inline-block mr-[0.25em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.8 }}
               className="text-[#C8A14A] text-base sm:text-lg font-medium mb-4"
             >
               Corporate Executive | Entrepreneur | Growth Strategist
@@ -138,32 +143,32 @@ export default function Hero({ onNavigate }: HeroProps) {
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.35, duration: 0.8, ease: "easeOut" }}
+              transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
               className="h-px w-20 bg-gradient-to-r from-[#C8A14A]/80 to-transparent mb-6 origin-left"
             />
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-white/70 text-base sm:text-lg mb-4 max-w-xl leading-relaxed"
+              transition={{ delay: 1.0, duration: 0.6 }}
+              className="text-white/80 text-base sm:text-lg mb-4 max-w-xl leading-relaxed font-medium"
             >
               Building businesses, transforming organizations, and creating sustainable growth through strategic leadership, operational excellence, and entrepreneurial vision.
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-              className="text-[#C8A14A]/70 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed"
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="text-[#C8A14A]/80 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed font-medium"
             >
               With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 1.4, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.button
