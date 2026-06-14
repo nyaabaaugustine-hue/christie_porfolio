@@ -38,7 +38,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               className="h-10 w-auto mb-6"
             />
             <p className="text-white/50 text-sm leading-relaxed max-w-md mb-6">
-              Corporate Executive, Growth Strategist, and Board Leader driving business transformation and operational excellence across African enterprise.
+              Corporate Executive, Entrepreneur, and Growth Strategist — one of Ghana's emerging industrial and corporate leaders, driving business transformation and building sustainable enterprises across Africa.
             </p>
             <div className="flex items-center gap-4">
               <LanguageSwitcher />
