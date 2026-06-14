@@ -46,10 +46,12 @@ const education = [
   {
     degree: "Executive MBA",
     school: "Ghana Institute of Management and Public Administration (GIMPA)",
+    logo: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781469595/gimpa_bw5ck2.png",
   },
   {
     degree: "Bachelor of Arts",
     school: "Kwame Nkrumah University of Science and Technology (KNUST)",
+    logo: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781469596/knust_esilgn.png",
   },
 ];
 
@@ -436,8 +438,15 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-center gap-6"
               >
+                <div className="w-20 h-20 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 p-3">
+                  <img
+                    src={edu.logo}
+                    alt={`${edu.school} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">{edu.degree}</h3>
                   <p className="text-white/70">{edu.school}</p>
