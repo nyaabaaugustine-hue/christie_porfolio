@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Calendar } from "lucide-react";
+import { Mail, MapPin, Linkedin, Calendar } from "lucide-react";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
@@ -239,16 +239,6 @@ export default function ContactPage({ }: ContactPageProps) {
                   <div>
                     <h3 className="font-semibold text-[#0B1F3A] mb-1">Email</h3>
                     <p className="text-gray-600">contact@christianaokyere.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#C8A14A]/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-[#C8A14A]" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#0B1F3A] mb-1">Phone</h3>
-                    <p className="text-gray-600">+233 XX XXX XXXX</p>
                   </div>
                 </div>
 

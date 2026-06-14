@@ -125,7 +125,7 @@ export default function IndustriesPage({ onNavigate }: IndustriesPageProps) {
                 </p>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-gray-200">
+                <div className="grid grid-cols-2 gap-6 mt-10 pt-10 border-t border-gray-200">
                   <div>
                     <div className="text-3xl font-serif text-[#0B1F3A] mb-1">6</div>
                     <p className="text-gray-500 text-sm">Industries</p>
@@ -133,10 +133,6 @@ export default function IndustriesPage({ onNavigate }: IndustriesPageProps) {
                   <div>
                     <div className="text-3xl font-serif text-[#0B1F3A] mb-1">20+</div>
                     <p className="text-gray-500 text-sm">Years Experience</p>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-serif text-[#0B1F3A] mb-1">15+</div>
-                    <p className="text-gray-500 text-sm">Organizations</p>
                   </div>
                 </div>
               </div>

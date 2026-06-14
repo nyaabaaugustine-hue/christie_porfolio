@@ -1,35 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-
-const stats = [
-  { value: 20, suffix: "+", label: "Years Experience" },
-  { value: 6, suffix: "", label: "Industries" },
-];
-
-function AnimatedCounter({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = value;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value]);
-
-  return <span>{count}{suffix}</span>;
-}
+import { useRef } from "react";
 
 const headingWords = ["Executive", "Entrepreneur.", "Boardroom", "Strategist."];
 
@@ -99,25 +69,6 @@ export default function ExecutiveSnapshot() {
           >
             Today, her work focuses on helping organizations unlock growth, improve performance, strengthen leadership, and create sustainable long-term value.
           </motion.p>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 border border-white/10 divide-x divide-y lg:divide-y-0 divide-white/10">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="py-12 px-6 text-center group hover:bg-white/[0.03] transition-colors duration-300"
-            >
-              <div className="text-5xl lg:text-6xl font-serif text-white mb-3 tracking-tight group-hover:text-[#C8A14A] transition-colors duration-300">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} isInView={isInView} />
-              </div>
-              <p className="text-white/40 text-sm uppercase tracking-widest">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

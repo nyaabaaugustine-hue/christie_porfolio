@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Play, Download, Mic, Users, Award, Globe } from "lucide-react";
+import { Download, Mic, Users, Award, Globe } from "lucide-react";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
@@ -129,38 +129,6 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
               </ul>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Speaker Reel */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-video bg-[#0B1F3A] rounded-2xl overflow-hidden group cursor-pointer"
-          >
-            <img
-              src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119517/1_v86mgv.png"
-              alt="Speaking engagement"
-              className="w-full h-full object-contain opacity-60 group-hover:opacity-40 transition-opacity"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-16 h-16 rounded-full bg-[#C8A14A] flex items-center justify-center"
-              >
-                <Play size={32} className="text-[#0B1F3A] ml-1" />
-              </motion.div>
-            </div>
-            <div className="absolute bottom-8 left-8">
-              <p className="text-white font-semibold text-lg">Speaker Reel</p>
-              <p className="text-white/60 text-sm">Watch the speaker highlights reel</p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
