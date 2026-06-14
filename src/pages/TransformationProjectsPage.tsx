@@ -2,7 +2,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface TransformationProjectsPageProps {
   onNavigate: (page: Page) => void;

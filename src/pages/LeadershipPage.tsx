@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Briefcase, TrendingUp, RefreshCw, Lightbulb, Shield } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface LeadershipPageProps {
   onNavigate: (page: Page) => void;

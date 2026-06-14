@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Play, Download, Mic, Users, Award, Globe } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface SpeakingPageProps {
   onNavigate: (page: Page) => void;

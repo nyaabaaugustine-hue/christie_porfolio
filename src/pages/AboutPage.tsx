@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Briefcase, Target, RefreshCw, Lightbulb, Shield, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface AboutPageProps {
   onNavigate: (page: Page) => void;

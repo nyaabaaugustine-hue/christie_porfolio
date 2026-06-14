@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface NavbarProps {
   onNavigate: (page: Page) => void;
@@ -24,6 +24,7 @@ const navLinks = [
   { labelKey: "nav.industries", page: "industries" as Page },
   { labelKey: "nav.speaking", page: "speaking" as Page },
   { labelKey: "nav.insights", page: "insights" as Page },
+  { labelKey: "nav.blog", page: "blog" as Page },
   { labelKey: "nav.contact", page: "contact" as Page },
 ];
 

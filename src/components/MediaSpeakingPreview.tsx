@@ -20,7 +20,7 @@ const topics = [
   },
 ];
 
-type Page = "home" | "about" | "leadership" | "transformation" | "industries" | "board" | "speaking" | "contact" | "insights";
+type Page = "home" | "about" | "leadership" | "transformation" | "industries" | "board" | "speaking" | "contact" | "insights" | "blog";
 
 interface Props {
   onNavigate: (page: Page) => void;

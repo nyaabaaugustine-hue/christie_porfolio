@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Compass, Shield, TrendingUp, RefreshCw, Briefcase } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface BoardAdvisoryPageProps {
   onNavigate: (page: Page) => void;

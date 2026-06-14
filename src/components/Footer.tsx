@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -14,6 +14,7 @@ const footerLinks = {
     { labelKey: "nav.leadership", page: "leadership" as Page },
     { labelKey: "nav.speaking", page: "speaking" as Page },
     { labelKey: "nav.insights", page: "insights" as Page },
+    { labelKey: "nav.blog", page: "blog" as Page },
     { labelKey: "nav.contact", page: "contact" as Page },
   ],
   resources: [

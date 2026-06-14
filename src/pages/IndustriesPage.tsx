@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Factory, Truck, Building2, Cog, Briefcase, Megaphone, Hotel } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface IndustriesPageProps {
   onNavigate: (page: Page) => void;

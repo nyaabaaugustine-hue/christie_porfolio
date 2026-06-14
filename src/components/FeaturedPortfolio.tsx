@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "../hooks/useInView";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
-type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 interface FeaturedPortfolioProps {
   onNavigate: (page: Page) => void;

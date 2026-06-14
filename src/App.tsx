@@ -27,10 +27,11 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const InsightsPage = lazy(() => import("./pages/InsightsPage"));
 const TransformationProjectsPage = lazy(() => import("./pages/TransformationProjectsPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
 
 import "./fonts.css";
 
-type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights';
+type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -267,6 +268,12 @@ export default function App() {
           {currentPage === 'industries' && (
             <PageTransition key="industries">
               <IndustriesPage onNavigate={handleNavigate} />
+            </PageTransition>
+          )}
+
+          {currentPage === 'blog' && (
+            <PageTransition key="blog">
+              <BlogPage onNavigate={handleNavigate} />
             </PageTransition>
           )}
         </Suspense>
