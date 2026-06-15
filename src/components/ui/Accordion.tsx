@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { forwardRef, HTMLAttributes } from "react";
 
 interface AccordionItemProps {
   title: string;
@@ -13,7 +12,6 @@ interface AccordionItemProps {
 interface AccordionProps {
   items: AccordionItemProps[];
   className?: string;
-  allowMultiple?: boolean;
 }
 
 function AccordionItem({ title, children, defaultOpen = false, className = "" }: AccordionItemProps) {
