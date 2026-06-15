@@ -1,5 +1,6 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ExecutiveSnapshot from "./components/ExecutiveSnapshot";
@@ -33,6 +34,43 @@ const InvestorRelationsPage = lazy(() => import("./pages/InvestorRelationsPage")
 const ImpactReportsPage = lazy(() => import("./pages/ImpactReportsPage"));
 
 import "./fonts.css";
+
+// Error Boundary Component
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: any, errorInfo: any) {
+    console.error('Error caught by ErrorBoundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-[#0B1F3A] text-white">
+          <div className="text-center p-8">
+            <h1 className="text-2xl font-serif mb-4">Something went wrong</h1>
+            <p className="text-white/60 mb-6">We're sorry for the inconvenience. Please try refreshing the page.</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-[#C8A14A] text-[#0B1F3A] rounded-lg font-semibold hover:bg-[#b8923f] transition-colors"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 type Page = 'home' | 'about' | 'leadership' | 'transformation' | 'industries' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog' | 'podcast' | 'videos' | 'investors' | 'reports';
 
@@ -95,9 +133,21 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="flex flex-col items-center gap-4">
-        <div className="w-8 h-8 border-2 border-[#C8A14A]/20 border-t-[#C8A14A] rounded-full animate-spin" />
-        <p className="text-gray-400 text-xs tracking-widest uppercase">Loading</p>
+      <div className="flex flex-col items-center gap-6">
+        <div className="relative">
+          <div className="w-12 h-12 border-2 border-[#C8A14A]/20 border-t-[#C8A14A] rounded-full animate-spin" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-4 h-4 bg-[#C8A14A] rounded-full animate-pulse" />
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-gray-400 text-xs tracking-widest uppercase">Loading</p>
+          <div className="flex gap-1">
+            <div className="w-1 h-1 bg-[#C8A14A]/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+            <div className="w-1 h-1 bg-[#C8A14A]/30 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+            <div className="w-1 h-1 bg-[#C8A14A]/30 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -199,115 +249,119 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans">
-      <CustomCursor />
-      <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
-      
-      <AnimatePresence mode="wait">
-        {currentPage === 'home' && (
-          <PageTransition key="home">
-            <main>
-              <Hero onNavigate={handleNavigate} />
-              <ExecutiveSnapshot />
-              <TransformationImpact />
-              <FeaturedPortfolio onNavigate={handleNavigate} />
-              <LeadershipPhilosophy />
-              <AreasOfExpertise />
-              <CareerTimeline />
-              <ThoughtLeadershipPreview onNavigate={handleNavigate} />
-              <MediaSpeakingPreview onNavigate={handleNavigate} />
-              <FeaturedQuote />
-              <Newsletter />
-              <ExecutiveCTA onNavigate={handleNavigate} />
-            </main>
-          </PageTransition>
-        )}
-        
-        <Suspense fallback={<PageLoader />}>
-          {currentPage === 'about' && (
-            <PageTransition key="about">
-              <AboutPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
+    <DarkModeProvider>
+      <ErrorBoundary>
+        <div className="min-h-screen bg-white font-sans dark:bg-[#061228] dark:text-white transition-colors duration-300">
+          <CustomCursor />
+          <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
           
-          {currentPage === 'leadership' && (
-            <PageTransition key="leadership">
-              <LeadershipPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
+          <AnimatePresence mode="wait">
+            {currentPage === 'home' && (
+              <PageTransition key="home">
+                <main role="main">
+                  <Hero onNavigate={handleNavigate} />
+                  <ExecutiveSnapshot />
+                  <TransformationImpact />
+                  <FeaturedPortfolio onNavigate={handleNavigate} />
+                  <LeadershipPhilosophy />
+                  <AreasOfExpertise />
+                  <CareerTimeline />
+                  <ThoughtLeadershipPreview onNavigate={handleNavigate} />
+                  <MediaSpeakingPreview onNavigate={handleNavigate} />
+                  <FeaturedQuote />
+                  <Newsletter />
+                  <ExecutiveCTA onNavigate={handleNavigate} />
+                </main>
+              </PageTransition>
+            )}
+            
+            <Suspense fallback={<PageLoader />}>
+              {currentPage === 'about' && (
+                <PageTransition key="about">
+                  <AboutPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+              
+              {currentPage === 'leadership' && (
+                <PageTransition key="leadership">
+                  <LeadershipPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+              
+              {currentPage === 'board' && (
+                <PageTransition key="board">
+                  <BoardAdvisoryPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+              
+              {currentPage === 'speaking' && (
+                <PageTransition key="speaking">
+                  <SpeakingPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+              
+              {currentPage === 'contact' && (
+                <PageTransition key="contact">
+                  <ContactPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'insights' && (
+                <PageTransition key="insights">
+                  <InsightsPage />
+                </PageTransition>
+              )}
+
+              {currentPage === 'transformation' && (
+                <PageTransition key="transformation">
+                  <TransformationProjectsPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'industries' && (
+                <PageTransition key="industries">
+                  <IndustriesPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'blog' && (
+                <PageTransition key="blog">
+                  <BlogPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'podcast' && (
+                <PageTransition key="podcast">
+                  <PodcastPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'videos' && (
+                <PageTransition key="videos">
+                  <VideoLibraryPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'investors' && (
+                <PageTransition key="investors">
+                  <InvestorRelationsPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'reports' && (
+                <PageTransition key="reports">
+                  <ImpactReportsPage onNavigate={handleNavigate} />
+                </PageTransition>
+              )}
+            </Suspense>
+          </AnimatePresence>
           
-          {currentPage === 'board' && (
-            <PageTransition key="board">
-              <BoardAdvisoryPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
+          <FloatingSocial />
+          <WhatsAppButton />
           
-          {currentPage === 'speaking' && (
-            <PageTransition key="speaking">
-              <SpeakingPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-          
-          {currentPage === 'contact' && (
-            <PageTransition key="contact">
-              <ContactPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'insights' && (
-            <PageTransition key="insights">
-              <InsightsPage />
-            </PageTransition>
-          )}
-
-          {currentPage === 'transformation' && (
-            <PageTransition key="transformation">
-              <TransformationProjectsPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'industries' && (
-            <PageTransition key="industries">
-              <IndustriesPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'blog' && (
-            <PageTransition key="blog">
-              <BlogPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'podcast' && (
-            <PageTransition key="podcast">
-              <PodcastPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'videos' && (
-            <PageTransition key="videos">
-              <VideoLibraryPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'investors' && (
-            <PageTransition key="investors">
-              <InvestorRelationsPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-
-          {currentPage === 'reports' && (
-            <PageTransition key="reports">
-              <ImpactReportsPage onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
-        </Suspense>
-      </AnimatePresence>
-      
-      <FloatingSocial />
-      <WhatsAppButton />
-      
-      <Footer onNavigate={handleNavigate} />
-    </div>
+          <Footer onNavigate={handleNavigate} />
+        </div>
+      </ErrorBoundary>
+    </DarkModeProvider>
   );
 }

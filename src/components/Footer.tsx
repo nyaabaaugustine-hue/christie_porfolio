@@ -54,7 +54,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <button onClick={() => onNavigate("home")} className="inline-block mb-6">
               <img
                 src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781130092/Akua-Feyie-Logo-new-01-768x217_fcurfv.png"
-                alt="Christiana Okyere"
+                alt="Christiana Okyere Executive Portfolio Logo"
                 className="h-10 w-auto"
               />
             </button>
@@ -79,7 +79,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Facebook size={16} className="text-white/60" />
               </a>
               <a
-                href="mailto:contact@christianaokyere.com"
+href="mailto:christie@smic360.com"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#C8A14A]/20 hover:border-[#C8A14A]/30 transition-all"
               >
                 <Mail size={16} className="text-white/60" />
@@ -116,9 +116,10 @@ export default function Footer({ onNavigate }: FooterProps) {
             </h4>
             <ul className="space-y-3 text-sm text-white/40">
               <li>Accra, Ghana</li>
+              <li>+233 24 478 3099</li>
               <li>
-                <a href="mailto:contact@christianaokyere.com" className="hover:text-white transition-colors">
-                  contact@christianaokyere.com
+                <a href="mailto:christie@smic360.com" className="hover:text-white transition-colors">
+                  christie@smic360.com
                 </a>
               </li>
             </ul>

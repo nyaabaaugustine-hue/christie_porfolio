@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'transformation' | 'industries' | 'blog';
 
@@ -53,26 +53,58 @@ function TypingName() {
 
 export default function Hero({ onNavigate }: HeroProps) {
   const [apiReady, setApiReady] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  // Image lazy loading with Intersection Observer
+  useEffect(() => {
+    if (!imageRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            img.src = img.dataset.src || img.src;
+            observer.unobserve(img);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      }
+    );
+
+    observer.observe(imageRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if ((window as any).YT) {
       setApiReady(true);
       return;
     }
-    if (!(window as any).__ytApiLoading) {
-      (window as any).__ytApiLoading = true;
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      tag.onload = () => setApiReady(true);
-      document.head.appendChild(tag);
+    
+    const loadYouTubeAPI = () => {
+      if (!(window as any).__ytApiLoading) {
+        (window as any).__ytApiLoading = true;
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        tag.onload = () => setApiReady(true);
+        document.head.appendChild(tag);
+      }
+    };
+
+    // Use requestIdleCallback for better performance if available
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(loadYouTubeAPI);
     } else {
-      const check = setInterval(() => {
-        if ((window as any).YT) {
-          setApiReady(true);
-          clearInterval(check);
-        }
-      }, 200);
-      return () => clearInterval(check);
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(loadYouTubeAPI, 1);
     }
   }, []);
 
@@ -229,7 +261,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative max-w-sm mx-auto lg:max-w-none lg:mx-0"
           >
-            <div className="relative lg:block">
+<div className="relative lg:block">
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -237,14 +269,16 @@ export default function Hero({ onNavigate }: HeroProps) {
               >
                 <div className="lg:hidden">
                   <img
-                    src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
-                    alt="Christiana Akua Feyie Yeboaa Okyere"
+                    ref={imageRef}
+                    data-src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
+                    alt="Portrait of Christiana Akua Feyie Yeboaa Okyere, Corporate Executive and Entrepreneur"
                     className="w-full rounded-2xl"
                   />
                 </div>
                 <img
-                  src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
-                  alt="Christiana Akua Feyie Yeboaa Okyere"
+                  ref={imageRef}
+                  data-src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
+                  alt="Professional portrait of Christiana Akua Feyie Yeboaa Okyere, showing her as a confident corporate executive"
                   className="hidden lg:block w-full max-w-md mx-auto shadow-2xl rounded-2xl"
                 />
               </motion.div>

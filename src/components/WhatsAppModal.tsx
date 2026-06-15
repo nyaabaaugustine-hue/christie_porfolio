@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -11,13 +11,58 @@ export default function WhatsAppModal({ isOpen, onClose }: WhatsAppModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  // Focus management for modal
+  useEffect(() => {
+    if (isOpen) {
+      // Store the previously focused element
+      previousActiveElement.current = document.activeElement as HTMLElement;
+      
+      // Focus the first input when modal opens
+      const timer = setTimeout(() => {
+        const firstInput = modalRef.current?.querySelector('input[type="text"]');
+        if (firstInput) {
+          (firstInput as HTMLInputElement).focus();
+        }
+      }, 100);
+      
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        clearTimeout(timer);
+        // Restore previous focus
+        if (previousActiveElement.current) {
+          previousActiveElement.current.focus();
+        }
+        // Restore body scroll
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => document.removeEventListener('keydown', handleEscapeKey);
+    }
+  }, [isOpen, onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = encodeURIComponent(
       `Hello, I'm ${name}.\nPhone: ${phone}\nEmail: ${email}\n\nI'd like to connect with you.`
     );
-    window.open(`https://wa.me/233XXXXXXXXX?text=${message}`, "_blank");
+    window.open(`https://wa.me/233244783099?text=${message}`, "_blank");
     setName("");
     setPhone("");
     setEmail("");
