@@ -1,4 +1,3 @@
-import { motion, HTMLMotionProps } from "framer-motion";
 import { forwardRef, HTMLAttributes } from "react";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -21,16 +20,15 @@ const paddings = {
 };
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ variant = "default", hover = false, padding = "md", className = "", children, whileHover, ...props }, ref) => {
+  ({ variant = "default", hover = false, padding = "md", className = "", children, ...props }, ref) => {
     return (
-      <motion.div
+      <div
         ref={ref}
-        className={`rounded-2xl overflow-hidden ${variants[variant]} ${paddings[padding]} ${className}`}
-        whileHover={hover ? (whileHover ?? { y: -4, transition: { duration: 0.3 } }) : undefined}
+        className={`rounded-2xl overflow-hidden ${variants[variant]} ${paddings[padding]} ${className} ${hover ? "hover:-translate-y-1 hover:shadow-xl transition-all duration-300" : ""}`}
         {...props}
       >
         {children}
-      </motion.div>
+      </div>
     );
   }
 );

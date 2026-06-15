@@ -1,4 +1,3 @@
-import { motion, HTMLMotionProps } from "framer-motion";
 import { forwardRef, ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +11,7 @@ const variants = {
   primary: "bg-[#B8923F] text-[#0B1F3A] hover:bg-[#A68238] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B8923F]",
   secondary: "bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
   ghost: "text-white hover:text-[#B8923F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B8923F]",
-  outline: "border-2 border-[#B8923F] text-[#B8923F] hover:bg-[#B8923F]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B8923F]",
+  outline: "border border-[#B8923F] text-[#B8923F] hover:bg-[#B8923F]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B8923F]",
 };
 
 const sizes = {
@@ -22,16 +21,11 @@ const sizes = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = "primary", size = "md", isLoading, children, className = "", disabled, whileHover, whileTap, ...props }, ref) => {
-    const hoverScale = whileHover ?? { scale: 1.02 };
-    const tapScale = whileTap ?? { scale: 0.98 };
-
+  ({ variant = "primary", size = "md", isLoading, children, className = "", disabled, ...props }, ref) => {
     return (
-      <motion.button
+      <button
         ref={ref}
         className={`inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${variants[variant]} ${sizes[size]} ${className}`}
-        whileHover={disabled || isLoading ? undefined : hoverScale}
-        whileTap={disabled || isLoading ? undefined : tapScale}
         disabled={disabled || isLoading}
         {...props}
       >
@@ -42,7 +36,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {children}
-      </motion.button>
+      </button>
     );
   }
 );

@@ -53,7 +53,7 @@ function AccordionItem({ title, children, defaultOpen = false, className = "" }:
   );
 }
 
-export function Accordion({ items, className = "", allowMultiple = false }: AccordionProps) {
+export function Accordion({ items, className = "" }: AccordionProps) {
   return (
     <div className={`space-y-3 ${className}`}>
       {items.map((item, index) => (
