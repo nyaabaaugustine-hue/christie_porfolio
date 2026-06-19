@@ -1,7 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function FeaturedQuote() {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -17,11 +19,11 @@ export default function FeaturedQuote() {
         >
           <span className="text-[#C8A14A] text-5xl lg:text-7xl font-serif leading-none block mb-6">"</span>
           <blockquote className="text-2xl lg:text-3xl font-serif text-white leading-relaxed mb-8">
-            Growth does not happen by chance. It happens when vision, leadership, discipline, and execution come together.
+            {t("quote.text")}
           </blockquote>
           <div className="w-12 h-px bg-[#C8A14A]/50 mx-auto" />
           <p className="text-[#C8A14A] text-sm tracking-widest uppercase mt-6 font-medium">
-            Christiana Akua Feyie Yeboaa Okyere
+            {t("quote.author")}
           </p>
         </motion.div>
       </div>

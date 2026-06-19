@@ -1,23 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Mic, Users, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const topics = [
-  {
-    title: "Leadership in Times of Change",
-    description: "Navigating uncertainty and leading organizations through transformation.",
-    icon: Users,
-  },
-  {
-    title: "Building Sustainable Growth",
-    description: "Creating lasting value through strategic planning and operational excellence.",
-    icon: Award,
-  },
-  {
-    title: "Entrepreneurship and Value Creation",
-    description: "Lessons from two decades of entrepreneurial leadership across Africa.",
-    icon: Mic,
-  },
+const topicKeys = [
+  { titleKey: "speaking.previewTopic1Title", descKey: "speaking.previewTopic1Desc", icon: Users },
+  { titleKey: "speaking.previewTopic2Title", descKey: "speaking.previewTopic2Desc", icon: Award },
+  { titleKey: "speaking.previewTopic3Title", descKey: "speaking.previewTopic3Desc", icon: Mic },
 ];
 
 type Page = "home" | "about" | "leadership" | "transformation" | "industries" | "board" | "speaking" | "contact" | "insights" | "blog";
@@ -27,6 +16,7 @@ interface Props {
 }
 
 export default function MediaSpeakingPreview({ onNavigate }: Props) {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -48,27 +38,27 @@ export default function MediaSpeakingPreview({ onNavigate }: Props) {
         >
           <div>
             <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Media & Speaking
+              {t("speaking.label")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-serif text-white leading-tight">
-              Speaking Engagements
+              {t("speaking.title")}
             </h2>
           </div>
           <button
             onClick={() => onNavigate("speaking")}
             className="mt-6 md:mt-0 inline-flex items-center gap-2 text-white font-medium hover:text-[#C8A14A] transition-colors text-sm group"
           >
-            View Speaking Portfolio
+            {t("speaking.viewPortfolio")}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {topics.map((topic, index) => {
+          {topicKeys.map((topic, index) => {
             const Icon = topic.icon;
             return (
               <motion.div
-                key={topic.title}
+                key={topic.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -78,10 +68,10 @@ export default function MediaSpeakingPreview({ onNavigate }: Props) {
                   <Icon size={22} className="text-[#C8A14A]" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-3">
-                  {topic.title}
+                  {t(topic.titleKey)}
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  {topic.description}
+                  {t(topic.descKey)}
                 </p>
               </motion.div>
             );

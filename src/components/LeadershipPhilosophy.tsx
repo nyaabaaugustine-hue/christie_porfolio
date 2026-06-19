@@ -1,12 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-const pillars = [
-  { title: "Strategic Thinking", description: "Creating clarity in complexity." },
-  { title: "Operational Excellence", description: "Turning strategy into measurable outcomes." },
-  { title: "People Development", description: "Building strong leaders and high-performing teams." },
-  { title: "Value Creation", description: "Driving sustainable business growth." },
-  { title: "Legacy", description: "Creating institutions and opportunities that endure." },
+const pillarKeys = [
+  { titleKey: "philosophy.strategic.title", descKey: "philosophy.strategic.desc" },
+  { titleKey: "philosophy.operational.title", descKey: "philosophy.operational.desc" },
+  { titleKey: "philosophy.people.title", descKey: "philosophy.people.desc" },
+  { titleKey: "philosophy.value.title", descKey: "philosophy.value.desc" },
+  { titleKey: "philosophy.legacy.title", descKey: "philosophy.legacy.desc" },
 ];
 
 const containerVariants = {
@@ -23,6 +24,7 @@ const cardVariants = {
 };
 
 export default function LeadershipPhilosophy() {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -55,17 +57,17 @@ export default function LeadershipPhilosophy() {
           className="text-center mb-16 lg:mb-20"
         >
           <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
-            Leadership Philosophy
+            {t("philosophy.label")}
           </span>
           <h2 className="text-3xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
-            Building Growth Through Leadership
+            {t("philosophy.title")}
           </h2>
           <div className="w-12 h-[1px] bg-[#C8A14A]/50 mx-auto mt-6" />
           <p className="text-white/50 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mt-6">
-            Christiana believes that sustainable growth is achieved when vision, people, systems, and execution work together toward a common purpose.
+            {t("philosophy.intro")}
           </p>
           <p className="text-white/40 text-sm mt-4">
-            Her leadership philosophy is built on five principles:
+            {t("philosophy.subtitle")}
           </p>
         </motion.div>
 
@@ -76,9 +78,9 @@ export default function LeadershipPhilosophy() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
         >
-          {pillars.map((pillar, index) => (
+          {pillarKeys.map((pillar, index) => (
             <motion.div
-              key={pillar.title}
+              key={pillar.titleKey}
               variants={cardVariants}
               className={`group relative ${
                 index === 3 ? "lg:col-start-1" : ""
@@ -99,10 +101,10 @@ export default function LeadershipPhilosophy() {
                     <div className="h-[1px] flex-1 bg-white/[0.06]" />
                   </div>
                   <h3 className="text-lg lg:text-xl font-serif text-white mb-3 group-hover:text-[#C8A14A] transition-colors duration-300">
-                    {pillar.title}
+                    {t(pillar.titleKey)}
                   </h3>
                   <p className="text-white/50 text-sm leading-relaxed">
-                    {pillar.description}
+                    {t(pillar.descKey)}
                   </p>
                 </div>
               </div>

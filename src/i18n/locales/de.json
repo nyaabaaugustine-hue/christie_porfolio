@@ -14,7 +14,12 @@
     "headline2": "Industrien Skalieren.",
     "headline3": "Nachhaltiges Wachstum Aufbauen.",
     "description": "Christiana Akua Feyie Yeboaa Okyere ist eine <1>Führungskraft</1>, <2>Unternehmerin</2> und <2>Wachstumsstratege</2> mit über zwei Jahrzehnten Erfahrung in der Leitung von Geschäftstransformation, operativer Exzellenz, industriellem Wachstum und organisatorischer Leistungsfähigkeit in ganz Afrika.",
-    "cta": "Meine Arbeit Entdecken"
+    "cta": "Meine Arbeit Entdecken",
+    "tagline": "Group Chief Operating Officer | Business Transformation Executive | Industrial Growth Leader",
+    "mission": "Transforming Businesses. Scaling Industries. Building Sustainable Growth.",
+    "viewProfile": "Profil Anzeigen",
+    "exploreProjects": "Projekte Erkunden",
+    "connect": "Verbinden"
   },
   "snapshot": {
     "label": "Executive Überblick",
@@ -28,11 +33,13 @@
   "philosophy": {
     "label": "Führungsphilosophie",
     "title": "Die Fünf Säulen Exzellenter Führung",
-    "strategic": { "title": "Strategische Vision", "desc": "Marktveränderungen erkennen, bevor sie eintreten." },
-    "operational": { "title": "Operative Exzellenz", "desc": "Effizienz, Qualität und Leistung in allen Bereichen steigern." },
-    "transformational": { "title": "Transformationale Führung", "desc": "Organisationen durch grundlegende Veränderungen inspirieren und führen." },
-    "governance": { "title": "Führung und Verantwortung", "desc": "Höchste Standards in Unternehmensführung und Verantwortlichkeit." },
-    "growth": { "title": "Nachhaltiges Wachstum", "desc": "Wert schaffen, der über Generationen und Märkte hinweg Bestand hat." }
+    "intro": "Christiana glaubt, dass nachhaltiges Wachstum erreicht wird, wenn Vision, Menschen, Systeme und Umsetzung gemeinsam auf ein gemeinsames Ziel hinarbeiten.",
+    "subtitle": "Ihre Führungsphilosophie basiert auf fünf Prinzipien:",
+    "strategic": { "title": "Strategische Vision", "desc": "Klarheit in Komplexität schaffen." },
+    "operational": { "title": "Operative Exzellenz", "desc": "Strategie in messbare Ergebnisse umsetzen." },
+    "people": { "title": "Menschenentwicklung", "desc": "Starke Führungskräfte und leistungsstarke Teams aufbauen." },
+    "value": { "title": "Wertschöpfung", "desc": "Nachhaltiges Unternehmenswachstum vorantreiben." },
+    "legacy": { "title": "Vermächtnis", "desc": "Institutionen und Chancen schaffen, die Bestand haben." }
   },
   "expertise": {
     "label": "Fachgebiete",
@@ -45,19 +52,32 @@
     },
     "items": {
       "corporate": "Unternehmensführung",
+      "corporateDesc": "Organisationen durch Wachstum, Wandel und Transformation führen.",
       "strategy": "Geschäftsstrategie",
+      "strategyDesc": "Wachstumsstrategien entwickeln und in umsetzbare Pläne übersetzen.",
       "orgTransformation": "Organisationstransformation",
-      "governance": "Unternehmensführung",
-      "industrial": "Industrielle Operationen",
+      "orgTransformationDesc": "Strukturen, Systeme und Leistung verbessern.",
       "entrepreneurship": "Unternehmertum",
+      "entrepreneurshipDesc": "Unternehmen aufbauen und neue Möglichkeiten schaffen.",
+      "governance": "Unternehmensführung",
+      "governanceDesc": "Verantwortlichkeit, Führung und strategische Aufsicht stärken.",
       "growth": "Wachstum und Expansion",
+      "growthDesc": "Chancen identifizieren und Wege für nachhaltiges Wachstum schaffen.",
+      "industrial": "Industrielle Operationen",
       "comms": "Strategische Kommunikation",
       "supplyChain": "Lieferkette und Logistik"
     }
   },
   "timeline": {
     "title": "Karriereverlauf",
+    "subtitle": "A Career Built on Growth",
+    "description": "From creative beginnings in communications and branding to executive leadership across multiple industries, Christiana's journey has been defined by continuous growth, learning, and transformation.",
+    "footer": "Her career reflects a commitment to building organizations, developing people, and creating meaningful impact through leadership and entrepreneurship.",
     "milestones": {
+      "creative": { "phase": "Creative Foundation", "title": "Creative Foundation", "period": "Early Career", "desc": "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
+      "entrepreneur": { "phase": "Entrepreneurial Builder", "title": "Entrepreneurial Builder", "period": "Growth Phase", "desc": "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
+      "executive": { "phase": "Executive Leader", "title": "Executive Leader", "period": "Executive Phase", "desc": "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
+      "strategist": { "phase": "Growth Strategist", "title": "Growth Strategist", "period": "Today", "desc": "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." },
       "groupCOO": { "title": "COO der Gruppe", "org": "McDan Group", "desc": "Überwachung von Multibusiness-Operationen und strategischem Wachstum." },
       "execDirector": { "title": "Geschäftsführende Direktorin", "org": "Eagle Salt", "desc": "Leitung der Produktionsskalierung und regionalen Expansion." },
       "boardAdvisor": { "title": "Aufsichtsratsberaterin", "org": "Mehrere Organisationen", "desc": "Mitwirkung in Aufsichtsräten und strategische Beratung." }
@@ -83,21 +103,43 @@
     "challenge": "Herausforderung:",
     "strategy": "Strategie:"
   },
+  "quote": {
+    "text": "Growth does not happen by chance. It happens when vision, leadership, discipline, and execution come together.",
+    "author": "Christiana Akua Feyie Yeboaa Okyere"
+  },
+  "newsletter": {
+    "label": "Stay Informed",
+    "title": "Thought Leadership & Insights",
+    "description": "Receive monthly insights on leadership, business transformation, and industrial development across Africa.",
+    "thanks": "Thank you for subscribing.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+  "media": {
+    "label": "In the Spotlight",
+    "title": "Media Appearances",
+    "video1Title": "Portfolio Interview",
+    "video1Desc": "Live TV interview discussing portfolio strategy and business transformation.",
+    "video2Title": "Industry Insights",
+    "video2Desc": "In-depth conversation on industry trends and innovative solutions."
+  },
   "testimonials": {
     "label": "Testimonials",
     "title": "Was Führungskräfte Sagen"
   },
   "cta": {
     "label": "Vernetzen Wir Uns",
+    "title": "Interessiert an Vorstandsmöglichkeiten, Vorträgen, strategischen Gesprächen oder Führungskooperationen?",
     "title1": "Lassen Sie uns die Zukunft des",
     "title2": "Afrikanischen Unternehmertums Gestalten",
-    "description": "Bereit, gemeinsam nachhaltige Wirkung zu erzielen? Christiana steht für Aufsichtsratspositionen, Vorträge und strategische Beratung zur Verfügung.",
+    "description": "Christiana steht für Aufsichtsratspositionen, Vorträge und strategische Beratung zur Verfügung.",
     "board": "Anfragen für Aufsichtsräte",
     "boardDesc": "Entdecken Sie Governance- und Beratungsmöglichkeiten",
     "speaking": "Vorträge",
     "speakingDesc": "Laden Sie Christiana zu Ihrer nächsten Veranstaltung ein",
     "partnerships": "Strategische Partnerschaften",
     "partnershipsDesc": "Besprechen Sie Kooperationsmöglichkeiten",
+    "button": "Vernetzen Wir Uns",
     "submit": "Anfrage Einreichen"
   },
   "footer": {
@@ -140,6 +182,13 @@
     "resources": "Ressourcen",
     "resourcesTitle": "Speaker Kit",
     "resourcesDesc": "Laden Sie Christianas Speaker Kit herunter mit hochauflösenden Fotos, Biografie, Themen und technischen Anforderungen.",
+    "viewPortfolio": "View Speaking Portfolio",
+    "previewTopic1Title": "Leadership in Times of Change",
+    "previewTopic1Desc": "Navigating uncertainty and leading organizations through transformation.",
+    "previewTopic2Title": "Building Sustainable Growth",
+    "previewTopic2Desc": "Creating lasting value through strategic planning and operational excellence.",
+    "previewTopic3Title": "Entrepreneurship and Value Creation",
+    "previewTopic3Desc": "Lessons from two decades of entrepreneurial leadership across Africa.",
     "downloadKit": "Kit Herunterladen",
     "book": "Christiana Buchen",
     "bookDesc": "Für Vortragsanfragen teilen Sie bitte Details Ihrer Veranstaltung mit. Christianas Team wird innerhalb von 48 Stunden antworten.",
@@ -158,6 +207,19 @@
     "featured": "Empfohlen",
     "latest": "Aktuelle Beiträge",
     "search": "Artikel durchsuchen...",
+    "viewAll": "View All Insights",
+    "preview1Title": "Leading Through Uncertainty: Lessons from African Business",
+    "preview1Excerpt": "How executives can navigate complexity and drive transformation in rapidly changing markets.",
+    "preview1Category": "Leadership",
+    "preview1ReadTime": "8 min read",
+    "preview2Title": "The Future of Industrial Operations in Africa",
+    "preview2Excerpt": "Examining the trends shaping manufacturing and industrial development across the continent.",
+    "preview2Category": "Industrial Development",
+    "preview2ReadTime": "6 min read",
+    "preview3Title": "Board Governance: Building Effective Boards",
+    "preview3Excerpt": "Key principles for creating boards that drive value and ensure organizational sustainability.",
+    "preview3Category": "Governance",
+    "preview3ReadTime": "5 min read",
     "readMore": "Weiterlesen",
     "subscribe": "Abonnieren",
     "subscribeTitle": "Executive Einblicke Abonnieren",

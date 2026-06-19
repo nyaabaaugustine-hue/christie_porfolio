@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'transformation' | 'industries' | 'blog';
 
@@ -52,6 +53,7 @@ function TypingName() {
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
+  const { t } = useTranslation();
   const [apiReady, setApiReady] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -200,7 +202,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 0.8 }}
               className="text-[#C8A14A] text-base sm:text-lg font-medium mb-4"
             >
-              Group Chief Operating Officer | Business Transformation Executive | Industrial Growth Leader
+              {t("hero.tagline")}
             </motion.p>
 
             <motion.div
@@ -216,7 +218,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 1.0, duration: 0.6 }}
               className="text-white/90 text-base sm:text-lg mb-4 max-w-xl leading-relaxed font-semibold"
             >
-              Transforming Businesses. Scaling Industries. Building Sustainable Growth.
+              {t("hero.mission")}
             </motion.p>
 
             <motion.p
@@ -225,7 +227,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 1.2, duration: 0.6 }}
               className="text-white/75 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed"
             >
-              Christiana Akua Feyie Yeboaa Okyere is a business transformation executive and Group COO with leadership experience spanning industrial operations, mining, logistics, real estate, trade and strategic communications.
+              {t("hero.description")}
             </motion.p>
 
             <motion.div
@@ -240,7 +242,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View Profile
+                {t("hero.viewProfile")}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
@@ -249,7 +251,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Explore Projects
+                {t("hero.exploreProjects")}
               </motion.button>
               <motion.button
                 onClick={() => onNavigate("contact")}
@@ -257,7 +259,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Connect
+                {t("hero.connect")}
               </motion.button>
             </motion.div>
           </motion.div>

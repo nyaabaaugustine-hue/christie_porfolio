@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Briefcase, Mic, Handshake } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog';
 
@@ -9,26 +10,27 @@ interface ExecutiveCTAProps {
 }
 
 export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const ctaOptions = [
     {
       icon: Briefcase,
-      title: "Board Inquiries",
-      description: "Explore governance and advisory opportunities",
+      titleKey: "cta.board",
+      descKey: "cta.boardDesc",
       action: "contact" as Page,
     },
     {
       icon: Mic,
-      title: "Speaking Engagements",
-      description: "Invite Christiana to your next event",
+      titleKey: "cta.speaking",
+      descKey: "cta.speakingDesc",
       action: "speaking" as Page,
     },
     {
       icon: Handshake,
-      title: "Strategic Partnerships",
-      description: "Discuss collaboration opportunities",
+      titleKey: "cta.partnerships",
+      descKey: "cta.partnershipsDesc",
       action: "contact" as Page,
     },
   ];
@@ -58,14 +60,14 @@ export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
           className="text-center mb-16 lg:mb-20"
         >
           <span className="inline-block px-4 py-1.5 border border-[#C8A14A]/30 text-[#C8A14A] text-xs tracking-widest uppercase mb-6 font-medium rounded-full">
-            Let's Connect
+            {t("cta.label")}
           </span>
           <p className="text-white/70 max-w-3xl mx-auto text-base lg:text-lg leading-relaxed mb-6">
-            Interested in board opportunities, speaking engagements, strategic conversations, or executive leadership collaborations?
+            {t("cta.title")}
           </p>
           <div className="w-12 h-[1px] bg-[#C8A14A]/50 mx-auto mb-6" />
           <p className="text-white/50 max-w-2xl mx-auto text-base lg:text-lg">
-            Christiana is available for board appointments, speaking engagements, and strategic advisory opportunities.
+            {t("cta.description")}
           </p>
         </motion.div>
 
@@ -74,7 +76,7 @@ export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
             const Icon = option.icon;
             return (
               <motion.button
-                key={option.title}
+                key={option.titleKey}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -89,11 +91,11 @@ export default function ExecutiveCTA({ onNavigate }: ExecutiveCTAProps) {
                       <Icon className="text-[#C8A14A] group-hover:text-[#0B1F3A] transition-colors duration-500" size={22} />
                     </div>
                     <h3 className="text-lg lg:text-xl font-serif text-white mb-2 group-hover:text-[#C8A14A] transition-colors duration-300">
-                      {option.title}
+                      {t(option.titleKey)}
                     </h3>
-                    <p className="text-white/40 text-sm mb-6 leading-relaxed">{option.description}</p>
+                    <p className="text-white/40 text-sm mb-6 leading-relaxed">{t(option.descKey)}</p>
                     <span className="inline-flex items-center gap-2 text-[#C8A14A] text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      Let's Connect
+                      {t("cta.button")}
                       <ArrowRight size={14} className="transition-transform duration-300" />
                     </span>
                   </div>

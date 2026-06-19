@@ -1,16 +1,18 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-const allItems = [
-  { title: "Corporate Leadership", description: "Leading organizations through growth, change, and transformation.", size: "text-base lg:text-xl" },
-  { title: "Business Strategy", description: "Developing growth strategies and translating them into actionable plans.", size: "text-base lg:text-lg" },
-  { title: "Organizational Transformation", description: "Improving structures, systems, and performance.", size: "text-sm lg:text-base" },
-  { title: "Entrepreneurship", description: "Building businesses and creating new opportunities.", size: "text-sm lg:text-lg" },
-  { title: "Governance", description: "Strengthening accountability, leadership, and strategic oversight.", size: "text-base lg:text-xl" },
-  { title: "Growth & Expansion", description: "Identifying opportunities and creating pathways for sustainable growth.", size: "text-base lg:text-lg" },
+const expertiseKeys = [
+  { titleKey: "expertise.items.corporate", descKey: "expertise.items.corporateDesc", size: "text-base lg:text-xl" },
+  { titleKey: "expertise.items.strategy", descKey: "expertise.items.strategyDesc", size: "text-base lg:text-lg" },
+  { titleKey: "expertise.items.orgTransformation", descKey: "expertise.items.orgTransformationDesc", size: "text-sm lg:text-base" },
+  { titleKey: "expertise.items.entrepreneurship", descKey: "expertise.items.entrepreneurshipDesc", size: "text-sm lg:text-lg" },
+  { titleKey: "expertise.items.governance", descKey: "expertise.items.governanceDesc", size: "text-base lg:text-xl" },
+  { titleKey: "expertise.items.growth", descKey: "expertise.items.growthDesc", size: "text-base lg:text-lg" },
 ];
 
 export default function AreasOfExpertise() {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,10 +36,10 @@ export default function AreasOfExpertise() {
           className="mb-16"
         >
           <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-            Areas of Expertise
+            {t("expertise.label")}
           </p>
           <h2 className="text-4xl lg:text-5xl font-serif text-white leading-tight mb-6">
-            Areas of Expertise
+            {t("expertise.title")}
           </h2>
           <div className="w-16 h-0.5 bg-[#C8A14A]/50 mb-8" />
         </motion.div>
@@ -48,19 +50,19 @@ export default function AreasOfExpertise() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-5xl"
         >
-          {allItems.map((item, index) => (
+          {expertiseKeys.map((item, index) => (
             <motion.div
-              key={item.title}
+              key={item.titleKey}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
               className="border border-white/10 hover:border-[#C8A14A]/40 rounded-2xl p-6 transition-colors cursor-default group"
             >
               <h3 className={`${item.size} font-serif text-white group-hover:text-[#C8A14A] transition-colors mb-2`}>
-                {item.title}
+                {t(item.titleKey)}
               </h3>
               <p className="text-white/40 text-sm leading-relaxed">
-                {item.description}
+                {t(item.descKey)}
               </p>
             </motion.div>
           ))}

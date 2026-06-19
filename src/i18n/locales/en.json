@@ -25,10 +25,15 @@
     "headline1": "Building businesses,",
     "headline2": "transforming organizations,",
     "headline3": "creating sustainable growth.",
-    "description": "With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.",
+    "description": "Christiana Akua Feyie Yeboaa Okyere is a business transformation executive and Group COO with leadership experience spanning industrial operations, mining, logistics, real estate, trade and strategic communications.",
     "cta1": "Explore My Journey",
     "cta2": "Explore My Journey",
-    "connectCta": "Connect"
+    "connectCta": "Connect",
+    "tagline": "Group Chief Operating Officer | Business Transformation Executive | Industrial Growth Leader",
+    "mission": "Transforming Businesses. Scaling Industries. Building Sustainable Growth.",
+    "viewProfile": "View Profile",
+    "exploreProjects": "Explore Projects",
+    "connect": "Connect"
   },
   "snapshot": {
     "label": "Executive Introduction",
@@ -59,11 +64,17 @@
     },
     "items": {
       "corporate": "Corporate Leadership",
+      "corporateDesc": "Leading organizations through growth, change, and transformation.",
       "strategy": "Business Strategy",
+      "strategyDesc": "Developing growth strategies and translating them into actionable plans.",
       "orgTransformation": "Organizational Transformation",
+      "orgTransformationDesc": "Improving structures, systems, and performance.",
       "entrepreneurship": "Entrepreneurship",
+      "entrepreneurshipDesc": "Building businesses and creating new opportunities.",
       "governance": "Governance",
+      "governanceDesc": "Strengthening accountability, leadership, and strategic oversight.",
       "growth": "Growth & Expansion",
+      "growthDesc": "Identifying opportunities and creating pathways for sustainable growth.",
       "operations": "Operational Excellence",
       "change": "Change Management",
       "stakeholder": "Stakeholder Management"
@@ -88,11 +99,12 @@
     "subtitle": "A Career Built on Growth",
     "description": "From creative beginnings in communications and branding to executive leadership across multiple industries, Christiana's journey has been defined by continuous growth, learning, and transformation.",
     "milestones": {
-      "creative": { "title": "Creative Foundation", "desc": "Communications, branding, and strategic marketing" },
-      "entrepreneur": { "title": "Entrepreneurial Builder", "desc": "Establishing businesses across multiple sectors" },
-      "executive": { "title": "Executive Leader", "desc": "Strategic execution and organizational transformation" },
-      "strategist": { "title": "Growth Strategist", "desc": "Supporting organizations unlock growth and build sustainable futures" }
-    }
+      "creative": { "phase": "Creative Foundation", "title": "Creative Foundation", "period": "Early Career", "desc": "Christiana's professional journey began in communications, design, branding, and marketing. These early experiences developed the strategic thinking, creativity, and communication skills that continue to influence her leadership approach today." },
+      "entrepreneur": { "phase": "Entrepreneurial Builder", "title": "Entrepreneurial Builder", "period": "Growth Phase", "desc": "Driven by a passion for creating solutions and opportunities, she established businesses that served clients across multiple industries. Through entrepreneurship, she gained firsthand experience in business growth, leadership, customer engagement, and organizational development." },
+      "executive": { "phase": "Executive Leader", "title": "Executive Leader", "period": "Executive Phase", "desc": "Over time, her responsibilities evolved beyond entrepreneurship into broader executive leadership roles focused on strategic execution, growth, operational excellence, and organizational transformation." },
+      "strategist": { "phase": "Growth Strategist", "title": "Growth Strategist", "period": "Today", "desc": "Today, Christiana combines entrepreneurial insight with executive leadership experience to support organizations in navigating complexity, unlocking growth opportunities, and building sustainable futures." }
+    },
+    "footer": "Her career reflects a commitment to building organizations, developing people, and creating meaningful impact through leadership and entrepreneurship."
   },
   "portfolio": {
     "label": "Leadership Portfolio",
@@ -141,6 +153,26 @@
     "challenge": "Challenge:",
     "strategy": "Strategy:"
   },
+  "quote": {
+    "text": "Growth does not happen by chance. It happens when vision, leadership, discipline, and execution come together.",
+    "author": "Christiana Akua Feyie Yeboaa Okyere"
+  },
+  "newsletter": {
+    "label": "Stay Informed",
+    "title": "Thought Leadership & Insights",
+    "description": "Receive monthly insights on leadership, business transformation, and industrial development across Africa.",
+    "thanks": "Thank you for subscribing.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+  "media": {
+    "label": "In the Spotlight",
+    "title": "Media Appearances",
+    "video1Title": "Portfolio Interview",
+    "video1Desc": "Live TV interview discussing portfolio strategy and business transformation.",
+    "video2Title": "Industry Insights",
+    "video2Desc": "In-depth conversation on industry trends and innovative solutions."
+  },
   "testimonials": {
     "label": "Testimonials",
     "title": "What Leaders Say"
@@ -149,7 +181,13 @@
     "label": "Let's Connect",
     "title": "Interested in Board Opportunities, Speaking Engagements, Strategic Conversations, or Executive Leadership Collaborations?",
     "description": "Christiana is available for board appointments, speaking engagements, and strategic advisory opportunities.",
-    "button": "Let's Connect"
+    "button": "Let's Connect",
+    "board": "Board Inquiries",
+    "boardDesc": "Explore governance and advisory opportunities",
+    "speaking": "Speaking Engagements",
+    "speakingDesc": "Invite Christiana to your next event",
+    "partnerships": "Strategic Partnerships",
+    "partnershipsDesc": "Discuss collaboration opportunities"
   },
   "footer": {
     "rights": "All rights reserved.",
@@ -223,6 +261,13 @@
   "speaking": {
     "label": "Speaking",
     "title": "Speaking & Media",
+    "viewPortfolio": "View Speaking Portfolio",
+    "previewTopic1Title": "Leadership in Times of Change",
+    "previewTopic1Desc": "Navigating uncertainty and leading organizations through transformation.",
+    "previewTopic2Title": "Building Sustainable Growth",
+    "previewTopic2Desc": "Creating lasting value through strategic planning and operational excellence.",
+    "previewTopic3Title": "Entrepreneurship and Value Creation",
+    "previewTopic3Desc": "Lessons from two decades of entrepreneurial leadership across Africa.",
     "downloadKit": "Download Speaker Kit",
     "intro": "Christiana speaks on leadership, entrepreneurship, business growth, transformation, governance, and the future of African enterprise.",
     "subtitle": "Her presentations combine practical experience, strategic insight, and real-world lessons from leadership and entrepreneurship.",
@@ -273,6 +318,19 @@
     "subscribe": "Subscribe to Insights",
     "subscribeDesc": "Receive thought leadership on business transformation, governance, and African enterprise directly in your inbox.",
     "emailPlaceholder": "Enter your email",
+    "viewAll": "View All Insights",
+    "preview1Title": "Leading Through Uncertainty: Lessons from African Business",
+    "preview1Excerpt": "How executives can navigate complexity and drive transformation in rapidly changing markets.",
+    "preview1Category": "Leadership",
+    "preview1ReadTime": "8 min read",
+    "preview2Title": "The Future of Industrial Operations in Africa",
+    "preview2Excerpt": "Examining the trends shaping manufacturing and industrial development across the continent.",
+    "preview2Category": "Industrial Development",
+    "preview2ReadTime": "6 min read",
+    "preview3Title": "Board Governance: Building Effective Boards",
+    "preview3Excerpt": "Key principles for creating boards that drive value and ensure organizational sustainability.",
+    "preview3Category": "Governance",
+    "preview3ReadTime": "5 min read",
     "categories": {
       "all": "All",
       "leadership": "Leadership",

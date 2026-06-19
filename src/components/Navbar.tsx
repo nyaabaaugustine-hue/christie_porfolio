@@ -34,13 +34,13 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const isSubpageActive = (link: typeof navLinks[number]) => {
     if (!link.subMenu) return false;
     return link.subMenu.some((item) => item.page === currentPage);
   };
 
-  // Keyboard navigation support
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -64,47 +64,99 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#0B1F3A]/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-[#0B1F3A] py-3 md:py-6"
-      }`}
-    >
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
-        <nav className="flex items-center justify-between">
-          <motion.button
-            onClick={() => onNavigate("home")}
-            className="flex items-center gap-3 group"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <img
-              src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781130092/Akua-Feyie-Logo-new-01-768x217_fcurfv.png"
-              alt="Christiana Okyere"
-              className="h-8 sm:h-10 lg:h-12 w-auto"
-            />
-          </motion.button>
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#0B1F3A]/95 backdrop-blur-md shadow-lg py-3"
+            : "bg-[#0B1F3A] py-3 md:py-6"
+        }`}
+      >
+        <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
+          <nav className="flex items-center justify-between">
+            <motion.button
+              onClick={() => onNavigate("home")}
+              className="flex items-center gap-3 group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <img
+                src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781130092/Akua-Feyie-Logo-new-01-768x217_fcurfv.png"
+                alt="Christiana Okyere"
+                className="h-8 sm:h-10 lg:h-12 w-auto"
+              />
+            </motion.button>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              link.subMenu ? (
-                <div
-                  key={link.labelKey}
-                  className="relative"
-                  onMouseEnter={() => setOpenDropdown(link.labelKey)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                link.subMenu ? (
+                  <div
+                    key={link.labelKey}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(link.labelKey)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <motion.button
+                      onClick={() => {
+                        const firstPage = link.subMenu[0].page;
+                        onNavigate(firstPage);
+                      }}
+                      className={`flex items-center gap-2 relative font-medium transition-colors ${
+                        isSubpageActive(link)
+                          ? "text-[#C8A14A]"
+                          : "text-white/80 hover:text-[#C8A14A]"
+                      }`}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ y: 0 }}
+                    >
+                      {t(link.labelKey)}
+                      <ChevronDown size={14} />
+                      {isSubpageActive(link) && (
+                        <motion.div
+                          layoutId="activeNav"
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
+                        />
+                      )}
+                    </motion.button>
+
+                    <AnimatePresence>
+                      {openDropdown === link.labelKey && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute right-0 mt-3 min-w-[210px] rounded-3xl bg-[#0B1F3A]/95 border border-white/10 py-3 shadow-2xl"
+                        >
+                          {link.subMenu.map((sub) => (
+                            <button
+                              key={sub.page}
+                              onClick={() => {
+                                onNavigate(sub.page);
+                                setOpenDropdown(null);
+                              }}
+                              className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors ${
+                                currentPage === sub.page
+                                  ? "text-[#C8A14A]"
+                                  : "text-white/80 hover:text-[#C8A14A]"
+                              }`}
+                            >
+                              {t(sub.labelKey)}
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
                   <motion.button
-                    onClick={() => {
-                      const firstPage = link.subMenu[0].page;
-                      onNavigate(firstPage);
-                    }}
-                    className={`flex items-center gap-2 relative font-medium transition-colors ${
-                      isSubpageActive(link)
+                    key={link.page}
+                    onClick={() => onNavigate(link.page)}
+                    className={`relative font-medium transition-colors ${
+                      currentPage === link.page
                         ? "text-[#C8A14A]"
                         : "text-white/80 hover:text-[#C8A14A]"
                     }`}
@@ -112,202 +164,165 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
                     whileTap={{ y: 0 }}
                   >
                     {t(link.labelKey)}
-                    <ChevronDown size={14} />
-                    {isSubpageActive(link) && (
+                    {currentPage === link.page && (
                       <motion.div
                         layoutId="activeNav"
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
                       />
                     )}
                   </motion.button>
-
-                  <AnimatePresence>
-                    {openDropdown === link.labelKey && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute right-0 mt-3 min-w-[210px] rounded-3xl bg-[#0B1F3A]/95 border border-white/10 py-3 shadow-2xl"
-                      >
-                        {link.subMenu.map((sub) => (
-                          <button
-                            key={sub.page}
-                            onClick={() => {
-                              onNavigate(sub.page);
-                              setOpenDropdown(null);
-                            }}
-                            className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors ${
-                              currentPage === sub.page
-                                ? "text-[#C8A14A]"
-                                : "text-white/80 hover:text-[#C8A14A]"
-                            }`}
-                          >
-                            {t(sub.labelKey)}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <motion.button
-                  key={link.page}
-                  onClick={() => onNavigate(link.page)}
-                  className={`relative font-medium transition-colors ${
-                    currentPage === link.page
-                      ? "text-[#C8A14A]"
-                      : "text-white/80 hover:text-[#C8A14A]"
-                  }`}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                >
-                  {t(link.labelKey)}
-                  {currentPage === link.page && (
-                    <motion.div
-                      layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C8A14A]"
-                    />
-                  )}
-                </motion.button>
-              )
-            ))}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <LanguageSwitcher />
-            <motion.button
-              onClick={() => useDarkMode().toggleDarkMode()}
-              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={useDarkMode().isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {useDarkMode().isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </motion.button>
-            <motion.button
-              onClick={() => onNavigate("contact")}
-              className="px-6 py-2.5 rounded-lg font-semibold transition-all text-sm bg-[#C8A14A] text-[#0B1F3A] hover:bg-[#b8923f]"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t("nav.getInTouch")}
-            </motion.button>
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-3 rounded-lg text-white hover:bg-white/10 transition-colors touch-manipulation`}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-      </div>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#0B1F3A] border-t border-white/10 fixed inset-x-0 top-[72px] bottom-0 z-40 pt-6 overflow-y-auto"
-          >
-            <div className="max-w-[90rem] mx-auto px-6 py-6 space-y-4">
-              {navLinks.map((link, index) => (
-                link.subMenu ? (
-                  <div key={link.labelKey} className="space-y-2">
-                    <button
-                      onClick={() => {
-                        onNavigate(link.subMenu[0].page);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`w-full text-left text-xs uppercase tracking-widest px-4 py-2 rounded-lg transition-colors ${
-                        isSubpageActive(link)
-                          ? "text-[#C8A14A] bg-[#C8A14A]/10"
-                          : "text-white/50 hover:text-white hover:bg-white/5"
-                      }`}
-                    >
-                      {t(link.labelKey)}
-                    </button>
-                    {link.subMenu.map((sub, subIndex) => (
-                      <motion.button
-                        key={sub.page}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: (index + subIndex) * 0.04 }}
-                        onClick={() => {
-                          onNavigate(sub.page);
-                          setIsMobileMenuOpen(false);
-                        }}
-                        className={`block w-full text-left py-3 px-6 rounded-lg transition-colors ${
-                          currentPage === sub.page
-                            ? "bg-[#C8A14A]/10 text-[#C8A14A]"
-                            : "text-white/70 hover:bg-white/5 hover:text-white"
-                        }`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {t(sub.labelKey)}
-                      </motion.button>
-                    ))}
-                  </div>
-                ) : (
-                  <motion.button
-                    key={link.page}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    onClick={() => {
-                      onNavigate(link.page);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
-                      currentPage === link.page
-                        ? "bg-[#C8A14A]/10 text-[#C8A14A]"
-                        : "text-white/70 hover:bg-white/5 hover:text-white"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {t(link.labelKey)}
-                  </motion.button>
                 )
               ))}
+            </div>
+
+            <div className="hidden lg:flex items-center gap-4">
               <LanguageSwitcher />
               <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-                onClick={() => {
-                  useDarkMode().toggleDarkMode();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full py-3 bg-white/5 rounded-lg font-semibold text-white hover:bg-white/10 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                onClick={() => toggleDarkMode()}
+                className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
               >
-                {useDarkMode().isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </motion.button>
               <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navLinks.length + 1) * 0.05 }}
-                onClick={() => {
-                  onNavigate("contact");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full py-3 bg-[#C8A14A] text-[#0B1F3A] rounded-lg font-semibold hover:bg-[#b8923f] transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                onClick={() => onNavigate("contact")}
+                className="px-6 py-2.5 rounded-lg font-semibold transition-all text-sm bg-[#C8A14A] text-[#0B1F3A] hover:bg-[#b8923f]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {t("nav.getInTouch")}
               </motion.button>
             </div>
-          </motion.div>
+
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`lg:hidden p-3 rounded-lg text-white hover:bg-white/10 transition-colors touch-manipulation`}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </nav>
+        </div>
+      </motion.header>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 bottom-0 w-[300px] max-w-[85vw] z-50 bg-[#0B1F3A] border-l border-white/10 overflow-y-auto shadow-2xl lg:hidden"
+            >
+              <div className="flex items-center justify-between p-4 border-b border-white/10">
+                <span className="text-white/50 text-xs uppercase tracking-widest font-medium">Menu</span>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <div className="p-6 space-y-4">
+                {navLinks.map((link, index) => (
+                  link.subMenu ? (
+                    <div key={link.labelKey} className="space-y-2">
+                      <button
+                        onClick={() => {
+                          onNavigate(link.subMenu[0].page);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`w-full text-left text-xs uppercase tracking-widest px-4 py-2 rounded-lg transition-colors ${
+                          isSubpageActive(link)
+                            ? "text-[#C8A14A] bg-[#C8A14A]/10"
+                            : "text-white/50 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {t(link.labelKey)}
+                      </button>
+                      {link.subMenu.map((sub) => (
+                        <motion.button
+                          key={sub.page}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: (index + link.subMenu!.indexOf(sub)) * 0.04 }}
+                          onClick={() => {
+                            onNavigate(sub.page);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className={`block w-full text-left py-3 px-6 rounded-lg transition-colors ${
+                            currentPage === sub.page
+                              ? "bg-[#C8A14A]/10 text-[#C8A14A]"
+                              : "text-white/70 hover:bg-white/5 hover:text-white"
+                          }`}
+                        >
+                          {t(sub.labelKey)}
+                        </motion.button>
+                      ))}
+                    </div>
+                  ) : (
+                    <motion.button
+                      key={link.page}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      onClick={() => {
+                        onNavigate(link.page);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
+                        currentPage === link.page
+                          ? "bg-[#C8A14A]/10 text-[#C8A14A]"
+                          : "text-white/70 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {t(link.labelKey)}
+                    </motion.button>
+                  )
+                ))}
+                <hr className="border-white/10" />
+                <LanguageSwitcher />
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navLinks.length + 1) * 0.05 }}
+                  onClick={() => {
+                    toggleDarkMode();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-3 bg-white/5 rounded-lg font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+                </motion.button>
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navLinks.length + 2) * 0.05 }}
+                  onClick={() => {
+                    onNavigate("contact");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-3 bg-[#C8A14A] text-[#0B1F3A] rounded-lg font-semibold hover:bg-[#b8923f] transition-colors"
+                >
+                  {t("nav.getInTouch")}
+                </motion.button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
