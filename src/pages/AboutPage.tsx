@@ -154,7 +154,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 The Journey
               </p>
               <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A] mb-6">
-                Executive Biography
+                Biography
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>

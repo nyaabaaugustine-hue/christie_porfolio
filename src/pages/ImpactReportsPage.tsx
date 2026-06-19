@@ -141,7 +141,7 @@ export default function ImpactReportsPage({ onNavigate }: ImpactReportsPageProps
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-[#C8A14A] text-[#0B1F3A] font-semibold rounded-lg hover:bg-[#d4ad5a] transition-colors"
               >
-                View Portfolio
+                View Profile
               </motion.button>
               <motion.button
                 onClick={() => onNavigate("transformation")}

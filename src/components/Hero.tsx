@@ -200,7 +200,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 0.8 }}
               className="text-[#C8A14A] text-base sm:text-lg font-medium mb-4"
             >
-              Corporate Executive | Entrepreneur | Growth Strategist
+              Group Chief Operating Officer | Business Transformation Executive | Industrial Growth Leader
             </motion.p>
 
             <motion.div
@@ -216,16 +216,16 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ delay: 1.0, duration: 0.6 }}
               className="text-white/90 text-base sm:text-lg mb-4 max-w-xl leading-relaxed font-semibold"
             >
-              Building businesses, transforming organizations, and creating sustainable growth through strategic leadership, operational excellence, and entrepreneurial vision.
+              Transforming Businesses. Scaling Industries. Building Sustainable Growth.
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-[#C8A14A] text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed font-semibold"
+              className="text-white/75 text-sm sm:text-base mb-8 sm:mb-10 max-w-xl leading-relaxed"
             >
-              With more than two decades of experience spanning business leadership, growth strategy, operations, and organizational transformation, Christiana has built a reputation for turning ideas into enterprises, strategy into execution, and opportunities into lasting value.
+              Christiana Akua Feyie Yeboaa Okyere is a business transformation executive and Group COO with leadership experience spanning industrial operations, mining, logistics, real estate, trade and strategic communications.
             </motion.p>
 
             <motion.div
@@ -244,12 +244,20 @@ export default function Hero({ onNavigate }: HeroProps) {
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
-                onClick={() => onNavigate("leadership")}
+                onClick={() => onNavigate("transformation")}
                 className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Explore Leadership Journey
+                Explore Projects
+              </motion.button>
+              <motion.button
+                onClick={() => onNavigate("contact")}
+                className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg hover:bg-white/10 transition-colors border border-white/30 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Connect
               </motion.button>
             </motion.div>
           </motion.div>

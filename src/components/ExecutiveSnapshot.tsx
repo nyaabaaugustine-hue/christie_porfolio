@@ -3,6 +3,13 @@ import { useRef } from "react";
 
 const headingWords = ["Executive", "Entrepreneur.", "Boardroom", "Strategist."];
 
+const metrics = [
+  { value: "GHS 31M+", label: "Revenue Generated" },
+  { value: "GHS 2.5M+", label: "Assets Built" },
+  { value: "20+", label: "Years Experience" },
+  { value: "5+", label: "Industries Transformed" },
+];
+
 export default function ExecutiveSnapshot() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -49,7 +56,7 @@ export default function ExecutiveSnapshot() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="text-white/70 text-lg max-w-2xl mx-auto mb-6"
+            className="text-white/70 text-lg max-w-2xl mx-auto mb-4"
           >
             Christiana Akua Feyie Yeboaa Okyere is a seasoned corporate executive, entrepreneur, and growth strategist whose career reflects a unique combination of entrepreneurial agility and executive leadership.
           </motion.p>
@@ -65,10 +72,26 @@ export default function ExecutiveSnapshot() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 1.3 }}
-            className="text-white/70 text-base max-w-xl mx-auto"
+            className="text-white/70 text-base max-w-xl mx-auto mb-16"
           >
             Today, her work focuses on helping organizations unlock growth, improve performance, strengthen leadership, and create sustainable long-term value.
           </motion.p>
+
+          {/* Impact Metrics */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-3xl mx-auto">
+            {metrics.map((metric, i) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
+                className="text-center"
+              >
+                <p className="text-3xl lg:text-4xl font-serif text-[#C8A14A] mb-1">{metric.value}</p>
+                <p className="text-white/50 text-xs tracking-wider uppercase">{metric.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

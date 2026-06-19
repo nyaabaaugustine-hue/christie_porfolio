@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ExecutiveSnapshot from "./components/ExecutiveSnapshot";
+import VideoInterview from "./components/VideoInterview";
 import LeadershipPhilosophy from "./components/LeadershipPhilosophy";
 import AreasOfExpertise from "./components/AreasOfExpertise";
 import CareerTimeline from "./components/CareerTimeline";
-import FeaturedPortfolio from "./components/FeaturedPortfolio";
-import TransformationImpact from "./components/TransformationImpact";
 import ExecutiveCTA from "./components/ExecutiveCTA";
 import Footer from "./components/Footer";
 import FloatingSocial from "./components/FloatingSocial";
@@ -260,9 +258,7 @@ export default function App() {
               <PageTransition key="home">
                 <main role="main">
                   <Hero onNavigate={handleNavigate} />
-                  <ExecutiveSnapshot />
-                  <TransformationImpact />
-                  <FeaturedPortfolio onNavigate={handleNavigate} />
+                  <VideoInterview />
                   <LeadershipPhilosophy />
                   <AreasOfExpertise />
                   <CareerTimeline />

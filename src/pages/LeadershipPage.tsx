@@ -36,39 +36,6 @@ const leadershipThemes = [
   },
 ];
 
-const portfolioCompanies = [
-  {
-    name: "McDan Group",
-    sector: "Industrial Operations & Logistics",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781134493/MACDAN_zjki8k.jpg",
-  },
-  {
-    name: "Eagle Salt",
-    sector: "Manufacturing",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781134079/EAGLE-LOGO_ylwlgk.jpg",
-  },
-  {
-    name: "Moonlight Shipping",
-    sector: "Logistics & Supply Chain",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119515/Moonlight-logo_feemhr.jpg",
-  },
-  {
-    name: "SMIC360",
-    sector: "Industrial Operations",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119515/SMIC360-LOGO_ebuzdi.jpg",
-  },
-  {
-    name: "Phoenix Enclave",
-    sector: "Real Estate Development",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781134364/PHOENIX-LOGO_xhbqul.jpg",
-  },
-  {
-    name: "Osabusquare",
-    sector: "Trade & Distribution",
-    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781134180/Osabusquare-LOGO_ke7n5x.jpg",
-  },
-];
-
 export default function LeadershipPage({ onNavigate }: LeadershipPageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -172,71 +139,6 @@ export default function LeadershipPage({ onNavigate }: LeadershipPageProps) {
                 })}
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Grid */}
-      <section className="relative py-16 lg:py-24 bg-white">
-        {/* Subtle background texture */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(11,31,58,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(11,31,58,0.015)_1px,transparent_1px)] bg-[length:48px_48px]" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-[0.2em] uppercase mb-4 font-medium">
-              Portfolio
-            </p>
-            <h2 className="text-3xl lg:text-4xl font-serif text-[#0B1F3A]">
-              Companies She Has Led
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioCompanies.map((company, index) => (
-              <motion.div
-                key={company.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                {/* Card */}
-                <div className="relative bg-[#F8F8F8] rounded-2xl overflow-hidden border border-gray-100 hover:border-[#C8A14A]/30 transition-all duration-500 hover:shadow-xl hover:shadow-[#C8A14A]/5">
-                  {/* Image container */}
-                  <div className="relative h-48 overflow-hidden bg-white">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F8F8F8]/50 z-10" />
-                    <img
-                      src={company.image}
-                      alt={company.name}
-                      className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative p-6 text-center">
-                    <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3 group-hover:text-[#C8A14A] transition-colors">
-                      {company.name}
-                    </h3>
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0B1F3A]/5 rounded-full">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#C8A14A]" />
-                      <span className="text-[#0B1F3A]/70 text-sm font-medium">
-                        {company.sector}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Hover accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#C8A14A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

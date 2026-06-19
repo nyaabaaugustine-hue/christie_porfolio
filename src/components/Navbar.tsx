@@ -20,27 +20,12 @@ const navLinks = [
       { labelKey: "nav.aboutChristianas", page: "about" as Page },
       { labelKey: "nav.leadership", page: "leadership" as Page },
       { labelKey: "nav.board", page: "board" as Page },
-      { labelKey: "nav.transformation", page: "transformation" as Page },
-      { labelKey: "nav.industries", page: "industries" as Page },
     ],
   },
-  {
-    labelKey: "nav.media",
-    subMenu: [
-      { labelKey: "nav.speaking", page: "speaking" as Page },
-      { labelKey: "nav.podcast", page: "podcast" as Page },
-      { labelKey: "nav.videos", page: "videos" as Page },
-    ],
-  },
-  {
-    labelKey: "nav.thoughtLeadership",
-    subMenu: [
-      { labelKey: "nav.insights", page: "insights" as Page },
-      { labelKey: "nav.blog", page: "blog" as Page },
-      { labelKey: "nav.investors", page: "investors" as Page },
-      { labelKey: "nav.reports", page: "reports" as Page },
-    ],
-  },
+  { labelKey: "nav.transformation", page: "transformation" as Page },
+  { labelKey: "nav.industries", page: "industries" as Page },
+  { labelKey: "nav.speaking", page: "speaking" as Page },
+  { labelKey: "nav.insights", page: "insights" as Page },
   { labelKey: "nav.contact", page: "contact" as Page },
 ];
 

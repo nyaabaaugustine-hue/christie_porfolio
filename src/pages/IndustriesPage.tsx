@@ -10,51 +10,51 @@ interface IndustriesPageProps {
 
 const industries = [
   {
-    icon: Briefcase,
-    title: "Business Services",
-    description: "Transforming service businesses with governance, customer focus, and operational excellence.",
-    accent: "from-blue-500/20 to-blue-600/10",
-  },
-  {
-    icon: Megaphone,
-    title: "Strategic Communications",
-    description: "Aligning narrative, stakeholder engagement, and reputation with organizational strategy.",
-    accent: "from-purple-500/20 to-purple-600/10",
-  },
-  {
-    icon: Truck,
-    title: "Logistics & Supply Chain",
-    description: "Building resilient supply chains and optimizing logistics operations for enterprise growth.",
-    accent: "from-emerald-500/20 to-emerald-600/10",
-  },
-  {
     icon: Factory,
-    title: "Industrial Operations",
-    description: "Driving performance and scale across manufacturing, production, and logistics businesses.",
+    title: "Mining & Industrial Operations",
+    description: "Driving performance, scale, and operational governance across mining, manufacturing, and industrial production businesses.",
     accent: "from-orange-500/20 to-orange-600/10",
   },
   {
     icon: Store,
-    title: "Trade & Distribution",
-    description: "Building resilient supply chains and commercial networks for market expansion.",
+    title: "Salt Production & Commodities",
+    description: "Leading salt production scale-up, export market entry, ISO certification, and regional distribution for commodities businesses.",
     accent: "from-teal-500/20 to-teal-600/10",
+  },
+  {
+    icon: Truck,
+    title: "Logistics & Shipping",
+    description: "Building resilient supply chains, fleet optimization, maritime operations, and logistics governance for enterprise growth.",
+    accent: "from-emerald-500/20 to-emerald-600/10",
   },
   {
     icon: Building2,
     title: "Real Estate Development",
-    description: "Leading strategic development, commercial delivery, and asset optimization programs.",
+    description: "Leading strategic development, commercial delivery, stakeholder coordination, and asset optimization for premium real estate projects.",
     accent: "from-rose-500/20 to-rose-600/10",
   },
   {
+    icon: Megaphone,
+    title: "Marketing & Communications",
+    description: "Aligning narrative, stakeholder engagement, and reputation with organizational strategy across corporate and consumer brands.",
+    accent: "from-purple-500/20 to-purple-600/10",
+  },
+  {
+    icon: Briefcase,
+    title: "Business Transformation",
+    description: "Turning around underperforming businesses, restructuring operations, restoring profitability, and repositioning for sustainable growth.",
+    accent: "from-blue-500/20 to-blue-600/10",
+  },
+  {
     icon: Cog,
-    title: "Manufacturing",
-    description: "Strengthening manufacturing operations with quality systems and growth-ready capacity.",
+    title: "Trade & Supply Chains",
+    description: "Building resilient commercial networks, optimizing procurement, and creating market access for distribution businesses across West Africa.",
     accent: "from-amber-500/20 to-amber-600/10",
   },
   {
     icon: Hotel,
     title: "Hospitality",
-    description: "Advising on hospitality operations, guest experience, and growth strategy for premium brands.",
+    description: "Advising on hospitality operations, guest experience strategy, and growth planning for premium brands.",
     accent: "from-indigo-500/20 to-indigo-600/10",
   },
 ];
