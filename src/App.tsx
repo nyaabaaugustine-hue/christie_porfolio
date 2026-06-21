@@ -193,10 +193,17 @@ export default function App() {
         document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
       return () => clearTimeout(timer);
+    }
+    const isDetailView = viewingPostId || viewingInsight;
+    if (isDetailView) {
+      const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, 50);
+      return () => clearTimeout(timer);
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [currentPage]);
+  }, [currentPage, viewingPostId, viewingInsight]);
 
   const handleViewPost = (id: number) => {
     setViewingPostId(id);
