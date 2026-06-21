@@ -266,7 +266,7 @@ export default function ContactPage({ }: ContactPageProps) {
               {/* LinkedIn & Calendar */}
                 <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/christiana-okyere-1a264a17/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}

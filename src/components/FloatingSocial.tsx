@@ -1,26 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Facebook } from "lucide-react";
-
-const socialLinks = [
-  {
-    href: "https://facebook.com/christianaokyere",
-    icon: Facebook,
-    label: "Facebook",
-    color: "hover:bg-[#1877F2]",
-  },
-  {
-    href: "https://linkedin.com/in/christiana-okyere",
-    icon: Linkedin,
-    label: "LinkedIn",
-    color: "hover:bg-[#0A66C2]",
-  },
-  {
-    href: "mailto:christie@smic360.com",
-    icon: Mail,
-    label: "Email",
-    color: "hover:bg-[#C8A14A]",
-  },
-];
+import { socialLinks } from "../data/social";
 
 export default function FloatingSocial() {
   return (
@@ -43,7 +22,7 @@ export default function FloatingSocial() {
             }}
             whileHover={{ x: -6, scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`group relative flex items-center gap-3 w-12 hover:w-[160px] h-12 rounded-full bg-[#0B1F3A]/90 backdrop-blur-md text-white ${link.color} transition-all duration-500 ease-out overflow-hidden shadow-lg shadow-black/20 border border-white/10 hover:border-white/20`}
+            className={`group relative flex items-center gap-3 w-12 hover:w-[160px] h-12 rounded-full bg-[#0B1F3A]/90 backdrop-blur-md text-white ${link.hoverColor} transition-all duration-500 ease-out overflow-hidden shadow-lg shadow-black/20 border border-white/10 hover:border-white/20`}
             aria-label={link.label}
           >
             <div className="flex items-center justify-center w-12 h-12 flex-shrink-0 z-10">
@@ -56,7 +35,6 @@ export default function FloatingSocial() {
         );
       })}
 
-      {/* Decorative vertical line */}
       <div className="absolute -right-[1px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#C8A14A]/30 to-transparent pointer-events-none" />
     </div>
   );

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'transformation' | 'industries' | 'blog';
@@ -10,80 +10,10 @@ interface HeroProps {
 }
 
 const videoIds = ["56ZbiZGh0SM", "TecSq4QvwZs", "kcQ0scOBfvY"];
-const fullName = "Christiana Akua Feyie Yeboaa Okyere";
-
-function TypingName() {
-  const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    let i = 0;
-    let deleting = false;
-    const timer = setInterval(() => {
-      if (!deleting) {
-        if (i <= fullName.length) {
-          setDisplayText(fullName.slice(0, i));
-          i++;
-        } else {
-          setTimeout(() => { deleting = true; }, 2000);
-        }
-      } else {
-        if (i > 0) {
-          i--;
-          setDisplayText(fullName.slice(0, i));
-        } else {
-          deleting = false;
-        }
-      }
-    }, 80);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const cursor = setInterval(() => setShowCursor((v) => !v), 530);
-    return () => clearInterval(cursor);
-  }, []);
-
-  return (
-    <span>
-      {displayText}
-      <span className={`inline-block w-[3px] h-[0.8em] bg-[#C8A14A] ml-1 align-middle transition-opacity duration-100 ${showCursor ? "opacity-100" : "opacity-0"}`} />
-    </span>
-  );
-}
 
 export default function Hero({ onNavigate }: HeroProps) {
   const { t } = useTranslation();
   const [apiReady, setApiReady] = useState(false);
-  const imageRef = useRef<HTMLImageElement>(null);
-
-  // Image lazy loading with Intersection Observer
-  useEffect(() => {
-    if (!imageRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            img.src = img.dataset.src || img.src;
-            observer.unobserve(img);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '50px',
-        threshold: 0.1
-      }
-    );
-
-    observer.observe(imageRef.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   useEffect(() => {
     if ((window as any).YT) {
@@ -158,30 +88,8 @@ export default function Hero({ onNavigate }: HeroProps) {
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#C8A14A]/20 blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.05, 0.1, 0.05],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[#C8A14A]/10 blur-3xl"
-        />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#C8A14A]/20 blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[#C8A14A]/10 blur-3xl" />
       </div>
 
       {/* Content */}
@@ -192,8 +100,8 @@ export default function Hero({ onNavigate }: HeroProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight">
-              <TypingName />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 sm:mb-6 leading-tight break-words text-balance">
+              <span className="[&_span]:inline">Christiana Akua Feyie Yeboaa Okyere</span>
             </h1>
 
             <motion.p
@@ -277,19 +185,10 @@ export default function Hero({ onNavigate }: HeroProps) {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="relative z-10 overflow-hidden rounded-2xl lg:rounded-2xl"
               >
-                <div className="lg:hidden">
-                  <img
-                    ref={imageRef}
-                    data-src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
-                    alt="Portrait of Christiana Akua Feyie Yeboaa Okyere, Corporate Executive and Entrepreneur"
-                    className="w-full rounded-2xl"
-                  />
-                </div>
                 <img
-                  ref={imageRef}
-                  data-src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
-                  alt="Professional portrait of Christiana Akua Feyie Yeboaa Okyere, showing her as a confident corporate executive"
-                  className="hidden lg:block w-full max-w-md mx-auto shadow-2xl rounded-2xl"
+                  src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781119516/2_f2c4wp.jpg"
+                  alt="Portrait of Christiana Akua Feyie Yeboaa Okyere, Group Chief Operating Officer"
+                  className="w-full max-w-md mx-auto shadow-2xl rounded-2xl"
                 />
               </motion.div>
               <div className="hidden lg:block absolute -bottom-6 -right-6 w-full h-full bg-[#C8A14A]/20 rounded-2xl -z-10" />

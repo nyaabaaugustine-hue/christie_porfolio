@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Search, Calendar, ArrowRight, Tag } from "lucide-react";
 
-const categories = ["All", "Leadership", "Governance", "Business Growth", "Industrial Development", "Transformation", "Entrepreneurship"];
+const categories = ["All Articles", "Leadership", "Growth Strategy", "Governance", "Executive Notes", "Perspective"];
 
 const articles = [
   {
@@ -16,7 +16,7 @@ const articles = [
   {
     title: "The Future of Industrial Operations in Africa",
     excerpt: "Examining the trends shaping manufacturing and industrial development across the continent.",
-    category: "Industrial Development",
+    category: "Perspective",
     date: "November 2024",
     readTime: "6 min read",
     featured: true,
@@ -32,7 +32,7 @@ const articles = [
   {
     title: "From Strategy to Execution: Bridging the Gap",
     excerpt: "Practical approaches for turning strategic plans into operational reality.",
-    category: "Transformation",
+    category: "Executive Notes",
     date: "September 2024",
     readTime: "7 min read",
     featured: false,
@@ -48,7 +48,7 @@ const articles = [
   {
     title: "Building Sustainable Supply Chains",
     excerpt: "Creating resilient and efficient supply networks for African enterprises.",
-    category: "Business Growth",
+    category: "Growth Strategy",
     date: "July 2024",
     readTime: "5 min read",
     featured: false,
@@ -58,11 +58,11 @@ const articles = [
 export default function InsightsPage() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All Articles");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredArticles = articles.filter((article) => {
-    const matchesCategory = activeCategory === "All" || article.category === activeCategory;
+    const matchesCategory = activeCategory === "All Articles" || article.category === activeCategory;
     const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -94,110 +94,95 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="relative py-16 lg:py-20 xl:py-24 bg-[#F5F6F7]">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="rounded-2xl border border-white/20 bg-[#0B1F3A] shadow-2xl shadow-black/10 p-10 lg:p-14">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-              <div className="max-w-2xl">
-                <p className="text-[#C8A14A] text-sm uppercase tracking-widest mb-4 font-semibold">
-                  Insights
-                </p>
-                <p className="text-white/70 text-lg leading-relaxed">
-                  Perspectives on leadership, transformation, and African enterprise.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white/5 border border-white/10 p-7 lg:p-8 max-w-sm">
-                <p className="text-[#C8A14A] uppercase tracking-[0.18em] text-xs font-semibold mb-4">
-                  Categories
-                </p>
-                <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Leadership
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Governance
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Business Growth
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Industrial Development
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Transformation
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A14A]/40 flex-shrink-0" />
-                    Entrepreneurship
-                  </li>
-                </ul>
-              </div>
-            </div>
+      {/* Filter Tabs */}
+      <section className="py-8 bg-white border-b border-gray-100 sticky top-20 z-30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  activeCategory === category
+                    ? "bg-[#0B1F3A] text-white shadow-md"
+                    : "bg-[#F5F6F7] text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <div className="relative w-full max-w-md mx-auto mt-5">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F5F6F7] rounded-full text-sm text-[#0B1F3A] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C8A14A]/30 transition-all"
+            />
           </div>
         </div>
       </section>
 
       {/* Featured Articles */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
-              Featured
-            </p>
-            <h2 className="text-3xl font-serif text-[#0B1F3A]">Latest Thinking</h2>
-          </motion.div>
+      {activeCategory === "All Articles" && featuredArticles.length > 0 && (
+        <section className="py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
+            >
+              <p className="text-[#C8A14A] text-sm tracking-widest uppercase mb-4 font-medium">
+                Featured
+              </p>
+              <h2 className="text-3xl font-serif text-[#0B1F3A]">Latest Thinking</h2>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {featuredArticles.map((article, index) => (
-              <motion.article
-                key={article.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer"
-              >
-                <div className="bg-[#F5F6F7] rounded-2xl p-6 lg:p-8 h-full hover:bg-[#0B1F3A] transition-all duration-500">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-[#C8A14A]/10 rounded-full text-[#C8A14A] text-xs font-medium group-hover:bg-[#C8A14A] group-hover:text-[#0B1F3A] transition-colors">
-                      {article.category}
-                    </span>
-                    <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
-                      {article.readTime}
-                    </span>
+            <div className="grid md:grid-cols-2 gap-8">
+              {featuredArticles.map((article, index) => (
+                <motion.article
+                  key={article.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-[#F5F6F7] rounded-2xl p-6 lg:p-8 h-full hover:bg-[#0B1F3A] transition-all duration-500">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="px-3 py-1 bg-[#C8A14A]/10 rounded-full text-[#C8A14A] text-xs font-medium group-hover:bg-[#C8A14A] group-hover:text-[#0B1F3A] transition-colors">
+                        {article.category}
+                      </span>
+                      <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
+                        {article.readTime}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3 group-hover:text-white transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 group-hover:text-white/70 transition-colors">
+                      {article.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
+                        {article.date}
+                      </span>
+                      <span className="text-[#C8A14A] font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Read More
+                        <ArrowRight size={16} />
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3 group-hover:text-white transition-colors">
-                    {article.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 group-hover:text-white/70 transition-colors">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
-                      {article.date}
-                    </span>
-                    <span className="text-[#C8A14A] font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      Read More
-                      <ArrowRight size={16} />
-                    </span>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* All Articles */}
       <section ref={ref} className="py-16 lg:py-20 bg-[#F5F6F7] relative overflow-hidden">
@@ -211,46 +196,17 @@ export default function InsightsPage() {
           <div className="absolute inset-0 bg-[#F5F6F7]/80" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 z-10">
-          {/* Search and Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-12"
+            className="mb-10"
           >
-            <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
-              {/* Search */}
-              <div className="relative w-full lg:w-96">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                <input
-                  type="text"
-                  placeholder="Search articles..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-white rounded-lg border border-gray-200 focus:outline-none focus:border-[#C8A14A] transition-colors"
-                />
-              </div>
-
-              {/* Categories */}
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      activeCategory === category
-                        ? "bg-[#C8A14A] text-[#0B1F3A]"
-                        : "bg-white text-gray-600 hover:bg-gray-100"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <h2 className="text-3xl font-serif text-[#0B1F3A] text-center">
+              {activeCategory === "All Articles" ? "All Articles" : activeCategory}
+            </h2>
           </motion.div>
 
-          {/* Articles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredArticles.map((article, index) => (
               <motion.article

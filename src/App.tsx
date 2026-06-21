@@ -26,6 +26,7 @@ const InsightsPage = lazy(() => import("./pages/InsightsPage"));
 const TransformationProjectsPage = lazy(() => import("./pages/TransformationProjectsPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const PodcastPage = lazy(() => import("./pages/PodcastPage"));
 const VideoLibraryPage = lazy(() => import("./pages/VideoLibraryPage"));
 const InvestorRelationsPage = lazy(() => import("./pages/InvestorRelationsPage"));
@@ -173,8 +174,19 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [currentPage]);
 
+  const [viewingPostId, setViewingPostId] = useState<number | null>(null);
+
   const handleNavigate = (page: Page) => {
+    setViewingPostId(null);
     setCurrentPage(page);
+  };
+
+  const handleViewPost = (id: number) => {
+    setViewingPostId(id);
+  };
+
+  const handleBackToBlog = () => {
+    setViewingPostId(null);
   };
 
   if (isLoading) {
@@ -320,9 +332,15 @@ export default function App() {
                 </PageTransition>
               )}
 
-              {currentPage === 'blog' && (
+              {currentPage === 'blog' && !viewingPostId && (
                 <PageTransition key="blog">
-                  <BlogPage onNavigate={handleNavigate} />
+                  <BlogPage onNavigate={handleNavigate} onViewPost={handleViewPost} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'blog' && viewingPostId && (
+                <PageTransition key="blogPost">
+                  <BlogPostPage postId={viewingPostId} onBack={handleBackToBlog} onNavigate={handleNavigate} />
                 </PageTransition>
               )}
 

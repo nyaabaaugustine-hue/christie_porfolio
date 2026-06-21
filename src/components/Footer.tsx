@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Linkedin, Facebook, Mail, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { socialLinks } from "../data/social";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 type Page = 'home' | 'about' | 'leadership' | 'board' | 'speaking' | 'contact' | 'insights' | 'blog' | 'podcast' | 'videos' | 'investors' | 'reports' | 'transformation' | 'industries';
@@ -58,32 +59,24 @@ export default function Footer({ onNavigate }: FooterProps) {
                 className="h-10 w-auto"
               />
             </button>
-            <p className="text-white/40 text-sm leading-relaxed text-justify mb-8 max-w-sm">
-              Corporate Executive, Entrepreneur, and Growth Strategist — one of Ghana's emerging industrial and corporate leaders, driving business transformation and building sustainable enterprises across Africa.
+            <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-sm">
+              Group Chief Operating Officer, Business Transformation Executive, and Industrial Growth Leader — one of Ghana's emerging industrial and corporate leaders, driving business transformation and building sustainable enterprises across Africa.
             </p>
             <div className="flex items-center gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#C8A14A]/20 hover:border-[#C8A14A]/30 transition-all"
-              >
-                <Linkedin size={16} className="text-white/60" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#C8A14A]/20 hover:border-[#C8A14A]/30 transition-all"
-              >
-                <Facebook size={16} className="text-white/60" />
-              </a>
-              <a
-href="mailto:christie@smic360.com"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#C8A14A]/20 hover:border-[#C8A14A]/30 transition-all"
-              >
-                <Mail size={16} className="text-white/60" />
-              </a>
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#C8A14A]/20 hover:border-[#C8A14A]/30 transition-all"
+                  >
+                    <Icon size={16} className="text-white/60" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -98,7 +91,7 @@ href="mailto:christie@smic360.com"
                   <li key={link.page}>
                     <button
                       onClick={() => onNavigate(link.page)}
-                      className="text-white/40 hover:text-white text-sm transition-colors inline-flex items-center gap-1.5 group"
+                      className="text-white/60 hover:text-white text-sm transition-colors inline-flex items-center gap-1.5 group"
                     >
                       {link.label}
                       <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -114,7 +107,7 @@ href="mailto:christie@smic360.com"
             <h4 className="text-[11px] tracking-[0.2em] uppercase text-[#C8A14A] font-semibold mb-5">
               Contact
             </h4>
-            <ul className="space-y-3 text-sm text-white/40">
+            <ul className="space-y-3 text-sm text-white/60">
               <li>Accra, Ghana</li>
               <li>+233 24 478 3099</li>
               <li>
@@ -131,14 +124,14 @@ href="mailto:christie@smic360.com"
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs">
+          <p className="text-white/50 text-xs">
             &copy; {new Date().getFullYear()} Christiana Akua Feyie Yeboaa Okyere. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-6">
-            <button className="text-white/30 hover:text-white text-xs transition-colors">
+            <button className="text-white/50 hover:text-white text-xs transition-colors">
               {t("footer.privacy")}
             </button>
-            <button className="text-white/30 hover:text-white text-xs transition-colors">
+            <button className="text-white/50 hover:text-white text-xs transition-colors">
               {t("footer.terms")}
             </button>
           </div>
