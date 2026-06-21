@@ -51,12 +51,12 @@ export default function SpeakingPage({ onNavigate }: SpeakingPageProps) {
       <section className="relative h-[360px] lg:h-[440px] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781182454/hero_image_christiana_x6uiuj.png"
+            src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1782008714/send_s1v3hw.png"
             alt="Speaking background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[rgba(0,0,0,0.16)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 to-[#0B1F3A]/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/90 via-[#0B1F3A]/60 to-[#0B1F3A]/40" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(200,161,74,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(200,161,74,0.04)_1px,transparent_1px)] bg-[length:48px_48px]" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
           <div>

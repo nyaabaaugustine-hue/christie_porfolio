@@ -14,6 +14,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 
 import ThoughtLeadershipPreview from "./components/ThoughtLeadershipPreview";
 import MediaSpeakingPreview from "./components/MediaSpeakingPreview";
+import SpeakingPreview from "./components/SpeakingPreview";
 import Newsletter from "./components/Newsletter";
 import FeaturedQuote from "./components/FeaturedQuote";
 
@@ -276,6 +277,7 @@ export default function App() {
                   <CareerTimeline />
                   <ThoughtLeadershipPreview onNavigate={handleNavigate} />
                   <MediaSpeakingPreview onNavigate={handleNavigate} />
+                  <SpeakingPreview onNavigate={handleNavigate} />
                   <FeaturedQuote />
                   <Newsletter />
                   <ExecutiveCTA onNavigate={handleNavigate} />
