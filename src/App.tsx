@@ -32,6 +32,7 @@ const PodcastPage = lazy(() => import("./pages/PodcastPage"));
 const VideoLibraryPage = lazy(() => import("./pages/VideoLibraryPage"));
 const InvestorRelationsPage = lazy(() => import("./pages/InvestorRelationsPage"));
 const ImpactReportsPage = lazy(() => import("./pages/ImpactReportsPage"));
+const InsightDetailPage = lazy(() => import("./pages/InsightDetailPage"));
 
 import "./fonts.css";
 
@@ -169,10 +170,21 @@ export default function App() {
   }, []);
 
   const [viewingPostId, setViewingPostId] = useState<number | null>(null);
+  const [viewingInsight, setViewingInsight] = useState<any>(null);
 
   const handleNavigate = (page: Page) => {
     setViewingPostId(null);
+    setViewingInsight(null);
     setCurrentPage(page);
+  };
+
+  const handleViewInsight = (article: any) => {
+    setViewingInsight(article);
+    setCurrentPage('insights');
+  };
+
+  const handleBackToInsights = () => {
+    setViewingInsight(null);
   };
 
   useEffect(() => {
@@ -320,9 +332,15 @@ export default function App() {
                 </PageTransition>
               )}
 
-              {currentPage === 'insights' && (
+              {currentPage === 'insights' && !viewingInsight && (
                 <PageTransition key="insights">
-                  <InsightsPage />
+                  <InsightsPage onViewArticle={handleViewInsight} />
+                </PageTransition>
+              )}
+
+              {currentPage === 'insights' && viewingInsight && (
+                <PageTransition key="insightDetail">
+                  <InsightDetailPage article={viewingInsight} onBack={handleBackToInsights} />
                 </PageTransition>
               )}
 
