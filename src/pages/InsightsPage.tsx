@@ -2,56 +2,53 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Search, Calendar, ArrowRight, Tag } from "lucide-react";
 
-const categories = ["All Articles", "Leadership", "Growth Strategy", "Governance", "Executive Notes", "Perspective"];
+const categories = ["All Articles", "Leadership", "Growth Strategy", "Perspective"];
 
 const articles = [
   {
-    title: "Leading Through Uncertainty: Lessons from African Business",
-    excerpt: "How executives can navigate complexity and drive transformation in rapidly changing markets.",
+    title: "Nature\u2019s Majesty: Reflections from Canmore, Banff, and Lake Louise",
+    excerpt: "A profound reminder of the beauty of creation and the greatness of God, experienced through the Canadian Rockies.",
+    category: "Perspective",
+    date: "June 2026",
+    readTime: "5 min read",
+    featured: true,
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781992319/1781976650074_smvcst.jpg",
+  },
+  {
+    title: "The Fear of the Unknown Has Crippled Many Dreams",
+    excerpt: "The inner journey\u2014overcoming hesitation and doubt.",
+    category: "Growth Strategy",
+    date: "June 2026",
+    readTime: "4 min read",
+    featured: true,
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1781991906/1765796132846_z7v45k.jpg",
+  },
+  {
+    title: "Understanding Alignment Between Organizational Culture and Personal Ambition",
+    excerpt: "The purpose journey\u2014finding your place, voice, and path. How to know if an organization's culture aligns with who you are and what you aspire to achieve.",
+    category: "Growth Strategy",
+    date: "December 2025",
+    readTime: "7 min read",
+    featured: true,
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1782012576/1766434170271_ypuqct.jpg",
+  },
+  {
+    title: "Leadership Is Not About Order. It\u2019s About Clarity Inside Disorder.",
+    excerpt: "Most leaders are trained to build and operate within structured environments. But occasionally, leadership requires stepping into situations where none of those tools exist in a reliable form. That is where the real test begins.",
     category: "Leadership",
-    date: "December 2024",
+    date: "June 2026",
     readTime: "8 min read",
     featured: true,
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1782012318/leadership_nrne6k.jpg",
   },
   {
-    title: "The Future of Industrial Operations in Africa",
-    excerpt: "Examining the trends shaping manufacturing and industrial development across the continent.",
+    title: "December Reflections: A Journey Through Travel, Fear, and Alignment.",
+    excerpt: "A 3-part reflection series inspired by experiences, challenges, and lessons from 2025. Centered on journey, courage, and alignment.",
     category: "Perspective",
-    date: "November 2024",
-    readTime: "6 min read",
+    date: "December 2025",
+    readTime: "14 min read",
     featured: true,
-  },
-  {
-    title: "Board Governance: Building Effective Boards",
-    excerpt: "Key principles for creating boards that drive value and ensure organizational sustainability.",
-    category: "Governance",
-    date: "October 2024",
-    readTime: "5 min read",
-    featured: false,
-  },
-  {
-    title: "From Strategy to Execution: Bridging the Gap",
-    excerpt: "Practical approaches for turning strategic plans into operational reality.",
-    category: "Executive Notes",
-    date: "September 2024",
-    readTime: "7 min read",
-    featured: false,
-  },
-  {
-    title: "Women in Leadership: Breaking Barriers",
-    excerpt: "Navigating the path to executive leadership as a woman in African business.",
-    category: "Leadership",
-    date: "August 2024",
-    readTime: "6 min read",
-    featured: false,
-  },
-  {
-    title: "Building Sustainable Supply Chains",
-    excerpt: "Creating resilient and efficient supply networks for African enterprises.",
-    category: "Growth Strategy",
-    date: "July 2024",
-    readTime: "5 min read",
-    featured: false,
+    image: "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1782012442/lnm_aygmdr.jpg",
   },
 ];
 
@@ -152,29 +149,39 @@ export default function InsightsPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group cursor-pointer"
                 >
-                  <div className="bg-[#F5F6F7] rounded-2xl p-6 lg:p-8 h-full hover:bg-[#0B1F3A] transition-all duration-500">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-[#C8A14A]/10 rounded-full text-[#C8A14A] text-xs font-medium group-hover:bg-[#C8A14A] group-hover:text-[#0B1F3A] transition-colors">
-                        {article.category}
-                      </span>
-                      <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
-                        {article.readTime}
-                      </span>
+                  <div className="bg-[#F5F6F7] rounded-2xl overflow-hidden h-full hover:bg-[#0B1F3A] transition-all duration-500 group">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 to-transparent" />
                     </div>
-                    <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3 group-hover:text-white transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 group-hover:text-white/70 transition-colors">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
-                        {article.date}
-                      </span>
-                      <span className="text-[#C8A14A] font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Read More
-                        <ArrowRight size={16} />
-                      </span>
+                    <div className="p-6 lg:p-8">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="px-3 py-1 bg-[#C8A14A]/10 rounded-full text-[#C8A14A] text-xs font-medium group-hover:bg-[#C8A14A] group-hover:text-[#0B1F3A] transition-colors">
+                          {article.category}
+                        </span>
+                        <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
+                          {article.readTime}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-[#0B1F3A] mb-3 group-hover:text-white transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 group-hover:text-white/70 transition-colors">
+                        {article.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-sm group-hover:text-white/60 transition-colors">
+                          {article.date}
+                        </span>
+                        <span className="text-[#C8A14A] font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                          Read More
+                          <ArrowRight size={16} />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </motion.article>
@@ -216,21 +223,31 @@ export default function InsightsPage() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white rounded-xl p-6 h-full hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Tag size={14} className="text-[#C8A14A]" />
-                    <span className="text-[#C8A14A] text-xs font-medium">{article.category}</span>
+                <div className="bg-white rounded-xl overflow-hidden h-full hover:shadow-lg transition-shadow group">
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
-                  <h3 className="font-semibold text-[#0B1F3A] mb-2 group-hover:text-[#C8A14A] transition-colors">
-                    {article.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={12} />
-                      {article.date}
-                    </span>
-                    <span>{article.readTime}</span>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Tag size={14} className="text-[#C8A14A]" />
+                      <span className="text-[#C8A14A] text-xs font-medium">{article.category}</span>
+                    </div>
+                    <h3 className="font-semibold text-[#0B1F3A] mb-2 group-hover:text-[#C8A14A] transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={12} />
+                        {article.date}
+                      </span>
+                      <span>{article.readTime}</span>
+                    </div>
                   </div>
                 </div>
               </motion.article>
