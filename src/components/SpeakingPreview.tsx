@@ -52,7 +52,7 @@ export default function SpeakingPreview({ onNavigate }: SpeakingPreviewProps) {
             <h2 className="text-3xl lg:text-5xl font-serif text-white leading-tight mb-2">
               Speaking &amp; Media
             </h2>
-            <p className="text-white/50 text-base mb-8">View Speaking Portfolio</p>
+            <p className="text-white/70 text-base mb-8">View Speaking Portfolio</p>
 
             <div className="space-y-6">
               {topics.map((topic) => {
@@ -64,7 +64,7 @@ export default function SpeakingPreview({ onNavigate }: SpeakingPreviewProps) {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold">{topic.title}</h3>
-                      <p className="text-white/50 text-sm mt-1">{topic.description}</p>
+                      <p className="text-white/60 text-sm mt-1">{topic.description}</p>
                     </div>
                   </div>
                 );
@@ -88,7 +88,7 @@ export default function SpeakingPreview({ onNavigate }: SpeakingPreviewProps) {
           >
             <div className="bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10">
               <p className="text-[#C8A14A] text-6xl lg:text-7xl font-serif leading-none mb-6">&ldquo;</p>
-              <p className="text-white/80 text-xl lg:text-2xl leading-relaxed font-serif mb-8">
+              <p className="text-white/90 text-xl lg:text-2xl leading-relaxed font-serif mb-8">
                 Growth does not happen by chance. It happens when vision, leadership, discipline, and execution come together.
               </p>
               <div className="flex items-center gap-3">

@@ -108,7 +108,7 @@ export default function ContactPage({ }: ContactPageProps) {
       </section>
 
       {/* Contact Section */}
-      <section ref={ref} className="py-16 lg:py-20 xl:py-24 bg-white relative overflow-hidden">
+      <section id="contact-form" ref={ref} className="py-16 lg:py-20 xl:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="absolute top-0 left-0 w-full h-full" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, #C8A14A 1px, transparent 0)`,

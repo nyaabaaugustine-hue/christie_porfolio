@@ -168,19 +168,23 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 50);
-    return () => clearTimeout(timer);
-  }, [currentPage]);
-
   const [viewingPostId, setViewingPostId] = useState<number | null>(null);
 
   const handleNavigate = (page: Page) => {
     setViewingPostId(null);
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    if (currentPage === 'contact') {
+      const timer = setTimeout(() => {
+        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [currentPage]);
 
   const handleViewPost = (id: number) => {
     setViewingPostId(id);
