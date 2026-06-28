@@ -11,28 +11,13 @@ interface TransformationProjectsPageProps {
 const projects = [
   {
     title: "Eagle Salt Scale-Up",
-    challenge: "Limited production capacity and a need to secure regional market share.",
-    approach: "Holistic operational scaling, systems modernization, and market expansion planning.",
-    execution: "Upgraded production lines, strengthened distribution capability, and implemented quality systems.",
-    results: "300% capacity growth and a clear path to regional export leadership.",
-    lessons: "Scalable operations require aligned systems, leadership, and market focus.",
+    challenge: "information comming soon",
+    approach: "information comming soon",
+    execution: "information comming soon",
+    results: "information comming soon",
+    lessons: "information comming soon",
   },
-  {
-    title: "Electrochem Restructuring",
-    challenge: "Organizational inefficiencies and rising operational costs.",
-    approach: "Process optimization, team realignment, and governance enhancement.",
-    execution: "Introduced lean operations, refreshed the leadership structure, and formalized oversight.",
-    results: "40% cost reduction with stronger execution discipline.",
-    lessons: "Operational clarity and governance are essential to sustainable turnaround.",
-  },
-  {
-    title: "Luta Quarry Operationalization",
-    challenge: "A greenfield site needing full operational setup and compliance readiness.",
-    approach: "End-to-end development from site planning to safety and workforce training.",
-    execution: "Built operational playbooks, certified the workforce, and launched production ahead of schedule.",
-    results: "First output achieved within six months and the site reached operational readiness quickly.",
-    lessons: "Structured execution and stakeholder alignment accelerate launch timelines.",
-  },
+
   {
     title: "Osabusquare Turnaround",
     challenge: "Declining performance and an urgent need for business stabilization.",
