@@ -94,10 +94,9 @@ export default function TransformationProjectsPage({ onNavigate }: Transformatio
       <section className="bg-[#0B1F3A]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-10">
           <p className="text-[#C8A14A] text-[10px] uppercase tracking-[0.3em] font-semibold mb-5">Featured Projects</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
             {[
               { name: "Salt Trading & Distribution Business", tag: "Scale-Up" },
-              { name: "Electrochem Restructuring", tag: "Restructuring" },
               { name: "Luta Quarry Operationalization", tag: "Operations" },
               { name: "Osabusquare Turnaround", tag: "Turnaround" },
               { name: "Phoenix Enclave Development", tag: "Development" },
